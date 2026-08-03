@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "netlify:dev": "netlify dev"
   },
   "dependencies": {
     "framer-motion": "^12.4.7",
@@ -19,6 +20,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "netlify-cli": "^23.0.0",
     "openai": "^4.86.1",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"

@@ -1,19 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Download, RotateCcw } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, RotateCcw, Share2, Maximize2, Minimize2, Bookmark } from 'lucide-react'
 import type { Story } from '../types'
 
 interface StoryViewerProps {
   story: Story
   onReset: () => void
+  onSave?: (story: Story) => void
 }
 
-export function StoryViewer({ story, onReset }: StoryViewerProps) {
+export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
   const [currentPage, setCurrentPage] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [saved, setSaved] = useState(false)
   const page = story.pages[currentPage]
 
-  const goNext = () => setCurrentPage((p) => Math.min(p + 1, story.pages.length - 1))
-  const goPrev = () => setCurrentPage((p) => Math.max(p - 1, 0))
+  const goNext = useCallback(() => {
+    setCurrentPage((p) => Math.min(p + 1, story.pages.length - 1))
+  }, [story.pages.length])
+
+  const goPrev = useCallback(() => {
+    setCurrentPage((p) => Math.max(p - 1, 0))
+  }, [])
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') goNext()
+      if (e.key === 'ArrowLeft') goPrev()
+      if (e.key === 'Escape' && isFullscreen) setIsFullscreen(false)
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [goNext, goPrev, isFullscreen])
 
   const handleDownload = () => {
     const content = story.pages
@@ -28,14 +46,36 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
     URL.revokeObjectURL(url)
   }
 
+  const handleShare = async () => {
+    const text = `${story.title}\n\n${story.pages.map((p) => p.text).join('\n\n')}`
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: story.title, text })
+        return
+      } catch {
+        // cancelled
+      }
+    }
+    await navigator.clipboard.writeText(text)
+    alert('Hikaye panoya kopyalandı! 📋')
+  }
+
+  const handleSave = () => {
+    onSave?.(story)
+    setSaved(true)
+  }
+
   return (
-    <div className="story-viewer">
+    <div className={`story-viewer ${isFullscreen ? 'story-viewer--fullscreen' : ''}`}>
       <div className="story-viewer__header">
         <h2 className="story-viewer__title">{story.title}</h2>
         {story.heroName && (
-          <p style={{ color: 'var(--purple)', fontWeight: 700 }}>
-            🦸 Kahraman: {story.heroName}
-          </p>
+          <div className="story-viewer__hero">
+            {story.heroImage && (
+              <img src={story.heroImage} alt={story.heroName} className="story-viewer__hero-avatar" />
+            )}
+            <p>🦸 Kahraman: <strong>{story.heroName}</strong></p>
+          </div>
         )}
       </div>
 
@@ -46,7 +86,28 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
         </button>
         <button className="action-btn action-btn--secondary" onClick={handleDownload}>
           <Download size={18} />
-          Metni İndir
+          İndir
+        </button>
+        <button className="action-btn action-btn--secondary" onClick={handleShare}>
+          <Share2 size={18} />
+          Paylaş
+        </button>
+        {onSave && (
+          <button
+            className="action-btn action-btn--secondary"
+            onClick={handleSave}
+            disabled={saved}
+          >
+            <Bookmark size={18} />
+            {saved ? 'Kaydedildi!' : 'Kaydet'}
+          </button>
+        )}
+        <button
+          className="action-btn action-btn--secondary"
+          onClick={() => setIsFullscreen(!isFullscreen)}
+        >
+          {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+          {isFullscreen ? 'Küçült' : 'Tam Ekran'}
         </button>
       </div>
 
@@ -55,10 +116,10 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
           <motion.div
             key={currentPage}
             className="storybook__page"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, rotateY: 15 }}
+            animate={{ opacity: 1, rotateY: 0 }}
+            exit={{ opacity: 0, rotateY: -15 }}
+            transition={{ duration: 0.4 }}
           >
             <div className="storybook__image-wrap">
               {page.imageUrl ? (
@@ -66,7 +127,7 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
                   className="storybook__image"
                   src={page.imageUrl}
                   alt={`Sayfa ${page.pageNumber} illüstrasyonu`}
-                  loading="lazy"
+                  loading="eager"
                 />
               ) : (
                 <div className="storybook__image-placeholder">
@@ -86,7 +147,7 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
       </div>
 
       <div className="storybook__nav">
-        <button className="nav-btn" onClick={goPrev} disabled={currentPage === 0}>
+        <button className="nav-btn" onClick={goPrev} disabled={currentPage === 0} aria-label="Önceki sayfa">
           <ChevronLeft size={24} />
         </button>
 
@@ -105,6 +166,7 @@ export function StoryViewer({ story, onReset }: StoryViewerProps) {
           className="nav-btn"
           onClick={goNext}
           disabled={currentPage === story.pages.length - 1}
+          aria-label="Sonraki sayfa"
         >
           <ChevronRight size={24} />
         </button>

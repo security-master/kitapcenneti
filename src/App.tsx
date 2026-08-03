@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BackgroundDecorations } from './components/BackgroundDecorations'
 import { Header } from './components/Header'
+import { HeroBanner } from './components/HeroBanner'
 import { CategoryGrid } from './components/CategoryGrid'
 import { OptionsPanel } from './components/OptionsPanel'
 import { PromptLibrary } from './components/PromptLibrary'
@@ -8,7 +9,10 @@ import { CustomPrompt } from './components/CustomPrompt'
 import { PersonalizeHero } from './components/PersonalizeHero'
 import { LoadingAnimation } from './components/LoadingAnimation'
 import { StoryViewer } from './components/StoryViewer'
+import { SavedStories } from './components/SavedStories'
+import { Footer } from './components/Footer'
 import { useStoryGenerator } from './hooks/useStoryGenerator'
+import { useSavedStories } from './hooks/useSavedStories'
 import type { ArtStyle, ImageProvider, StoryCategory, TextModel } from './types'
 
 export default function App() {
@@ -23,7 +27,8 @@ export default function App() {
   const [ageGroup, setAgeGroup] = useState<'3-5' | '6-8' | '9-12'>('6-8')
   const [pageCount, setPageCount] = useState(6)
 
-  const { isGenerating, progress, status, story, generateStory, resetStory } = useStoryGenerator()
+  const { isGenerating, progress, status, story, generateStory, loadStory, resetStory } = useStoryGenerator()
+  const { savedStories, saveStory, deleteStory } = useSavedStories()
 
   const handleGenerate = () => {
     const prompt = customPrompt || selectedPrompt || undefined
@@ -56,7 +61,8 @@ export default function App() {
       <div className="app">
         <BackgroundDecorations />
         <Header />
-        <StoryViewer story={story} onReset={resetStory} />
+        <StoryViewer story={story} onReset={resetStory} onSave={saveStory} />
+        <Footer />
       </div>
     )
   }
@@ -65,6 +71,13 @@ export default function App() {
     <div className="app">
       <BackgroundDecorations />
       <Header />
+      <HeroBanner />
+
+      <SavedStories
+        stories={savedStories}
+        onLoad={loadStory}
+        onDelete={deleteStory}
+      />
 
       <CategoryGrid
         selected={category}
@@ -118,6 +131,8 @@ export default function App() {
         Hikayemi Oluştur!
         <span className="generate-btn__emoji">📚</span>
       </button>
+
+      <Footer />
 
       {isGenerating && <LoadingAnimation progress={progress} status={status} />}
     </div>
