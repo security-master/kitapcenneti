@@ -105,40 +105,48 @@ function demoStory(body: {
   prompt: string
   childName?: string
   worldHint?: string
+  pageCount?: number
 }) {
   const name = body.childName || 'Minik Kahraman'
   const world = body.worldHint || 'renkli bir masal diyarında'
+  const allPages = [
+    {
+      pageNumber: 1,
+      text: `Bir sabah ${name} penceresinden parıldayan bir ışık gördü. Işık, "Haydi, masala!" diye fısıldıyordu.`,
+      imagePrompt: `A child looking out a sunny window at sparkling magical light, cozy bedroom, children's book illustration`,
+    },
+    {
+      pageNumber: 2,
+      text: `${name} ışığı takip etti ve kendini ${world} buldu. Her yerde gülümseyen çiçekler ve şarkı söyleyen kuşlar vardı.`,
+      imagePrompt: `A child entering a magical colorful fairy tale landscape with smiling flowers and singing birds`,
+    },
+    {
+      pageNumber: 3,
+      text: `Yolda yeni bir arkadaş çıktı karşılarına: sevimli bir tilki. "Kaybolmuş yıldızı bulmama yardım eder misin?" dedi.`,
+      imagePrompt: `A friendly fox asking a child for help in a bright enchanted forest path`,
+    },
+    {
+      pageNumber: 4,
+      text: `${name} ve tilki birlikte aradılar. Cesaretleri ve nezaketleri sayesinde yıldızı bir ağaç kovuğunda buldular.`,
+      imagePrompt: `A child and a fox discovering a glowing star inside a hollow tree, warm magical light`,
+    },
+    {
+      pageNumber: 5,
+      text: `Yıldızı gökyüzüne yolladılar. ${name} eve döndü; kalbinde yeni bir cesaret ve güzel bir sır vardı.`,
+      imagePrompt: `A child waving goodbye to a rising star in the evening sky, happy and peaceful ending`,
+    },
+    {
+      pageNumber: 6,
+      text: `${name} yastığına uzandığında gökyüzünde bir yıldız göz kırptı. Yeni bir masal için hazırdı.`,
+      imagePrompt: `A child in bed smiling at a twinkling star through the window, cozy bedtime children's illustration`,
+    },
+  ]
+  const count = Math.min(Math.max(body.pageCount || 5, 3), 6)
   return {
     title: `${name} ve Sihirli Yolculuk`,
     summary: `${name}, ${world} unutulmaz bir maceraya atılır.`,
     coverPrompt: `A joyful child named ${name} standing at the gate of a magical colorful storybook world, children's illustration`,
-    pages: [
-      {
-        pageNumber: 1,
-        text: `Bir sabah ${name} penceresinden parıldayan bir ışık gördü. Işık, "Haydi, masala!" diye fısıldıyordu.`,
-        imagePrompt: `A child looking out a sunny window at sparkling magical light, cozy bedroom, children's book illustration`,
-      },
-      {
-        pageNumber: 2,
-        text: `${name} ışığı takip etti ve kendini ${world} buldu. Her yerde gülümseyen çiçekler ve şarkı söyleyen kuşlar vardı.`,
-        imagePrompt: `A child entering a magical colorful fairy tale landscape with smiling flowers and singing birds`,
-      },
-      {
-        pageNumber: 3,
-        text: `Yolda yeni bir arkadaş çıktı karşılarına: sevimli bir tilki. "Kaybolmuş yıldızı bulmama yardım eder misin?" dedi.`,
-        imagePrompt: `A friendly fox asking a child for help in a bright enchanted forest path`,
-      },
-      {
-        pageNumber: 4,
-        text: `${name} ve tilki birlikte aradılar. Cesaretleri ve nezaketleri sayesinde yıldızı bir ağaç kovuğunda buldular.`,
-        imagePrompt: `A child and a fox discovering a glowing star inside a hollow tree, warm magical light`,
-      },
-      {
-        pageNumber: 5,
-        text: `Yıldızı gökyüzüne yolladılar. ${name} eve döndü; kalbinde yeni bir cesaret ve güzel bir sır vardı.`,
-        imagePrompt: `A child waving goodbye to a rising star in the evening sky, happy and peaceful ending`,
-      },
-    ],
+    pages: allPages.slice(0, count),
     demo: true,
   }
 }

@@ -13,7 +13,8 @@ function corsHeaders() {
 
 function pollinationsUrl(prompt: string) {
   const encoded = encodeURIComponent(prompt.slice(0, 400))
-  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=768&nologo=true&enhance=true`
+  const seed = Math.floor(Math.random() * 1_000_000)
+  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=768&nologo=true&enhance=true&safe=true&seed=${seed}`
 }
 
 async function generateWithGemini(

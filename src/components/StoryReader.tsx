@@ -39,6 +39,8 @@ export function StoryReader({ story }: Props) {
             className="story-stage__image"
             src={current.imageUrl}
             alt={current.title}
+            referrerPolicy="no-referrer"
+            loading="eager"
           />
         ) : (
           <div className="story-stage__fallback" aria-hidden="true" />
