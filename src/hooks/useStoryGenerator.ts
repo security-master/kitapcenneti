@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import type { Story, StoryRequest } from '../types'
-import { generateFallbackStory, buildImagePrompt } from '../utils/fallbackStory'
+import { generateFallbackStory } from '../utils/fallbackStory'
+import { buildShortImagePrompt } from '../utils/imagePrompt'
 
 interface GenerationState {
   isGenerating: boolean
@@ -9,33 +10,18 @@ interface GenerationState {
   error: string | null
 }
 
-function buildPollinationsUrl(prompt: string, seed?: number): string {
-  const encoded = encodeURIComponent(prompt)
-  const seedParam = seed !== undefined ? `&seed=${seed}` : ''
-  return `https://image.pollinations.ai/prompt/${encoded}?width=1024&height=768&nologo=true${seedParam}`
-}
-
 async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-async function generateImageWithRetry(
-  prompt: string,
-  provider: StoryRequest['imageProvider'],
-  seed: number,
-): Promise<string> {
-  return provider === 'pollinations'
-    ? buildPollinationsUrl(prompt, seed)
-    : fetchImageFromFunction(prompt, seed)
-}
-
-async function fetchImageFromFunction(prompt: string, seed: number): Promise<string> {
+async function fetchImageFromServer(prompt: string, seed: number): Promise<string | null> {
   try {
     const res = await fetch('/.netlify/functions/generate-image', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt, seed }),
     })
+
     if (res.ok) {
       const data = await res.json()
       if (data.imageUrl) return data.imageUrl
@@ -43,7 +29,27 @@ async function fetchImageFromFunction(prompt: string, seed: number): Promise<str
   } catch {
     // fallback below
   }
-  return buildPollinationsUrl(prompt, seed)
+  return null
+}
+
+function buildDirectPollinationsUrl(prompt: string, seed: number): string {
+  const short = prompt.slice(0, 120)
+  const encoded = encodeURIComponent(short)
+  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+}
+
+async function generateImage(
+  scene: string,
+  request: StoryRequest,
+  pageIndex: number,
+): Promise<string> {
+  const prompt = buildShortImagePrompt(scene, request.heroName, request.artStyle)
+  const seed = pageIndex * 42 + 7
+
+  const serverImage = await fetchImageFromServer(prompt, seed)
+  if (serverImage) return serverImage
+
+  return buildDirectPollinationsUrl(prompt, seed)
 }
 
 export function useStoryGenerator() {
@@ -57,14 +63,6 @@ export function useStoryGenerator() {
 
   const updateState = (partial: Partial<GenerationState>) => {
     setState((prev) => ({ ...prev, ...partial }))
-  }
-
-  const generateImage = async (
-    prompt: string,
-    provider: StoryRequest['imageProvider'],
-    seed: number,
-  ): Promise<string> => {
-    return generateImageWithRetry(prompt, provider, seed)
   }
 
   const generateStory = useCallback(async (request: StoryRequest) => {
@@ -101,12 +99,10 @@ export function useStoryGenerator() {
         status: `Sayfa ${i + 1}/${totalPages} resimleniyor... 🎨`,
       })
 
-      const fullPrompt = buildImagePrompt(page.imagePrompt, request, i)
-      const imageUrl = await generateImage(fullPrompt, request.imageProvider, i * 42 + 7)
+      const imageUrl = await generateImage(page.imagePrompt, request, i)
       pagesWithImages[i] = { ...page, imageUrl }
 
-      // Rate limit koruması — API'ler arası kısa bekleme
-      if (i < totalPages - 1) await delay(2000)
+      if (i < totalPages - 1) await delay(2500)
     }
 
     const finalStory: Story = { ...generatedStory, pages: pagesWithImages }

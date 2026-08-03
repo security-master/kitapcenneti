@@ -128,13 +128,27 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
                   src={page.imageUrl}
                   alt={`Sayfa ${page.pageNumber} illüstrasyonu`}
                   loading="eager"
-                  onError={(e) => {
+                  onError={async (e) => {
                     const img = e.currentTarget
-                    if (!img.dataset.retried) {
-                      img.dataset.retried = '1'
-                      const seed = page.pageNumber * 99 + Date.now() % 1000
-                      img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(page.imagePrompt)}?width=1024&height=768&nologo=true&seed=${seed}`
-                    }
+                    if (img.dataset.retried) return
+                    img.dataset.retried = '1'
+                    const shortPrompt = page.imagePrompt.slice(0, 120)
+                    try {
+                      const res = await fetch('/.netlify/functions/generate-image', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ prompt: shortPrompt, seed: page.pageNumber * 99 }),
+                      })
+                      if (res.ok) {
+                        const data = await res.json()
+                        if (data.imageUrl) {
+                          img.src = data.imageUrl
+                          return
+                        }
+                      }
+                    } catch { /* ignore */ }
+                    const seed = page.pageNumber * 99
+                    img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(shortPrompt)}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
                   }}
                 />
               ) : (

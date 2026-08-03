@@ -16,7 +16,14 @@ export function useSavedStories() {
   }, [])
 
   const saveStory = (story: Story) => {
-    const updated = [story, ...savedStories.filter((s) => s.title !== story.title)].slice(0, 10)
+    const stripped: Story = {
+      ...story,
+      pages: story.pages.map((p) => ({
+        ...p,
+        imageUrl: p.imageUrl?.startsWith('data:') ? undefined : p.imageUrl,
+      })),
+    }
+    const updated = [stripped, ...savedStories.filter((s) => s.title !== story.title)].slice(0, 10)
     setSavedStories(updated)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
   }

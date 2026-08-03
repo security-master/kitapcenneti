@@ -1,5 +1,4 @@
 import type { Story, StoryRequest } from '../types'
-import { getArtStyleSuffix } from '../data/prompts'
 
 const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: string[] }> = {
   personalized: {
@@ -194,16 +193,4 @@ export function generateFallbackStory(request: StoryRequest): Story {
     category: request.category,
     artStyle: request.artStyle,
   }
-}
-
-export function buildImagePrompt(
-  basePrompt: string,
-  request: StoryRequest,
-  pageIndex: number,
-): string {
-  const heroContext = request.heroName
-    ? `, featuring a cheerful child hero named ${request.heroName}`
-    : ''
-  const style = getArtStyleSuffix(request.artStyle)
-  return `${basePrompt}${heroContext}, ${style}, children's book illustration, no text, no watermark, page ${pageIndex + 1}`
 }
