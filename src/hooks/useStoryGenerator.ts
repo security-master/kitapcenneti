@@ -15,6 +15,37 @@ function buildPollinationsUrl(prompt: string, seed?: number): string {
   return `https://image.pollinations.ai/prompt/${encoded}?width=1024&height=768&nologo=true${seedParam}`
 }
 
+async function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function generateImageWithRetry(
+  prompt: string,
+  provider: StoryRequest['imageProvider'],
+  seed: number,
+): Promise<string> {
+  return provider === 'pollinations'
+    ? buildPollinationsUrl(prompt, seed)
+    : fetchImageFromFunction(prompt, seed)
+}
+
+async function fetchImageFromFunction(prompt: string, seed: number): Promise<string> {
+  try {
+    const res = await fetch('/.netlify/functions/generate-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, seed }),
+    })
+    if (res.ok) {
+      const data = await res.json()
+      if (data.imageUrl) return data.imageUrl
+    }
+  } catch {
+    // fallback below
+  }
+  return buildPollinationsUrl(prompt, seed)
+}
+
 export function useStoryGenerator() {
   const [state, setState] = useState<GenerationState>({
     isGenerating: false,
@@ -33,26 +64,7 @@ export function useStoryGenerator() {
     provider: StoryRequest['imageProvider'],
     seed: number,
   ): Promise<string> => {
-    if (provider === 'pollinations') {
-      return buildPollinationsUrl(prompt, seed)
-    }
-
-    try {
-      const res = await fetch('/.netlify/functions/generate-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, seed }),
-      })
-
-      if (res.ok) {
-        const data = await res.json()
-        if (data.imageUrl) return data.imageUrl
-      }
-    } catch {
-      // fallback
-    }
-
-    return buildPollinationsUrl(prompt, seed)
+    return generateImageWithRetry(prompt, provider, seed)
   }
 
   const generateStory = useCallback(async (request: StoryRequest) => {
@@ -92,6 +104,9 @@ export function useStoryGenerator() {
       const fullPrompt = buildImagePrompt(page.imagePrompt, request, i)
       const imageUrl = await generateImage(fullPrompt, request.imageProvider, i * 42 + 7)
       pagesWithImages[i] = { ...page, imageUrl }
+
+      // Rate limit koruması — API'ler arası kısa bekleme
+      if (i < totalPages - 1) await delay(2000)
     }
 
     const finalStory: Story = { ...generatedStory, pages: pagesWithImages }

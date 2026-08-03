@@ -32,14 +32,19 @@ npm run dev
 ## Netlify'e Deploy
 
 1. Bu repoyu GitHub'a push edin
-2. [Netlify](https://app.netlify.com) üzerinden repoyu bağlayın
-3. Build ayarları otomatik algılanır (`netlify.toml`)
-4. Netlify AI Gateway otomatik olarak aktif olur
+2. [Netlify Dashboard](https://app.netlify.com) → **Add new site** → **Import an existing project**
+3. GitHub reposunu seçin (`kitapcenneti`)
+4. Build ayarları otomatik algılanır:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - Functions directory: `netlify/functions`
+5. **Deploy site** butonuna tıklayın
+6. Netlify AI Gateway hikaye üretimi için otomatik aktif olur
 
-```bash
-# Manuel deploy
-npx netlify deploy --prod
-```
+### PR Oluşturma
+
+Branch: `cursor/visual-storybook-app-dcca`
+PR linki: https://github.com/security-master/kitapcenneti/pull/new/cursor/visual-storybook-app-dcca
 
 ## Geliştirme
 

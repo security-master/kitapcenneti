@@ -128,6 +128,14 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
                   src={page.imageUrl}
                   alt={`Sayfa ${page.pageNumber} illüstrasyonu`}
                   loading="eager"
+                  onError={(e) => {
+                    const img = e.currentTarget
+                    if (!img.dataset.retried) {
+                      img.dataset.retried = '1'
+                      const seed = page.pageNumber * 99 + Date.now() % 1000
+                      img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(page.imagePrompt)}?width=1024&height=768&nologo=true&seed=${seed}`
+                    }
+                  }}
                 />
               ) : (
                 <div className="storybook__image-placeholder">
