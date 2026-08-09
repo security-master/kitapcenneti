@@ -4,15 +4,18 @@ export function Footer() {
       <div className="footer__content">
         <p className="footer__brand">📚 Kitap Cenneti</p>
         <p className="footer__text">
-          Çocuklar için sevgiyle yapıldı ✨
+          Çocuklar ve aileler için sevgiyle yapıldı · Telifsiz özgün içerikler ✨
         </p>
         <div className="footer__links">
-          <span>React + Vite</span>
+          <span>Sesli Masallar</span>
           <span>•</span>
-          <span>Netlify</span>
+          <span>Boyama PDF</span>
           <span>•</span>
-          <span>Pollinations AI</span>
+          <span>AI Hikaye</span>
+          <span>•</span>
+          <span>Özgün Kahramanlar</span>
         </div>
+        <p className="footer__tech">React · Vite · Netlify · Pollinations AI</p>
       </div>
     </footer>
   )
