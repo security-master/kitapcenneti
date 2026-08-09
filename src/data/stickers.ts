@@ -32,6 +32,15 @@ export const STICKERS: Sticker[] = [
   { id: 'heart', emoji: '💛', title: 'Altın Kalp', hint: 'Aile günlüğü kaydı' },
   { id: 'compass', emoji: '🧭', title: 'Pusula', hint: 'Koleksiyon keşfet' },
   { id: 'gift', emoji: '🎁', title: 'Sürpriz Kutu', hint: 'Ücretsiz paket aç' },
+  { id: 'sun', emoji: '☀️', title: 'Güneş Işığı', hint: 'Sabah görevi bitir' },
+  { id: 'cloud', emoji: '☁️', title: 'Yumuşak Bulut', hint: 'Uyku masalı dinle' },
+  { id: 'apple', emoji: '🍎', title: 'Kırmızı Elma', hint: 'Öğretmen etkinliği' },
+  { id: 'music', emoji: '🎵', title: 'Nota', hint: 'Tekerleme ezberle' },
+  { id: 'telescope', emoji: '🔭', title: 'Teleskop', hint: 'STEM kartı dene' },
+  { id: 'castle', emoji: '🏰', title: 'Masal Kalesi', hint: 'Koleksiyon gez' },
+  { id: 'leaf', emoji: '🍃', title: 'Yeşil Yaprak', hint: 'Doğa boyaması' },
+  { id: 'diamond', emoji: '💎', title: 'Değer Taşı', hint: '7 günlük seri' },
+  { id: 'balloon', emoji: '🎈', title: 'Uçan Balon', hint: 'Eğlence çarkı' },
 ]
 
 export const SPIN_REWARDS: {
@@ -76,6 +85,13 @@ export const RIDDLES = [
   { q: 'Küçüktür, delik kazar, toprağı sever. Nedir?', a: 'Karınca 🐜' },
   { q: 'Uçar, renkli kanatları vardır; çiçek sever. Nedir?', a: 'Kelebek 🦋' },
   { q: 'İçinde yıldızlar, gezegenler vardır. Nedir?', a: 'Uzay 🚀' },
+  { q: 'Yazı yazılır, ucu sivridir. Nedir?', a: 'Kalem ✏️' },
+  { q: 'Kapısı vardır, içinde yiyecek durur. Nedir?', a: 'Buzdolabı 🧊' },
+  { q: 'Ağaçta yetişir, turuncu ve tatlıdır. Nedir?', a: 'Portakal 🍊' },
+  { q: 'Yağmur yağınca açılır, seni ıslatmaz. Nedir?', a: 'Şemsiye ☂️' },
+  { q: 'Okul çantasında taşınır, defter ve kalem tutar. Nedir?', a: 'Çanta 🎒' },
+  { q: 'Gece uyumadan önce okunur, rüya getirir. Nedir?', a: 'Masal 📖' },
+  { q: 'Küçük deliklerden su akar, elleri yıkarız. Nedir?', a: 'Musluk 🚰' },
 ]
 
 export const JOKES = [
@@ -95,6 +111,9 @@ export const JOKES = [
   'Karınca neden spor yapar? Çünkü formda kalmak ister! 🐜',
   'Neden yıldızlar gece çıkar? Çünkü gündüz güneş sahne alır! ⭐',
   'Robot neden gülümsedi? Çünkü bataryası doluydu! 🤖',
+  'Öğretmen: “Ödevini köpek mi yedi?” Öğrenci: “Hayır, yazıcı bozuldu!” 🖨️',
+  'Neden kalem tahtaya çıktı? Çünkü çizgi roman yazacaktı! ✏️',
+  'Bulut neden spor yaptı? Çünkü yağmur formunda kalmak istedi! ☁️',
 ]
 
 export const WHAT_NEXT: { emoji: string; title: string; page: string; blurb: string }[] = [

@@ -64,6 +64,18 @@ const QUEST_POOL: Quest[] = [
   { id: 'speed-catch', title: 'Hızlı yakalama oyna', emoji: '🎯', stars: 2, minutes: 5, area: 'Oyun', link: 'activities', hint: 'Doğru emojileri yakala.' },
   { id: 'riddle', title: 'Bir bilmece çöz', emoji: '🧩', stars: 1, minutes: 4, area: 'Eğlence', link: 'fun', hint: 'Eğlence Bahçesi bilmeceleri.' },
   { id: 'joke', title: 'Bir fıkra oku ve anlat', emoji: '😄', stars: 1, minutes: 3, area: 'Eğlence', link: 'fun', hint: 'Aileye anlatınca yıldızını hak et.' },
+  { id: 'lib-audio', title: 'Kütüphaneden bir masal seç', emoji: '📖', stars: 2, minutes: 6, area: 'Keşif', link: 'library', hint: 'Masal filtresini aç.' },
+  { id: 'discover-sleep', title: 'Uyku koleksiyonunu aç', emoji: '🌙', stars: 2, minutes: 6, area: 'Keşif', link: 'discover', hint: 'Akşam rutini sepeti.' },
+  { id: 'shop-stem', title: 'STEM paketini ücretsiz aç', emoji: '🧪', stars: 2, minutes: 7, area: 'Paket', link: 'shop', hint: 'Ev laboratuvarı paketi.' },
+  { id: 'journal-feel', title: 'Günlüğe bir duygu yaz', emoji: '💛', stars: 1, minutes: 4, area: 'Aile', link: 'journal', hint: 'Bugün nasıl hissettin?' },
+  { id: 'teacher-circle', title: 'Sabah çemberi planını incele', emoji: '🌅', stars: 2, minutes: 8, area: 'Sınıf', link: 'teachers', hint: 'Yazdırıp sınıfta dene.' },
+  { id: 'path-week', title: 'Yolundaki haftalık adımlara bak', emoji: '🗓️', stars: 2, minutes: 8, area: 'Eğitim', link: 'paths', hint: 'Bu haftanın 2 adımını seç.' },
+  { id: 'world-art', title: 'Sanat bölgesini ziyaret et', emoji: '🎨', stars: 2, minutes: 6, area: 'Keşif', link: 'world', hint: 'Gökkuşağı Köyü veya benzeri.' },
+  { id: 'profile-goal', title: 'Haftalık hedefini yaz', emoji: '🎯', stars: 1, minutes: 4, area: 'Profil', link: 'profile', hint: 'Örn. her gün 1 masal.' },
+  { id: 'search-stem', title: 'Aramada “STEM” yaz', emoji: '🔍', stars: 1, minutes: 3, area: 'Keşif', link: 'search', hint: 'Sonuçlardan birine tıkla.' },
+  { id: 'calendar-today', title: 'Bugünün plan slotunu aç', emoji: '📌', stars: 1, minutes: 3, area: 'Plan', link: 'calendar', hint: 'İlk bağlantıya git.' },
+  { id: 'print-feel', title: 'Duygu kartı paketini yazdır', emoji: '🖨️', stars: 2, minutes: 8, area: 'Ödev', link: 'printables', hint: 'Feelings PDF.' },
+  { id: 'hero-two', title: 'İki kahraman hikâyesi oku', emoji: '🦸', stars: 3, minutes: 10, area: 'Okuma', link: 'heroes', hint: 'Değerlerini karşılaştır.' },
 ]
 
 export function getDailyQuests(date = new Date()): Quest[] {
