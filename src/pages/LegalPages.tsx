@@ -1,0 +1,113 @@
+import { AdSlot } from '../components/AdSlot'
+
+export function AboutPage() {
+  return (
+    <div className="page legal-page">
+      <header className="page-header">
+        <h1>ℹ️ Hakkımızda</h1>
+      </header>
+      <div className="panel prose">
+        <p>
+          <strong>Kitap Cenneti</strong>, çocuklar ve aileler için ücretsiz bir içerik platformudur.
+          Sesli masallar, boyama PDF’leri, özgün kahramanlar, STEM kartları, duygu köşesi,
+          günlük görevler ve ebeveyn blog yazıları sunar.
+        </p>
+        <p>
+          Amacımız: güvenli, telifsiz ve eğlenceli içerikle her gün kısa ama anlamlı vakit geçirmek.
+          Abonelik zorunlu değildir; temel özellikler herkese açıktır.
+        </p>
+        <p>
+          Platform, sürdürülebilirlik için Google AdSense gibi reklam modelleriyle desteklenebilir.
+          Reklamlar özellikle ebeveyn içeriklerinde gösterilir; çocuk güvenliği politikalarına uygun
+          yerleştirme hedeflenir.
+        </p>
+        <h3>İletişim</h3>
+        <p>Öneri ve işbirliği için <a href="#contact">İletişim</a> sayfasını kullanın.</p>
+      </div>
+      <AdSlot slot="bottom" />
+    </div>
+  )
+}
+
+export function PrivacyPage() {
+  return (
+    <div className="page legal-page">
+      <header className="page-header">
+        <h1>🔒 Gizlilik Politikası</h1>
+        <p>Son güncelleme: 9 Ağustos 2026</p>
+      </header>
+      <div className="panel prose">
+        <h3>1. Toplanan veriler</h3>
+        <p>
+          Çoğu özellik tarayıcınızda çalışır. Günlük görevler, yıldızlar ve kayıtlı hikayeler
+          <strong> localStorage</strong> ile cihazınızda saklanır; sunucuya gönderilmez.
+        </p>
+        <h3>2. Yapay zeka hikaye</h3>
+        <p>
+          AI hikaye oluştururken girdiğiniz isim/prompt, hikaye üretimi için ilgili API uçlarına
+          iletilebilir. Gereksiz kişisel veri girmemenizi öneririz.
+        </p>
+        <h3>3. Çerezler ve reklamlar</h3>
+        <p>
+          Site, deneyimi iyileştirmek ve (onay sonrası) Google AdSense reklamları göstermek için
+          çerez kullanabilir. AdSense kendi gizlilik politikasına tabidir:
+          {' '}<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noreferrer">Google Ads</a>.
+        </p>
+        <h3>4. Çocuklar</h3>
+        <p>
+          Platform aile kullanımı içindir. 13 yaş altı çocukların ebeveyn gözetiminde kullanması önerilir.
+          Çocuklardan bilinçli olarak kişisel bilgi toplanmaz.
+        </p>
+        <h3>5. İletişim</h3>
+        <p>Gizlilik talepleri için iletişim sayfasındaki e-posta adresini kullanın.</p>
+      </div>
+    </div>
+  )
+}
+
+export function TermsPage() {
+  return (
+    <div className="page legal-page">
+      <header className="page-header">
+        <h1>📜 Kullanım Koşulları</h1>
+      </header>
+      <div className="panel prose">
+        <p>Kitap Cenneti’ni kullanarak bu koşulları kabul etmiş sayılırsınız.</p>
+        <ul className="tip-list">
+          <li>İçerikler eğitim ve eğlence amaçlıdır; tıbbi/psikolojik tavsiye değildir.</li>
+          <li>Özgün kahramanlar ve üretilen çıktılar kişisel/eğitimde serbestçe kullanılabilir.</li>
+          <li>Ticari yeniden satış veya marka taklidi yapılamaz.</li>
+          <li>Site “olduğu gibi” sunulur; kesintisiz hizmet garantisi verilmez.</li>
+          <li>Kötüye kullanım, yasalara aykırı içerik üretimi yasaktır.</li>
+        </ul>
+        <p>Koşullar güncellenebilir; önemli değişiklikler bu sayfada yayınlanır.</p>
+      </div>
+    </div>
+  )
+}
+
+export function ContactPage() {
+  return (
+    <div className="page legal-page">
+      <header className="page-header">
+        <h1>✉️ İletişim</h1>
+        <p>Öneri, hata bildirimi veya işbirliği için yazın.</p>
+      </header>
+      <div className="panel prose">
+        <p>
+          E-posta:{' '}
+          <a href="mailto:hello@kitapcenneti.example">hello@kitapcenneti.example</a>
+          {' '}(örnek adres — kendi e-postanızla değiştirin)
+        </p>
+        <p>
+          GitHub:{' '}
+          <a href="https://github.com/security-master/kitapcenneti" target="_blank" rel="noreferrer">
+            security-master/kitapcenneti
+          </a>
+        </p>
+        <p>Reklam / AdSense işbirliği notlarınızı e-posta konu satırına “AdSense” yazarak gönderin.</p>
+      </div>
+      <AdSlot slot="bottom" />
+    </div>
+  )
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://security-master.github.io/kitapcenneti/sitemap.xml

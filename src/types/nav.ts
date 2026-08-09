@@ -1,13 +1,22 @@
 export type PageId =
   | 'home'
+  | 'quests'
   | 'create'
   | 'audio'
   | 'coloring'
   | 'heroes'
   | 'activities'
   | 'rhymes'
-  | 'parents'
+  | 'stem'
+  | 'feelings'
+  | 'blog'
+  | 'printables'
   | 'certificates'
+  | 'parents'
+  | 'about'
+  | 'privacy'
+  | 'terms'
+  | 'contact'
 
 export interface NavItem {
   id: PageId
@@ -15,3 +24,9 @@ export interface NavItem {
   emoji: string
   short: string
 }
+
+export const ALL_PAGES: PageId[] = [
+  'home', 'quests', 'create', 'audio', 'coloring', 'heroes', 'activities',
+  'rhymes', 'stem', 'feelings', 'blog', 'printables', 'certificates', 'parents',
+  'about', 'privacy', 'terms', 'contact',
+]

@@ -129,4 +129,32 @@ Zuzu Türkçe bilmezmiş ama gülüş aynıymış.
 Ela ona Dünya'dan bir ayıcık hediye etmiş.
 Eve döndüğünde demiş ki: "Uzay büyük, ama dostluk daha büyük."`,
   },
+  {
+    id: 'kucuk-sef',
+    title: 'Küçük Şef Mert',
+    emoji: '🍪',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Paylaşmak',
+    summary: 'Mutfakta yapılan kurabiyeler komşulara neşe taşır.',
+    text: `Mert annesiyle kurabiye yapmayı çok severmiş.
+Bir gün fazla hamur kalmış.
+"Komşulara götürsek?" demiş Mert.
+Kapı kapı dolaşmışlar; herkes gülümsemiş.
+Mert öğrenmiş: Paylaşmak, kurabiyeyi daha tatlı yaparmış.`,
+  },
+  {
+    id: 'gece-kutuphanesi',
+    title: 'Gece Kütüphanesi',
+    emoji: '📚',
+    age: '5-9',
+    duration: '5 dk',
+    theme: 'Okuma',
+    summary: 'Kitaplar gece yarısı fısıldayınca macera başlar.',
+    text: `Leyla bir gece uyandığında raftaki kitapların fısıldadığını duymuş.
+Bir kitap açılmış: "Bizi oku, dünyamız yaşasın."
+Leyla her gece bir sayfa okumuş.
+Kitaplar mutlu olmuş, Leyla'nın hayal gücü büyümüş.
+Sen de bu gece bir sayfa oku; kütüphane seni bekliyor.`,
+  },
 ]

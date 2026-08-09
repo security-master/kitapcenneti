@@ -1,18 +1,36 @@
-import type { NavItem } from '../types/nav'
+import type { NavItem, PageId } from '../types/nav'
 
+/** Ana menü — çok kalabalık olmasın */
 export const NAV_ITEMS: NavItem[] = [
   { id: 'home', label: 'Ana Sayfa', emoji: '🏠', short: 'Ana' },
-  { id: 'create', label: 'AI Hikaye', emoji: '✨', short: 'AI' },
+  { id: 'quests', label: 'Günlük Görev', emoji: '⭐', short: 'Görev' },
   { id: 'audio', label: 'Sesli Masallar', emoji: '🎧', short: 'Ses' },
   { id: 'coloring', label: 'Boyama', emoji: '🖍️', short: 'Boya' },
-  { id: 'heroes', label: 'Kahramanlar', emoji: '🦸', short: 'Kahraman' },
   { id: 'activities', label: 'Oyunlar', emoji: '🎮', short: 'Oyun' },
-  { id: 'rhymes', label: 'Şarkılar', emoji: '🎵', short: 'Şarkı' },
-  { id: 'certificates', label: 'Sertifikalar', emoji: '🏆', short: 'Ödül' },
+  { id: 'blog', label: 'Aile Blog', emoji: '📝', short: 'Blog' },
   { id: 'parents', label: 'Aile Köşesi', emoji: '👨‍👩‍👧', short: 'Aile' },
+  { id: 'create', label: 'AI Hikaye', emoji: '✨', short: 'AI' },
+]
+
+export const MORE_LINKS: { id: PageId; label: string; emoji: string }[] = [
+  { id: 'heroes', label: 'Kahramanlar', emoji: '🦸' },
+  { id: 'rhymes', label: 'Şarkılar', emoji: '🎵' },
+  { id: 'stem', label: 'STEM & Bilim', emoji: '🔬' },
+  { id: 'feelings', label: 'Duygular', emoji: '💛' },
+  { id: 'printables', label: 'Çıktılar', emoji: '🖨️' },
+  { id: 'certificates', label: 'Sertifika', emoji: '🏆' },
+  { id: 'about', label: 'Hakkımızda', emoji: 'ℹ️' },
+  { id: 'contact', label: 'İletişim', emoji: '✉️' },
 ]
 
 export const FEATURE_CARDS = [
+  {
+    id: 'quests' as const,
+    title: 'Günlük Görevler',
+    emoji: '⭐',
+    desc: 'Her gün yeni mini ödevler — yıldız topla, seriyi bozma!',
+    gradient: 'linear-gradient(135deg, #f7971e, #ffd200)',
+  },
   {
     id: 'create' as const,
     title: 'AI Hikaye Kitabı',
@@ -32,41 +50,34 @@ export const FEATURE_CARDS = [
     title: 'Boyama Sayfaları',
     emoji: '🖍️',
     desc: 'Telifsiz PDF boyama sayfaları — yazdır, boya, paylaş.',
-    gradient: 'linear-gradient(135deg, #f7971e, #ffd200)',
+    gradient: 'linear-gradient(135deg, #11998e, #38ef7d)',
   },
   {
-    id: 'heroes' as const,
-    title: 'Özgün Kahramanlar',
-    emoji: '🦸',
-    desc: 'Telifsiz, tamamen özgün süper kahramanlar ve maceraları.',
-    gradient: 'linear-gradient(135deg, #f12711, #f5af19)',
+    id: 'stem' as const,
+    title: 'STEM & Bilim',
+    emoji: '🔬',
+    desc: 'Evde yapılabilecek mini deneyler ve merak soruları.',
+    gradient: 'linear-gradient(135deg, #2193b0, #6dd5ed)',
+  },
+  {
+    id: 'feelings' as const,
+    title: 'Duygu Köşesi',
+    emoji: '💛',
+    desc: 'Bugün nasıl hissediyorsun? Empati ve sakinleşme kartları.',
+    gradient: 'linear-gradient(135deg, #ee9ca7, #ffdde1)',
+  },
+  {
+    id: 'blog' as const,
+    title: 'Aile Blog',
+    emoji: '📝',
+    desc: 'Ebeveynler için okuma, rutin ve ekran rehberleri.',
+    gradient: 'linear-gradient(135deg, #a8edea, #fed6e3)',
   },
   {
     id: 'activities' as const,
     title: 'Eğitici Oyunlar',
     emoji: '🎮',
-    desc: 'Hafıza, bulmaca ve mini quizlerle eğlenerek öğren.',
-    gradient: 'linear-gradient(135deg, #11998e, #38ef7d)',
-  },
-  {
-    id: 'rhymes' as const,
-    title: 'Şarkı & Tekerleme',
-    emoji: '🎵',
-    desc: 'Klasik tekerlemeler ve çocuk şarkıları — sesli okut.',
-    gradient: 'linear-gradient(135deg, #ee9ca7, #ffdde1)',
-  },
-  {
-    id: 'certificates' as const,
-    title: 'Başarı Sertifikası',
-    emoji: '🏆',
-    desc: 'Okuma ve boyama başarıları için PDF ödül sertifikası.',
-    gradient: 'linear-gradient(135deg, #56ab2f, #a8e063)',
-  },
-  {
-    id: 'parents' as const,
-    title: 'Aile Köşesi',
-    emoji: '👨‍👩‍👧',
-    desc: 'Yaş rehberi, ekran süresi ipuçları ve ebeveyn önerileri.',
-    gradient: 'linear-gradient(135deg, #2193b0, #6dd5ed)',
+    desc: 'Hafıza ve quiz ile eğlenerek öğren.',
+    gradient: 'linear-gradient(135deg, #f12711, #f5af19)',
   },
 ]

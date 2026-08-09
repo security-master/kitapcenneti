@@ -1,5 +1,6 @@
 import type { PageId } from '../types/nav'
-import { NAV_ITEMS } from '../data/nav'
+import { MORE_LINKS, NAV_ITEMS } from '../data/nav'
+import { useState } from 'react'
 
 interface NavbarProps {
   current: PageId
@@ -7,6 +8,8 @@ interface NavbarProps {
 }
 
 export function Navbar({ current, onNavigate }: NavbarProps) {
+  const [moreOpen, setMoreOpen] = useState(false)
+
   return (
     <nav className="navbar" aria-label="Ana menü">
       <div className="navbar__brand" onClick={() => onNavigate('home')} role="button" tabIndex={0}>
@@ -28,6 +31,30 @@ export function Navbar({ current, onNavigate }: NavbarProps) {
             <span className="navbar__link-label">{item.short}</span>
           </button>
         ))}
+        <div className="navbar__more">
+          <button
+            className={`navbar__link ${moreOpen ? 'navbar__link--active' : ''}`}
+            onClick={() => setMoreOpen((v) => !v)}
+          >
+            <span>⋯</span>
+            <span className="navbar__link-label">Daha</span>
+          </button>
+          {moreOpen && (
+            <div className="navbar__dropdown">
+              {MORE_LINKS.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => {
+                    onNavigate(link.id)
+                    setMoreOpen(false)
+                  }}
+                >
+                  {link.emoji} {link.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   )

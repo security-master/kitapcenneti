@@ -26,15 +26,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <p className="home-hero__eyebrow">Çocuklar & Aileler İçin</p>
           <h1 className="home-hero__title">Kitap Cenneti</h1>
           <p className="home-hero__desc">
-            Sesli masallar, AI hikaye kitabı, telifsiz kahramanlar, boyama PDF’leri,
-            oyunlar ve aile rehberi — hepsi tek yerde.
+            Her gün yeni görevler, sesli masallar, STEM, duygu köşesi, boyama PDF’leri
+            ve aile blogu — ücretsiz, güvenli, sıkılmadan dönülesi bir dünya.
           </p>
           <div className="home-hero__actions">
-            <button className="btn btn--primary" onClick={() => onNavigate('create')}>
-              ✨ Hikaye Oluştur
+            <button className="btn btn--primary" onClick={() => onNavigate('quests')}>
+              ⭐ Bugünün Görevleri
             </button>
-            <button className="btn btn--ghost" onClick={() => onNavigate('audio')}>
-              🎧 Sesli Masal Dinle
+            <button className="btn btn--ghost" onClick={() => onNavigate('blog')}>
+              📝 Aile Blog
             </button>
           </div>
         </motion.div>
@@ -54,8 +54,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <h2>🌟 Günün Görevi</h2>
             <p>{challenge}</p>
           </div>
-          <button className="btn btn--small" onClick={() => onNavigate('activities')}>
-            Başla
+          <button className="btn btn--small" onClick={() => onNavigate('quests')}>
+            Görev panosuna git
           </button>
         </div>
       </section>
