@@ -7,9 +7,9 @@ import { LEARNING_PATHS } from '../data/paths'
 import { COLLECTIONS } from '../data/collections'
 import { WORLD_REGIONS } from '../data/world'
 import { SHOP_PACKS } from '../data/shop'
-import { AUDIO_STORIES } from '../data/audioStories'
 import { TEACHER_RESOURCES } from '../data/teachers'
 import { getDailyQuests } from '../data/quests'
+import { factoryStory, hashSeed, dayKey } from '../engines/contentFactory'
 import { LivePulse } from '../components/LivePulse'
 
 interface Props {
@@ -21,7 +21,7 @@ export function PortalHomePage({ onNavigate }: Props) {
   const { spinAvailable } = useProgress()
   const quests = getDailyQuests()
   const path = LEARNING_PATHS.find((p) => p.age === profile.ageGroup) || LEARNING_PATHS[0]
-  const story = AUDIO_STORIES[new Date().getDate() % AUDIO_STORIES.length]
+  const story = factoryStory(hashSeed(dayKey(), 'home-feature'))
 
   if (mode === 'parent') {
     return (
