@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { RHYMES } from '../data/rhymes'
 import { useSpeech } from '../hooks/useSpeech'
+import { VoicePicker } from '../components/VoicePicker'
 
 export function RhymesPage() {
   const [activeId, setActiveId] = useState(RHYMES[0].id)
   const rhyme = RHYMES.find((r) => r.id === activeId) || RHYMES[0]
-  const { speaking, speak, stop } = useSpeech()
+  const { speaking, speak, stop, profile, setProfile } = useSpeech()
 
   return (
     <div className="page">
@@ -13,6 +14,8 @@ export function RhymesPage() {
         <h1>🎵 Şarkılar & Tekerlemeler</h1>
         <p>Klasik çocuk tekerlemeleri — ezberle, söyle, sesli okut.</p>
       </header>
+
+      <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="rhymes-grid">
         {RHYMES.map((r) => (

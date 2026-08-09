@@ -1,19 +1,22 @@
 import { useState } from 'react'
 import { AUDIO_STORIES } from '../data/audioStories'
 import { useSpeech } from '../hooks/useSpeech'
+import { VoicePicker } from '../components/VoicePicker'
 import { printHtml } from '../utils/pdf'
 
 export function AudioStoriesPage() {
   const [activeId, setActiveId] = useState(AUDIO_STORIES[0].id)
   const active = AUDIO_STORIES.find((s) => s.id === activeId) || AUDIO_STORIES[0]
-  const { speaking, paused, speak, stop, togglePause } = useSpeech()
+  const { speaking, paused, speak, stop, togglePause, profile, setProfile } = useSpeech()
 
   return (
     <div className="page">
       <header className="page-header">
         <h1>🎧 Sesli Masallar</h1>
-        <p>Uykudan önce veya yolculukta dinlenecek sıcak hikayeler. Tarayıcı sesiyle Türkçe okut.</p>
+        <p>Kadın, çocuk veya erkek anlatıcıyla dinle. Tarayıcı sesiyle Türkçe okut.</p>
       </header>
+
+      <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="split">
         <div className="story-list">
@@ -45,7 +48,7 @@ export function AudioStoriesPage() {
           </div>
           <div className="audio-player__controls">
             {!speaking ? (
-              <button className="btn btn--primary" onClick={() => speak(active.text, 0.85)}>
+              <button className="btn btn--primary" onClick={() => speak(active.text)}>
                 ▶ Dinle
               </button>
             ) : (

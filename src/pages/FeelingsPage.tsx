@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { CALM_SCRIPTS, FEELINGS } from '../data/feelings'
 import { useSpeech } from '../hooks/useSpeech'
+import { VoicePicker } from '../components/VoicePicker'
 
 export function FeelingsPage() {
   const [selected, setSelected] = useState<string | null>(null)
   const feeling = FEELINGS.find((f) => f.id === selected)
-  const { speaking, speak, stop } = useSpeech()
+  const { speaking, speak, stop, profile, setProfile } = useSpeech()
   const script = CALM_SCRIPTS[new Date().getDate() % CALM_SCRIPTS.length]
 
   return (
@@ -14,6 +15,8 @@ export function FeelingsPage() {
         <h1>💛 Duygu Köşesi</h1>
         <p>Bugün nasıl hissediyorsun? Seç, dinle, birlikte sakinleş.</p>
       </header>
+
+      <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="feelings-grid">
         {FEELINGS.map((f) => (

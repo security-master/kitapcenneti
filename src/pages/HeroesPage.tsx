@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { HEROES } from '../data/heroes'
 import { useSpeech } from '../hooks/useSpeech'
+import { VoicePicker } from '../components/VoicePicker'
 import type { PageId } from '../types/nav'
 
 interface HeroesPageProps {
@@ -10,7 +11,7 @@ interface HeroesPageProps {
 export function HeroesPage({ onNavigate }: HeroesPageProps) {
   const [activeId, setActiveId] = useState(HEROES[0].id)
   const hero = HEROES.find((h) => h.id === activeId) || HEROES[0]
-  const { speaking, speak, stop } = useSpeech()
+  const { speaking, speak, stop, profile, setProfile } = useSpeech()
 
   return (
     <div className="page">
@@ -21,6 +22,8 @@ export function HeroesPage({ onNavigate }: HeroesPageProps) {
           Çiz, oyna, hikayene ekle.
         </p>
       </header>
+
+      <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="heroes-grid">
         {HEROES.map((h) => (

@@ -10,6 +10,13 @@ interface HomePageProps {
   onNavigate: (page: PageId) => void
 }
 
+const ORBIT_LINKS: { emoji: string; label: string; page: PageId }[] = [
+  { emoji: '📚', label: 'AI Hikaye', page: 'create' },
+  { emoji: '🎧', label: 'Sesli Masal', page: 'audio' },
+  { emoji: '🖍️', label: 'Boyama', page: 'coloring' },
+  { emoji: '🦸', label: 'Kahramanlar', page: 'heroes' },
+]
+
 export function HomePage({ onNavigate }: HomePageProps) {
   const dayIndex = new Date().getDay() % DAILY_CHALLENGES.length
   const challenge = DAILY_CHALLENGES[dayIndex]
@@ -38,12 +45,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </button>
           </div>
         </motion.div>
-        <div className="home-hero__visual" aria-hidden="true">
+        <div className="home-hero__visual">
           <div className="home-orbit">
-            <span>📚</span>
-            <span>🎧</span>
-            <span>🖍️</span>
-            <span>🦸</span>
+            {ORBIT_LINKS.map((item, i) => (
+              <button
+                key={item.page}
+                type="button"
+                className="home-orbit__btn"
+                style={{ animationDelay: `${i * 0.3}s` }}
+                onClick={() => onNavigate(item.page)}
+                aria-label={item.label}
+                title={item.label}
+              >
+                <span aria-hidden="true">{item.emoji}</span>
+                <small>{item.label}</small>
+              </button>
+            ))}
           </div>
         </div>
       </section>
