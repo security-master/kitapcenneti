@@ -45,6 +45,25 @@ const QUEST_POOL: Quest[] = [
   { id: 'blog-sleep', title: 'Uyku yazısını ebeveynle oku', emoji: '😴', stars: 1, minutes: 6, area: 'Aile', link: 'blog', hint: 'Akşam rutini için 1 yazı.' },
   { id: 'fun-sticker', title: 'Sticker köşesini ziyaret et', emoji: '🌟', stars: 1, minutes: 5, area: 'Eğlence', link: 'fun', hint: 'Bugünün çıkartmasını seç.' },
   { id: 'cert-share', title: 'Sertifikanı aileye göster', emoji: '🎉', stars: 2, minutes: 3, area: 'Ödül', link: 'certificates', hint: 'Alkış + buzdolabı sergisi.' },
+  { id: 'lib-browse', title: 'Kütüphanede 3 içerik gez', emoji: '📚', stars: 2, minutes: 8, area: 'Keşif', link: 'library', hint: 'Filtreyle masal veya STEM seç.' },
+  { id: 'lib-search', title: 'Kütüphanede bir konu ara', emoji: '🔎', stars: 1, minutes: 5, area: 'Keşif', link: 'search', hint: '“uzay” veya “uyku” yaz.' },
+  { id: 'world-visit', title: 'Dünya haritasında 1 bölge aç', emoji: '🗺️', stars: 2, minutes: 6, area: 'Keşif', link: 'world', hint: 'Bir bölgeye dokunup bağlantıya git.' },
+  { id: 'world-two', title: 'İki farklı bölgeyi ziyaret et', emoji: '🌍', stars: 3, minutes: 10, area: 'Keşif', link: 'world', hint: 'Orman + uzay gibi iki tema seç.' },
+  { id: 'discover-one', title: 'Bir koleksiyon incele', emoji: '🧭', stars: 2, minutes: 7, area: 'Keşif', link: 'discover', hint: 'Uyku veya yağmurlu gün sepeti dene.' },
+  { id: 'path-step', title: 'Öğrenme yolunda 1 adım başlat', emoji: '🛤️', stars: 3, minutes: 12, area: 'Eğitim', link: 'paths', hint: 'Yaşına uygun yolu seç.' },
+  { id: 'path-browse', title: '3 öğrenme yoluna bak', emoji: '📍', stars: 1, minutes: 5, area: 'Eğitim', link: 'paths', hint: 'Hangisi seni çeker?' },
+  { id: 'journal-add', title: 'Gelişim günlüğüne kayıt ekle', emoji: '📔', stars: 2, minutes: 5, area: 'Aile', link: 'journal', hint: 'Bugün ne yaptığını yaz.' },
+  { id: 'calendar-plan', title: 'Haftalık plana göz at', emoji: '📅', stars: 1, minutes: 5, area: 'Plan', link: 'calendar', hint: 'Bugünün slotunu aç.' },
+  { id: 'calendar-save', title: 'Haftalık planı kaydet', emoji: '✅', stars: 2, minutes: 4, area: 'Plan', link: 'calendar', hint: 'Ailece buzdolabına asılacak.' },
+  { id: 'teacher-print', title: 'Öğretmen etkinliği yazdır', emoji: '👩‍🏫', stars: 2, minutes: 10, area: 'Sınıf', link: 'teachers', hint: 'Sabah çemberi veya STEM kartı.' },
+  { id: 'shop-open', title: 'Ücretsiz bir paket aç', emoji: '🎁', stars: 2, minutes: 6, area: 'Paket', link: 'shop', hint: 'İlgili bölüme ışınlan.' },
+  { id: 'profile-set', title: 'Profilini güncelle', emoji: '🧒', stars: 1, minutes: 5, area: 'Profil', link: 'profile', hint: 'İsim, avatar veya yaş grubu.' },
+  { id: 'portal-dash', title: 'Portal ana paneli ziyaret et', emoji: '🏛️', stars: 1, minutes: 3, area: 'Portal', link: 'portal', hint: 'Bugünün kartlarına bak.' },
+  { id: 'parents-tip', title: 'Aile köşesinden 1 ipucu oku', emoji: '🏡', stars: 1, minutes: 5, area: 'Aile', link: 'parents', hint: 'Ebeveynle birlikte.' },
+  { id: 'scramble', title: 'Kelime karıştırma oyna', emoji: '🔤', stars: 2, minutes: 6, area: 'Oyun', link: 'activities', hint: 'Harfleri doğru sıraya koy.' },
+  { id: 'speed-catch', title: 'Hızlı yakalama oyna', emoji: '🎯', stars: 2, minutes: 5, area: 'Oyun', link: 'activities', hint: 'Doğru emojileri yakala.' },
+  { id: 'riddle', title: 'Bir bilmece çöz', emoji: '🧩', stars: 1, minutes: 4, area: 'Eğlence', link: 'fun', hint: 'Eğlence Bahçesi bilmeceleri.' },
+  { id: 'joke', title: 'Bir fıkra oku ve anlat', emoji: '😄', stars: 1, minutes: 3, area: 'Eğlence', link: 'fun', hint: 'Aileye anlatınca yıldızını hak et.' },
 ]
 
 export function getDailyQuests(date = new Date()): Quest[] {
@@ -53,7 +72,6 @@ export function getDailyQuests(date = new Date()): Quest[] {
   for (let i = 0; i < 5; i++) {
     picks.push(QUEST_POOL[(day + i * 3) % QUEST_POOL.length])
   }
-  // unique by id
   const seen = new Set<string>()
   return picks.filter((q) => {
     if (seen.has(q.id)) return false

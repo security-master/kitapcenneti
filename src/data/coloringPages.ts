@@ -51,6 +51,35 @@ export const COLORING_PAGES: ColoringPage[] = [
   { id: 'sunflower', title: 'Ayçiçeği', emoji: '🌻', age: '3+', category: 'Mevsim', description: 'Büyük ayçiçeği ve arı' },
   { id: 'icecream', title: 'Dondurma Külahı', emoji: '🍦', age: '3+', category: 'Mevsim', description: 'Üç toplu dondurma' },
   { id: 'birthday', title: 'Doğum Günü Pastası', emoji: '🎂', age: '4+', category: 'Masal', description: 'Mumlu pasta ve hediyeler' },
+  { id: 'lion', title: 'Sevimli Aslan', emoji: '🦁', age: '4+', category: 'Hayvanlar', description: 'Yeleli gülümseyen aslan' },
+  { id: 'rabbit', title: 'Zıplayan Tavşan', emoji: '🐰', age: '3+', category: 'Hayvanlar', description: 'Havuç tutan sevimli tavşan' },
+  { id: 'fox', title: 'Orman Tilki', emoji: '🦊', age: '4+', category: 'Hayvanlar', description: 'Kuyruklu meraklı tilki' },
+  { id: 'penguin', title: 'Kutup Pengueni', emoji: '🐧', age: '4+', category: 'Hayvanlar', description: 'Buz üstünde yürüyen penguen' },
+  { id: 'whale', title: 'Mavi Balina', emoji: '🐋', age: '5+', category: 'Deniz', description: 'Okyanusta yüzen dev balina' },
+  { id: 'crab', title: 'Kırmızı Yengeç', emoji: '🦀', age: '3+', category: 'Deniz', description: 'Kumsalda yürüyen yengeç' },
+  { id: 'starfish', title: 'Deniz Yıldızı', emoji: '⭐', age: '3+', category: 'Deniz', description: 'Beş kollu deniz yıldızı' },
+  { id: 'mira', title: 'Mira Renk', emoji: '🎨', age: '5+', category: 'Kahramanlar', description: 'Sanat kahramanı Mira\'nın silueti' },
+  { id: 'ruzgar', title: 'Şimşek Rüzgar', emoji: '⚡', age: '6+', category: 'Kahramanlar', description: 'Hızlı yardım kahramanı Rüzgar' },
+  { id: 'kuzey', title: 'Kuzey Pati', emoji: '🐧', age: '5+', category: 'Kahramanlar', description: 'Kaşif penguen Pati' },
+  { id: 'spaceship', title: 'Uzay Gemisi', emoji: '🛸', age: '5+', category: 'Uzay', description: 'Yıldızlara doğru uçan gemi' },
+  { id: 'moon', title: 'Ay Yüzeyi', emoji: '🌙', age: '4+', category: 'Uzay', description: 'Kraterli ay manzarası' },
+  { id: 'comet', title: 'Kuyruklu Yıldız', emoji: '☄️', age: '6+', category: 'Uzay', description: 'Parlak kuyruklu yıldız' },
+  { id: 'wizard', title: 'Sihirbaz Şapka', emoji: '🧙', age: '5+', category: 'Masal', description: 'Sihirli şapka ve asa' },
+  { id: 'princess', title: 'Prenses Taç', emoji: '👸', age: '4+', category: 'Masal', description: 'Taçlı prenses silueti' },
+  { id: 'knight', title: 'Cesur Şövalye', emoji: '⚔️', age: '6+', category: 'Masal', description: 'Kalkanlı şövalye' },
+  { id: 'mushroom', title: 'Orman Mantarı', emoji: '🍄', age: '3+', category: 'Doğa', description: 'Ormandaki kırmızı mantar' },
+  { id: 'camping', title: 'Kamp Çadırı', emoji: '⛺', age: '5+', category: 'Doğa', description: 'Ormanda kamp çadırı' },
+  { id: 'bee', title: 'Çalışkan Arı', emoji: '🐝', age: '3+', category: 'Doğa', description: 'Çiçekte bal toplayan arı' },
+  { id: 'tractor', title: 'Kırmızı Traktör', emoji: '🚜', age: '4+', category: 'Taşıtlar', description: 'Tarladaki traktör' },
+  { id: 'helicopter', title: 'Kurtarma Helikopteri', emoji: '🚁', age: '5+', category: 'Taşıtlar', description: 'Gökyüzünde uçan helikopter' },
+  { id: 'bicycle', title: 'Renkli Bisiklet', emoji: '🚲', age: '4+', category: 'Taşıtlar', description: 'Zil sesli bisiklet' },
+  { id: 'microscope', title: 'Mikroskop', emoji: '🔬', age: '7+', category: 'Bilim', description: 'Küçük dünyayı inceleyen mikroskop' },
+  { id: 'volcano', title: 'Volkan', emoji: '🌋', age: '6+', category: 'Bilim', description: 'Patlayan volkan ve lav' },
+  { id: 'spring', title: 'İlkbahar Bahçesi', emoji: '🌷', age: '3+', category: 'Mevsim', description: 'Laleler ve kelebekler' },
+  { id: 'autumn', title: 'Sonbahar Yaprakları', emoji: '🍂', age: '3+', category: 'Mevsim', description: 'Dökülen renkli yapraklar' },
+  { id: 'rainboots', title: 'Yağmur Botu', emoji: '🌧️', age: '3+', category: 'Mevsim', description: 'Su birikintisinde botlar' },
+  { id: 'kite', title: 'Uçan Uçurtma', emoji: '🪁', age: '4+', category: 'Doğa', description: 'Rüzgârda dans eden uçurtma' },
+  { id: 'picnic', title: 'Piknik Sepeti', emoji: '🧺', age: '4+', category: 'Doğa', description: 'Sepet, örtü ve elma' },
 ]
 
 const S = `fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"`
@@ -379,7 +408,141 @@ export function getColoringSvg(id: string): string {
       <circle cx="156" cy="100" r="8" ${S2}/><circle cx="200" cy="90" r="8" ${S2}/><circle cx="244" cy="100" r="8" ${S2}/>
       <rect x="60" y="300" width="50" height="40" rx="6" ${S}/><rect x="290" y="300" width="50" height="40" rx="6" ${S}/>
     `, 'Doğum Günü'),
+    lion: vb(`
+      <circle cx="200" cy="160" r="65" ${S}/>
+      <path d="M130 130 Q100 80 140 70 Q170 60 200 90 Q230 60 260 70 Q300 80 270 130" ${S}/>
+      <circle cx="180" cy="150" r="5" fill="#1a1a1a"/><circle cx="220" cy="150" r="5" fill="#1a1a1a"/>
+      <path d="M185 175 Q200 188 215 175" ${S2}/>
+      <path d="M160 190 Q140 210 130 240" ${S2}/><path d="M240 190 Q260 210 270 240" ${S2}/>
+      <ellipse cx="175" cy="280" rx="22" ry="30" ${S}/><ellipse cx="225" cy="280" rx="22" ry="30" ${S}/>
+      <path d="M190 240 Q200 320 210 240" ${S2}/>
+    `, 'Sevimli Aslan'),
+    rabbit: vb(`
+      <ellipse cx="200" cy="250" rx="70" ry="55" ${S}/>
+      <circle cx="200" cy="170" r="45" ${S}/>
+      <ellipse cx="170" cy="95" rx="18" ry="55" ${S}/><ellipse cx="230" cy="95" rx="18" ry="55" ${S}/>
+      <circle cx="185" cy="165" r="5" fill="#1a1a1a"/><circle cx="215" cy="165" r="5" fill="#1a1a1a"/>
+      <circle cx="200" cy="180" r="8" ${S2}/>
+      <path d="M190 195 Q200 205 210 195" ${S2}/>
+      <ellipse cx="160" cy="300" rx="18" ry="28" ${S}/><ellipse cx="240" cy="300" rx="18" ry="28" ${S}/>
+      <ellipse cx="280" cy="260" rx="20" ry="12" ${S2}/>
+    `, 'Zıplayan Tavşan'),
+    fox: vb(`
+      <ellipse cx="200" cy="240" rx="80" ry="60" ${S}/>
+      <circle cx="200" cy="155" r="48" ${S}/>
+      <path d="M160 120 L145 70 L175 110" ${S}/><path d="M240 120 L255 70 L225 110" ${S}/>
+      <circle cx="185" cy="150" r="5" fill="#1a1a1a"/><circle cx="215" cy="150" r="5" fill="#1a1a1a"/>
+      <path d="M195 165 L200 178 L205 165" ${S2}/>
+      <path d="M280 230 Q330 200 340 260" ${S}/>
+      <ellipse cx="165" cy="295" rx="20" ry="14" ${S}/><ellipse cx="235" cy="295" rx="20" ry="14" ${S}/>
+    `, 'Orman Tilki'),
+    penguin: vb(`
+      <ellipse cx="200" cy="250" rx="55" ry="85" ${S}/>
+      <ellipse cx="200" cy="250" rx="35" ry="65" ${S2}/>
+      <circle cx="200" cy="140" r="42" ${S}/>
+      <circle cx="188" cy="135" r="5" fill="#1a1a1a"/><circle cx="212" cy="135" r="5" fill="#1a1a1a"/>
+      <path d="M190 155 L200 168 L210 155" ${S2}/>
+      <ellipse cx="165" cy="320" rx="22" ry="14" ${S}/><ellipse cx="235" cy="320" rx="22" ry="14" ${S}/>
+      <ellipse cx="200" cy="175" rx="28" ry="18" ${S2}/>
+    `, 'Kutup Pengueni'),
+    whale: vb(`
+      <ellipse cx="190" cy="210" rx="130" ry="55" ${S}/>
+      <path d="M320 210 L370 160 L355 210 L370 260 Z" ${S}/>
+      <path d="M120 190 Q80 150 60 200 Q80 250 120 220" ${S}/>
+      <circle cx="280" cy="195" r="8" ${S}/><circle cx="278" cy="193" r="3" fill="#1a1a1a"/>
+      <path d="M200 160 Q210 120 230 140" ${S2}/>
+      <path d="M140 240 Q200 280 260 240" ${S2}/>
+    `, 'Mavi Balina'),
+    crab: vb(`
+      <ellipse cx="200" cy="230" rx="75" ry="45" ${S}/>
+      <circle cx="175" cy="215" r="8" fill="#1a1a1a"/><circle cx="225" cy="215" r="8" fill="#1a1a1a"/>
+      <path d="M185 240 Q200 255 215 240" ${S2}/>
+      <path d="M125 210 L70 180 L80 230 Z" ${S}/><path d="M275 210 L330 180 L320 230 Z" ${S}/>
+      <path d="M140 250 L100 290" ${S}/><path d="M160 260 L130 310" ${S}/>
+      <path d="M260 250 L300 290" ${S}/><path d="M240 260 L270 310" ${S}/>
+    `, 'Kırmızı Yengeç'),
+    starfish: vb(`
+      <path d="M200 80 L230 160 L315 160 L250 210 L275 295 L200 245 L125 295 L150 210 L85 160 L170 160 Z" ${S}/>
+      <circle cx="200" cy="185" r="18" ${S2}/>
+      <circle cx="200" cy="130" r="6" ${S2}/><circle cx="250" cy="175" r="6" ${S2}/>
+      <circle cx="150" cy="175" r="6" ${S2}/><circle cx="230" cy="240" r="6" ${S2}/>
+      <circle cx="170" cy="240" r="6" ${S2}/>
+    `, 'Deniz Yıldızı'),
+    spaceship: vb(`
+      <ellipse cx="200" cy="200" rx="90" ry="40" ${S}/>
+      <ellipse cx="200" cy="175" rx="50" ry="35" ${S}/>
+      <circle cx="200" cy="175" r="20" ${S2}/>
+      <path d="M110 200 L60 230 L110 220 Z" ${S}/><path d="M290 200 L340 230 L290 220 Z" ${S}/>
+      <circle cx="80" cy="100" r="4" fill="#1a1a1a"/><circle cx="320" cy="80" r="4" fill="#1a1a1a"/>
+      <circle cx="150" cy="60" r="3" fill="#1a1a1a"/><circle cx="250" cy="50" r="3" fill="#1a1a1a"/>
+    `, 'Uzay Gemisi'),
+    moon: vb(`
+      <circle cx="200" cy="200" r="90" ${S}/>
+      <circle cx="170" cy="170" r="18" ${S2}/><circle cx="230" cy="190" r="12" ${S2}/>
+      <circle cx="190" cy="240" r="22" ${S2}/><circle cx="240" cy="150" r="8" ${S2}/>
+      <circle cx="80" cy="80" r="4" fill="#1a1a1a"/><circle cx="320" cy="100" r="3" fill="#1a1a1a"/>
+      <circle cx="60" cy="300" r="3" fill="#1a1a1a"/>
+    `, 'Ay Yüzeyi'),
+    bee: vb(`
+      <ellipse cx="200" cy="210" rx="55" ry="40" ${S}/>
+      <line x1="155" y1="195" x2="245" y2="195" ${S2}/><line x1="155" y1="210" x2="245" y2="210" ${S2}/>
+      <line x1="155" y1="225" x2="245" y2="225" ${S2}/>
+      <circle cx="200" cy="160" r="30" ${S}/>
+      <circle cx="190" cy="155" r="4" fill="#1a1a1a"/><circle cx="210" cy="155" r="4" fill="#1a1a1a"/>
+      <path d="M170 145 Q150 110 130 120" ${S2}/><path d="M230 145 Q250 110 270 120" ${S2}/>
+      <path d="M160 240 Q120 260 100 240" ${S2}/><path d="M240 240 Q280 260 300 240" ${S2}/>
+      <circle cx="320" cy="280" r="16" ${S2}/>
+    `, 'Çalışkan Arı'),
+    kite: vb(`
+      <path d="M200 80 L260 200 L200 320 L140 200 Z" ${S}/>
+      <line x1="200" y1="80" x2="200" y2="340" ${S2}/>
+      <line x1="140" y1="200" x2="260" y2="200" ${S2}/>
+      <path d="M200 320 Q220 360 240 380" ${S2}/>
+      <path d="M240 380 Q260 390 280 385" ${S2}/>
+      <circle cx="80" cy="120" r="6" ${S2}/>
+    `, 'Uçan Uçurtma'),
+    volcano: vb(`
+      <path d="M70 320 L130 140 L170 180 L200 100 L230 180 L270 140 L330 320 Z" ${S}/>
+      <ellipse cx="200" cy="110" rx="35" ry="18" ${S2}/>
+      <path d="M185 95 Q200 60 215 95" ${S2}/>
+      <circle cx="195" cy="70" r="8" ${S2}/><circle cx="210" cy="55" r="6" ${S2}/>
+      <path d="M100 320 Q200 300 300 320" ${S2}/>
+    `, 'Volkan'),
+    bicycle: vb(`
+      <circle cx="130" cy="260" r="55" ${S}/><circle cx="270" cy="260" r="55" ${S}/>
+      <circle cx="130" cy="260" r="12" ${S2}/><circle cx="270" cy="260" r="12" ${S2}/>
+      <path d="M130 260 L200 180 L270 260" ${S}/>
+      <path d="M200 180 L200 140" ${S}/><path d="M170 140 L230 140" ${S}/>
+      <path d="M200 180 L240 200" ${S2}/>
+      <circle cx="200" cy="130" r="8" ${S2}/>
+    `, 'Renkli Bisiklet'),
+    mushroom: vb(`
+      <path d="M100 220 Q200 80 300 220 Z" ${S}/>
+      <rect x="175" y="220" width="50" height="80" rx="8" ${S}/>
+      <circle cx="150" cy="170" r="14" ${S2}/><circle cx="230" cy="155" r="18" ${S2}/>
+      <circle cx="190" cy="130" r="10" ${S2}/>
+      <path d="M120 300 Q200 320 280 300" ${S2}/>
+    `, 'Orman Mantarı'),
+    picnic: vb(`
+      <path d="M80 280 L320 280" ${S}/>
+      <path d="M120 280 L120 200 L280 200 L280 280" ${S}/>
+      <path d="M120 200 L200 140 L280 200" ${S}/>
+      <ellipse cx="200" cy="250" rx="60" ry="20" ${S2}/>
+      <circle cx="160" cy="240" r="14" ${S2}/><circle cx="240" cy="245" r="12" ${S2}/>
+      <rect x="185" y="160" width="30" height="40" ${S2}/>
+    `, 'Piknik Sepeti'),
   }
 
-  return map[id] || map.unicorn
+  const generic = vb(`
+    <rect x="60" y="60" width="280" height="280" rx="24" ${S}/>
+    <circle cx="200" cy="170" r="50" ${S}/>
+    <path d="M150 250 Q200 290 250 250" ${S2}/>
+    <path d="M120 120 L140 90 L160 120" ${S2}/>
+    <path d="M240 120 L260 90 L280 120" ${S2}/>
+    <circle cx="185" cy="165" r="5" fill="#1a1a1a"/>
+    <circle cx="215" cy="165" r="5" fill="#1a1a1a"/>
+    <text x="200" y="340" text-anchor="middle" font-family="Nunito,Arial,sans-serif" font-size="18" fill="#555">Boyama Zamanı!</text>
+  `, 'Kitap Cenneti')
+
+  return map[id] || generic
 }
