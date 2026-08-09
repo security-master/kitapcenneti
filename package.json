@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh": "BASE_PATH=/kitapcenneti/ tsc -b && BASE_PATH=/kitapcenneti/ vite build",
+    "build:cf": "BASE_PATH=/ tsc -b && BASE_PATH=/ vite build",
     "preview": "vite preview",
-    "netlify:dev": "netlify dev"
+    "pages:deploy": "npm run build:gh"
   },
   "dependencies": {
     "framer-motion": "^12.4.7",

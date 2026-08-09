@@ -133,22 +133,21 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
                     if (img.dataset.retried) return
                     img.dataset.retried = '1'
                     const shortPrompt = page.imagePrompt.slice(0, 120)
-                    try {
-                      const res = await fetch('/.netlify/functions/generate-image', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ prompt: shortPrompt, seed: page.pageNumber * 99 }),
-                      })
-                      if (res.ok) {
-                        const data = await res.json()
-                        if (data.imageUrl) {
-                          img.src = data.imageUrl
-                          return
-                        }
-                      }
-                    } catch { /* ignore */ }
                     const seed = page.pageNumber * 99
-                    img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(shortPrompt)}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+                    try {
+                      const { callApi, buildDirectPollinationsUrl } = await import('../utils/api')
+                      const data = await callApi<{ imageUrl?: string }>('generate-image', {
+                        prompt: shortPrompt,
+                        seed,
+                      })
+                      if (data?.imageUrl) {
+                        img.src = data.imageUrl
+                        return
+                      }
+                      img.src = buildDirectPollinationsUrl(shortPrompt, seed)
+                    } catch {
+                      img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(shortPrompt)}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+                    }
                   }}
                 />
               ) : (

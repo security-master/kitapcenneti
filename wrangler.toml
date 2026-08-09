@@ -1,0 +1,8 @@
+# Cloudflare Pages
+# Dashboard → Workers & Pages → Create → Connect to Git
+# Build command: npm run build:cf
+# Output directory: dist
+
+name = "kitapcenneti"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"

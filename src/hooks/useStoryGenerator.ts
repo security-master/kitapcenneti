@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import type { Story, StoryRequest } from '../types'
 import { generateFallbackStory } from '../utils/fallbackStory'
 import { buildShortImagePrompt } from '../utils/imagePrompt'
+import { buildDirectPollinationsUrl, callApi } from '../utils/api'
 
 interface GenerationState {
   isGenerating: boolean
@@ -14,30 +15,6 @@ async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-async function fetchImageFromServer(prompt: string, seed: number): Promise<string | null> {
-  try {
-    const res = await fetch('/.netlify/functions/generate-image', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt, seed }),
-    })
-
-    if (res.ok) {
-      const data = await res.json()
-      if (data.imageUrl) return data.imageUrl
-    }
-  } catch {
-    // fallback below
-  }
-  return null
-}
-
-function buildDirectPollinationsUrl(prompt: string, seed: number): string {
-  const short = prompt.slice(0, 120)
-  const encoded = encodeURIComponent(short)
-  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
-}
-
 async function generateImage(
   scene: string,
   request: StoryRequest,
@@ -46,8 +23,8 @@ async function generateImage(
   const prompt = buildShortImagePrompt(scene, request.heroName, request.artStyle)
   const seed = pageIndex * 42 + 7
 
-  const serverImage = await fetchImageFromServer(prompt, seed)
-  if (serverImage) return serverImage
+  const data = await callApi<{ imageUrl?: string }>('generate-image', { prompt, seed })
+  if (data?.imageUrl) return data.imageUrl
 
   return buildDirectPollinationsUrl(prompt, seed)
 }
@@ -69,23 +46,8 @@ export function useStoryGenerator() {
     setStory(null)
     updateState({ isGenerating: true, progress: 5, status: 'Hikaye yazılıyor...', error: null })
 
-    let generatedStory: Story
-
-    try {
-      const res = await fetch('/.netlify/functions/generate-story', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(request),
-      })
-
-      if (res.ok) {
-        generatedStory = await res.json()
-      } else {
-        generatedStory = generateFallbackStory(request)
-      }
-    } catch {
-      generatedStory = generateFallbackStory(request)
-    }
+    const apiStory = await callApi<Story>('generate-story', request)
+    const generatedStory = apiStory ?? generateFallbackStory(request)
 
     updateState({ progress: 30, status: 'Görseller çiziliyor... ✨' })
 
