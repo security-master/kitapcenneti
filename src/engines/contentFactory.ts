@@ -16,7 +16,9 @@ export function hashSeed(...parts: (string | number)[]): number {
 }
 
 export function pick<T>(arr: readonly T[], seed: number): T {
-  return arr[seed % arr.length]
+  // hashSeed returns unsigned 32-bit; signed >> can go negative → arr[neg] === undefined
+  const i = (seed >>> 0) % arr.length
+  return arr[i]!
 }
 
 export function hourKey(d = new Date()): string {
@@ -52,18 +54,19 @@ export interface FactoryStory {
 }
 
 export function factoryStory(seed: number): FactoryStory {
-  const hero = pick(HEROES, seed)
-  const place = pick(PLACES, seed >> 3)
-  const mood = pick(MOODS, seed >> 5)
-  const theme = pick(THEMES, seed >> 7)
-  const emoji = pick(EMOJIS, seed >> 2)
-  const n = (seed % 900) + 1
+  const s = seed >>> 0
+  const hero = pick(HEROES, s)
+  const place = pick(PLACES, s >>> 3)
+  const mood = pick(MOODS, s >>> 5)
+  const theme = pick(THEMES, s >>> 7)
+  const emoji = pick(EMOJIS, s >>> 2)
+  const n = (s % 900) + 1
   return {
-    id: `live-story-${seed}`,
+    id: `live-story-${s}`,
     title: `${hero} ve ${place} macerası #${n}`,
     emoji,
-    age: pick(['3-5', '4-7', '5-8', '6-9', '7-10'], seed),
-    duration: `${3 + (seed % 5)} dk`,
+    age: pick(['3-5', '4-7', '5-8', '6-9', '7-10'], s),
+    duration: `${3 + (s % 5)} dk`,
     theme,
     summary: `${mood} bir ${theme.toLowerCase()} masalı — ${hero} ${place}de yeni bir dost bulur.`,
     text: `Bir varmış bir yokmuş, ${place}de ${hero} adında ${mood} bir kahraman yaşarmış.
@@ -147,9 +150,10 @@ export interface FactoryQuiz {
 }
 
 export function factoryQuiz(seed: number): FactoryQuiz {
-  const a = 2 + (seed % 12)
-  const b = 1 + ((seed >> 3) % 9)
-  const kind = seed % 5
+  const s = seed >>> 0
+  const a = 2 + (s % 12)
+  const b = 1 + ((s >>> 3) % 9)
+  const kind = s % 5
   if (kind === 0) {
     return {
       question: `${a} + ${b} kaç eder?`,
@@ -158,7 +162,7 @@ export function factoryQuiz(seed: number): FactoryQuiz {
     }
   }
   if (kind === 1) {
-    const animal = pick(['Kedi', 'Köpek', 'Balık', 'Kuş', 'Tavşan', 'Ayı'], seed)
+    const animal = pick(['Kedi', 'Köpek', 'Balık', 'Kuş', 'Tavşan', 'Ayı'], s)
     return {
       question: `${animal} hangi grupta yer alır?`,
       options: ['Bitki', 'Hayvan', 'Taş', 'Bulut'],
@@ -166,7 +170,7 @@ export function factoryQuiz(seed: number): FactoryQuiz {
     }
   }
   if (kind === 2) {
-    const place = pick(['Ankara', 'İstanbul', 'İzmir', 'Bursa'], seed)
+    const place = pick(['Ankara', 'İstanbul', 'İzmir', 'Bursa'], s)
     const isCapital = place === 'Ankara'
     return {
       question: 'Türkiye’nin başkenti neresidir?',
