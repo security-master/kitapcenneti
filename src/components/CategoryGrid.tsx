@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion'
 import type { StoryCategory } from '../types'
-import { CATEGORIES } from '../data/prompts'
+import { CATEGORIES, getCategoryInfo } from '../data/prompts'
 
 interface CategoryGridProps {
   selected: StoryCategory
@@ -8,33 +7,56 @@ interface CategoryGridProps {
 }
 
 export function CategoryGrid({ selected, onSelect }: CategoryGridProps) {
+  const selectedInfo = getCategoryInfo(selected)
+
   return (
-    <section className="section">
+    <section className="section" id="create-step-category">
       <h2 className="section__title">
         <span className="section__title-emoji">🎨</span>
-        Kategori Seç
+        1. Kategori Seç
       </h2>
+      <p className="section-hint">Bir karta dokun — seçimin sarı çerçeve ve ✓ ile görünür, sonra alta kayarız.</p>
+
+      {selectedInfo && (
+        <div className="category-selected-banner" style={{ background: selectedInfo.gradient }}>
+          <span>{selectedInfo.emoji}</span>
+          <div>
+            <strong>Seçili: {selectedInfo.title}</strong>
+            <small>{selectedInfo.description}</small>
+          </div>
+          <em>✓ Hazır</em>
+        </div>
+      )}
+
       <div className="category-grid">
-        {CATEGORIES.map((cat, index) => (
-          <motion.button
-            key={cat.id}
-            className={`category-card ${cat.featured ? 'category-card--featured' : ''} ${selected === cat.id ? 'category-card--selected' : ''}`}
-            style={{ background: cat.gradient }}
-            onClick={() => onSelect(cat.id)}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {cat.featured && <span className="category-card__featured-badge">⭐ Özel</span>}
-            <span className="category-card__bg-emoji">{cat.emoji}</span>
-            <span className="category-card__emoji">{cat.emoji}</span>
-            <h3 className="category-card__title">{cat.title}</h3>
-            <p className="category-card__desc">{cat.description}</p>
-          </motion.button>
-        ))}
+        {CATEGORIES.map((cat) => {
+          const isSelected = selected === cat.id
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              className={`category-card ${cat.featured ? 'category-card--featured' : ''} ${isSelected ? 'category-card--selected' : ''}`}
+              style={{ background: cat.gradient }}
+              onClick={() => onSelect(cat.id)}
+              aria-pressed={isSelected}
+            >
+              {cat.featured && <span className="category-card__featured-badge">⭐ Özel</span>}
+              {isSelected && <span className="category-card__check">✓ Seçildi</span>}
+              <span className="category-card__bg-emoji" aria-hidden="true">{cat.emoji}</span>
+              <span className="category-card__emoji">{cat.emoji}</span>
+              <h3 className="category-card__title">{cat.title}</h3>
+              <p className="category-card__desc">{cat.description}</p>
+            </button>
+          )
+        })}
       </div>
     </section>
   )
+}
+
+/** Scroll helper used by CreateStoryPage */
+export function scrollToCreateStep(id: string) {
+  requestAnimationFrame(() => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
 }
