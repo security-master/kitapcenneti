@@ -11,7 +11,7 @@ export function useDailyQuests() {
   const [stars, setStars] = useState(0)
   const [streak, setStreak] = useState(0)
 
-  useEffect(() => {
+  const refresh = () => {
     const key = DONE_PREFIX + todayKey()
     try {
       const raw = localStorage.getItem(key)
@@ -20,6 +20,17 @@ export function useDailyQuests() {
       setStreak(Number(localStorage.getItem(STREAK_KEY) || 0))
     } catch {
       setDone([])
+    }
+  }
+
+  useEffect(() => {
+    refresh()
+    const on = () => refresh()
+    window.addEventListener('kitapcenneti-progress', on)
+    window.addEventListener('storage', on)
+    return () => {
+      window.removeEventListener('kitapcenneti-progress', on)
+      window.removeEventListener('storage', on)
     }
   }, [])
 
@@ -35,7 +46,6 @@ export function useDailyQuests() {
     } else {
       next = [...done, quest.id]
       nextStars = stars + quest.stars
-      // streak: first completion today
       if (done.length === 0) {
         const last = localStorage.getItem('kitapcenneti-last-quest-day')
         const today = todayKey()
@@ -51,6 +61,7 @@ export function useDailyQuests() {
     setStars(nextStars)
     localStorage.setItem(key, JSON.stringify(next))
     localStorage.setItem(STARS_KEY, String(nextStars))
+    window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
   }
 
   const progress = quests.length ? Math.round((done.length / quests.length) * 100) : 0

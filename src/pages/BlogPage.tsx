@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { BLOG_POSTS } from '../data/blog'
 import { AdSlot } from '../components/AdSlot'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 
 export function BlogPage() {
   const [activeId, setActiveId] = useState(BLOG_POSTS[0].id)
@@ -24,7 +26,10 @@ export function BlogPage() {
             <button
               key={p.id}
               className={`blog-list__item ${activeId === p.id ? 'is-active' : ''}`}
-              onClick={() => setActiveId(p.id)}
+              onClick={() => {
+                setActiveId(p.id)
+                announceActivityResult(completeActivity('blog'))
+              }}
             >
               <span>{p.emoji}</span>
               <div>

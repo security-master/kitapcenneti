@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { CALM_SCRIPTS, FEELINGS } from '../data/feelings'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 
 export function FeelingsPage() {
   const [selected, setSelected] = useState<string | null>(null)
@@ -24,7 +26,10 @@ export function FeelingsPage() {
             key={f.id}
             className={`feeling-card ${selected === f.id ? 'is-active' : ''}`}
             style={{ background: f.color }}
-            onClick={() => setSelected(f.id)}
+            onClick={() => {
+              setSelected(f.id)
+              announceActivityResult(completeActivity('feel'))
+            }}
           >
             <span>{f.emoji}</span>
             <strong>{f.label}</strong>

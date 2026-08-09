@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { RHYMES } from '../data/rhymes'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 
 export function RhymesPage() {
   const [activeId, setActiveId] = useState(RHYMES[0].id)
@@ -38,7 +40,13 @@ export function RhymesPage() {
         <div className="btn-row">
           <button
             className="btn btn--primary"
-            onClick={() => (speaking ? stop() : speak(rhyme.lyrics, 0.85))}
+            onClick={() => {
+              if (speaking) stop()
+              else {
+                speak(rhyme.lyrics, 0.85)
+                announceActivityResult(completeActivity('rhyme'))
+              }
+            }}
           >
             {speaking ? '⏹ Durdur' : '🎧 Sesli Oku'}
           </button>

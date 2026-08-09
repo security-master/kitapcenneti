@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Download, RotateCcw, Share2, Maximize2, Minimize2, Bookmark } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, RotateCcw, Share2, Maximize2, Minimize2, Bookmark, FileDown } from 'lucide-react'
 import type { Story } from '../types'
+import { downloadStoryPdf } from '../utils/pdf'
+import { completeActivity } from '../hooks/useProgress'
+import { announceActivityResult } from './Toast'
 
 interface StoryViewerProps {
   story: Story
@@ -13,7 +16,13 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [pdfBusy, setPdfBusy] = useState(false)
   const page = story.pages[currentPage]
+
+  useEffect(() => {
+    const result = completeActivity('story')
+    announceActivityResult(result)
+  }, [story.title])
 
   const goNext = useCallback(() => {
     setCurrentPage((p) => Math.min(p + 1, story.pages.length - 1))
@@ -33,7 +42,7 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
     return () => window.removeEventListener('keydown', handleKey)
   }, [goNext, goPrev, isFullscreen])
 
-  const handleDownload = () => {
+  const handleDownloadTxt = () => {
     const content = story.pages
       .map((p) => `--- Sayfa ${p.pageNumber} ---\n${p.text}\n`)
       .join('\n')
@@ -44,6 +53,18 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
     a.download = `${story.title.replace(/\s+/g, '_')}.txt`
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  const handleDownloadPdf = async () => {
+    setPdfBusy(true)
+    try {
+      await downloadStoryPdf(story)
+      announceActivityResult(completeActivity('print'))
+    } catch {
+      alert('PDF oluşturulamadı. Görseller yüklenene kadar bekleyip tekrar dene.')
+    } finally {
+      setPdfBusy(false)
+    }
   }
 
   const handleShare = async () => {
@@ -84,9 +105,13 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
           <RotateCcw size={18} />
           Yeni Hikaye
         </button>
-        <button className="action-btn action-btn--secondary" onClick={handleDownload}>
+        <button className="action-btn action-btn--primary" onClick={handleDownloadPdf} disabled={pdfBusy}>
+          <FileDown size={18} />
+          {pdfBusy ? 'PDF hazırlanıyor...' : 'Kitap PDF'}
+        </button>
+        <button className="action-btn action-btn--secondary" onClick={handleDownloadTxt}>
           <Download size={18} />
-          İndir
+          Metin
         </button>
         <button className="action-btn action-btn--secondary" onClick={handleShare}>
           <Share2 size={18} />

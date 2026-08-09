@@ -5,6 +5,8 @@ import { HEROES } from '../data/heroes'
 import { COLORING_PAGES } from '../data/coloringPages'
 import { DAILY_CHALLENGES } from '../data/parentTips'
 import { motion } from 'framer-motion'
+import { ProgressHub } from '../components/ProgressHub'
+import { useProgress } from '../hooks/useProgress'
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void
@@ -22,6 +24,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const challenge = DAILY_CHALLENGES[dayIndex]
   const featuredStory = AUDIO_STORIES[dayIndex % AUDIO_STORIES.length]
   const featuredHero = HEROES[dayIndex % HEROES.length]
+  const { bedtime, toggleBedtime } = useProgress()
 
   return (
     <div className="home">
@@ -33,15 +36,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <p className="home-hero__eyebrow">Çocuklar & Aileler İçin</p>
           <h1 className="home-hero__title">Kitap Cenneti</h1>
           <p className="home-hero__desc">
-            Her gün yeni görevler, sesli masallar, STEM, duygu köşesi, boyama PDF’leri
-            ve aile blogu — ücretsiz, güvenli, sıkılmadan dönülesi bir dünya.
+            Günlük görevler, rozetler, sesli masallar, görselli AI kitap PDF’leri ve aile köşesi —
+            ücretsiz, güvenli, her gün biraz daha büyüyen bir dünya.
           </p>
           <div className="home-hero__actions">
             <button className="btn btn--primary" onClick={() => onNavigate('quests')}>
               ⭐ Bugünün Görevleri
             </button>
-            <button className="btn btn--ghost" onClick={() => onNavigate('blog')}>
-              📝 Aile Blog
+            <button className="btn btn--ghost" onClick={() => onNavigate('create')}>
+              ✨ Hikaye Yap
+            </button>
+            <button
+              type="button"
+              className={`bedtime-toggle ${bedtime ? 'is-on' : ''}`}
+              onClick={toggleBedtime}
+            >
+              {bedtime ? '🌙 Gece modu' : '🌙 Yatmadan önce'}
             </button>
           </div>
         </motion.div>
@@ -63,6 +73,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section">
+        <h2 className="section__title">
+          <span className="section__title-emoji">🌈</span>
+          Senin Dünyan
+        </h2>
+        <p className="section-hint">Yıldızlar, seri ve rozetler cihazında saklanır — üyelik yok.</p>
+        <ProgressHub onNavigate={onNavigate} />
       </section>
 
       <section className="section">
@@ -125,8 +144,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="section trust-strip">
         <div>✅ Telifsiz özgün kahramanlar</div>
         <div>🆓 Ücretsiz kullanım</div>
-        <div>👨‍👩‍👧 Aile rehberi</div>
-        <div>📱 Telefonda da çalışır</div>
+        <div>🏅 Rozet & seri takibi</div>
+        <div>📕 Görselli hikaye PDF</div>
       </section>
     </div>
   )

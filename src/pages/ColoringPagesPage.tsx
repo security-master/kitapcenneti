@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { COLORING_CATEGORIES, COLORING_PAGES, getColoringSvg } from '../data/coloringPages'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 import { downloadSvgAsPdf } from '../utils/pdf'
 
 export function ColoringPagesPage() {
@@ -19,6 +21,7 @@ export function ColoringPagesPage() {
     setBusy(true)
     try {
       await downloadSvgAsPdf(svg, `boyama-${page.id}`, page.title)
+      announceActivityResult(completeActivity('color'))
     } catch {
       alert('PDF oluşturulamadı. Tekrar dene.')
     } finally {

@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { MEMORY_EMOJIS, QUIZ_QUESTIONS } from '../data/activities'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 
 type Mode = 'menu' | 'memory' | 'quiz'
 
@@ -76,6 +78,14 @@ function MemoryGame({ onBack }: { onBack: () => void }) {
   }
 
   const won = matched.length === MEMORY_EMOJIS.length
+  const awarded = useRef(false)
+
+  useEffect(() => {
+    if (won && !awarded.current) {
+      awarded.current = true
+      announceActivityResult(completeActivity('memory'))
+    }
+  }, [won])
 
   return (
     <div className="panel">
@@ -83,7 +93,7 @@ function MemoryGame({ onBack }: { onBack: () => void }) {
         <button className="btn btn--ghost" onClick={onBack}>← Menü</button>
         <strong>{matched.length}/{MEMORY_EMOJIS.length} çift</strong>
       </div>
-      {won && <p className="win-banner">🎉 Harika! Tüm çiftleri buldun!</p>}
+      {won && <p className="win-banner">🎉 Harika! Tüm çiftleri buldun! Görev yıldızın işlendi.</p>}
       <div className="memory-grid">
         {cards.map((card) => {
           const open = flipped.includes(card.id) || matched.includes(card.key)
@@ -108,7 +118,15 @@ function QuizGame({ onBack }: { onBack: () => void }) {
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
   const [selected, setSelected] = useState<number | null>(null)
+  const awarded = useRef(false)
   const q = questions[index]
+
+  useEffect(() => {
+    if (done && !awarded.current) {
+      awarded.current = true
+      announceActivityResult(completeActivity('quiz'))
+    }
+  }, [done])
 
   const choose = (i: number) => {
     if (selected !== null) return

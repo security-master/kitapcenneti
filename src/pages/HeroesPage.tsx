@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { HEROES } from '../data/heroes'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity, setCreatePrefill } from '../hooks/useProgress'
 import type { PageId } from '../types/nav'
 
 interface HeroesPageProps {
@@ -61,11 +63,27 @@ export function HeroesPage({ onNavigate }: HeroesPageProps) {
         <div className="btn-row">
           <button
             className="btn btn--primary"
-            onClick={() => (speaking ? stop() : speak(`${hero.name}. ${hero.bio} ${hero.adventure}`))}
+            onClick={() => {
+              if (speaking) stop()
+              else {
+                speak(`${hero.name}. ${hero.bio} ${hero.adventure}`)
+                announceActivityResult(completeActivity('hero'))
+              }
+            }}
           >
             {speaking ? '⏹ Durdur' : '🎧 Hikayeyi Dinle'}
           </button>
-          <button className="btn btn--ghost" onClick={() => onNavigate('create')}>
+          <button
+            className="btn btn--ghost"
+            onClick={() => {
+              setCreatePrefill({
+                heroName: hero.name.split(' ')[0],
+                category: 'personalized',
+                prompt: `${hero.name} adlı kahraman: ${hero.motto}. Gücü: ${hero.power}. ${hero.adventure}`,
+              })
+              onNavigate('create')
+            }}
+          >
             ✨ Bu kahramanla AI hikaye yap
           </button>
           <button className="btn btn--ghost" onClick={() => onNavigate('coloring')}>

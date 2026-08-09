@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 import { downloadCertificatePdf } from '../utils/pdf'
 
 const ACHIEVEMENTS = [
@@ -59,7 +61,10 @@ export function CertificatesPage() {
 
         <button
           className="btn btn--primary"
-          onClick={() => downloadCertificatePdf(name.trim() || 'Küçük Kahraman', achievement)}
+          onClick={() => {
+            downloadCertificatePdf(name.trim() || 'Küçük Kahraman', achievement)
+            announceActivityResult(completeActivity('cert'))
+          }}
         >
           ⬇️ PDF Sertifika İndir
         </button>

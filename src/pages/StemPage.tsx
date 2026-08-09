@@ -1,5 +1,7 @@
 import { STEM_CARDS } from '../data/stem'
 import { AdSlot } from '../components/AdSlot'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 import { useState } from 'react'
 
 export function StemPage() {
@@ -34,6 +36,15 @@ export function StemPage() {
         <ol className="tip-list">{card.steps.map((s) => <li key={s}>{s}</li>)}</ol>
         <h3>Neden oluyor?</h3>
         <p>{card.why}</p>
+        <div className="btn-row" style={{ marginTop: 16 }}>
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={() => announceActivityResult(completeActivity('stem'))}
+          >
+            ✓ Deneyimi yaptım
+          </button>
+        </div>
       </div>
 
       <AdSlot slot="bottom" />

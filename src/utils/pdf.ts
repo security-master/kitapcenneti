@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf'
+import type { Story } from '../types'
 
 export async function downloadSvgAsPdf(svgMarkup: string, filename: string, title: string) {
   const svgBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' })
@@ -145,4 +146,252 @@ export function printHtml(title: string, bodyHtml: string) {
     <script>window.onload=()=>{window.print()}</script>
     </body></html>`)
   win.document.close()
+}
+
+async function loadImage(src: string): Promise<HTMLImageElement | null> {
+  if (!src) return null
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    img.onload = () => resolve(img)
+    img.onerror = () => resolve(null)
+    img.src = src
+  })
+}
+
+function wrapCanvasText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  x: number,
+  y: number,
+  maxWidth: number,
+  lineHeight: number,
+  maxLines = 8,
+) {
+  const words = text.split(' ')
+  let line = ''
+  let yy = y
+  let lines = 0
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word
+    if (ctx.measureText(test).width > maxWidth && line) {
+      ctx.fillText(line, x, yy)
+      line = word
+      yy += lineHeight
+      lines++
+      if (lines >= maxLines) {
+        ctx.fillText(line + '…', x, yy)
+        return
+      }
+    } else {
+      line = test
+    }
+  }
+  if (line) ctx.fillText(line, x, yy)
+}
+
+/** Illustrated storybook PDF — images + Turkish text via canvas (TR-safe). */
+export async function downloadStoryPdf(story: Story) {
+  const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' })
+  const pageW = pdf.internal.pageSize.getWidth()
+  const pageH = pdf.internal.pageSize.getHeight()
+
+  // Cover
+  {
+    const canvas = document.createElement('canvas')
+    canvas.width = 1600
+    canvas.height = 1131
+    const ctx = canvas.getContext('2d')!
+    const grad = ctx.createLinearGradient(0, 0, 1600, 1131)
+    grad.addColorStop(0, '#fff5f7')
+    grad.addColorStop(1, '#e8f4fd')
+    ctx.fillStyle = grad
+    ctx.fillRect(0, 0, 1600, 1131)
+    ctx.textAlign = 'center'
+    ctx.fillStyle = '#ff6b9d'
+    ctx.font = '800 48px Fredoka, Nunito, Arial, sans-serif'
+    ctx.fillText('Kitap Cenneti', 800, 280)
+    ctx.fillStyle = '#2d3436'
+    ctx.font = '800 64px Fredoka, Nunito, Arial, sans-serif'
+    wrapCanvasText(ctx, story.title, 800, 420, 1200, 72, 3)
+    ctx.fillStyle = '#636e72'
+    ctx.font = '600 32px Nunito, Arial, sans-serif'
+    ctx.fillText(story.heroName ? `Kahraman: ${story.heroName}` : 'Özel masal kitabı', 800, 620)
+    ctx.fillText(new Date().toLocaleDateString('tr-TR'), 800, 680)
+    ctx.fillStyle = '#a66cff'
+    ctx.font = '700 28px Nunito, Arial, sans-serif'
+    ctx.fillText('Evde okumak ve paylaşmak için hazırlandı', 800, 900)
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, pageW, pageH)
+  }
+
+  for (let i = 0; i < story.pages.length; i++) {
+    pdf.addPage()
+    const page = story.pages[i]
+    const canvas = document.createElement('canvas')
+    canvas.width = 1600
+    canvas.height = 1131
+    const ctx = canvas.getContext('2d')!
+    ctx.fillStyle = '#fffafc'
+    ctx.fillRect(0, 0, 1600, 1131)
+
+    const img = page.imageUrl ? await loadImage(page.imageUrl) : null
+    if (img) {
+      // Cover left half with image
+      const targetW = 900
+      const targetH = 900
+      const scale = Math.min(targetW / img.width, targetH / img.height)
+      const dw = img.width * scale
+      const dh = img.height * scale
+      ctx.fillStyle = '#f0e6ff'
+      ctx.fillRect(40, 80, 920, 920)
+      ctx.drawImage(img, 40 + (920 - dw) / 2, 80 + (920 - dh) / 2, dw, dh)
+    } else {
+      ctx.fillStyle = '#f8e8f0'
+      ctx.fillRect(40, 80, 920, 920)
+      ctx.textAlign = 'center'
+      ctx.fillStyle = '#a66cff'
+      ctx.font = '800 120px Fredoka, Arial, sans-serif'
+      ctx.fillText('📚', 500, 560)
+    }
+
+    ctx.textAlign = 'left'
+    ctx.fillStyle = '#ff6b9d'
+    ctx.font = '800 28px Nunito, Arial, sans-serif'
+    ctx.fillText(`Sayfa ${page.pageNumber}`, 1000, 140)
+
+    ctx.fillStyle = '#2d3436'
+    ctx.font = '700 34px Nunito, Arial, sans-serif'
+    wrapCanvasText(ctx, page.text, 1000, 220, 540, 48, 12)
+
+    ctx.fillStyle = '#999'
+    ctx.font = '600 20px Nunito, Arial, sans-serif'
+    ctx.fillText('Kitap Cenneti', 1000, 1040)
+
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.9), 'JPEG', 0, 0, pageW, pageH)
+  }
+
+  const safe = story.title.replace(/[^\wğüşıöçĞÜŞİÖÇ\- ]+/gi, '').trim().replace(/\s+/g, '_') || 'masal'
+  pdf.save(`${safe}.pdf`)
+}
+
+/** Daily quest checklist printable */
+export function downloadQuestChecklistPdf(
+  quests: { emoji: string; title: string; stars: number; minutes: number }[],
+  childName = '',
+) {
+  const canvas = document.createElement('canvas')
+  canvas.width = 1200
+  canvas.height = 1600
+  const ctx = canvas.getContext('2d')!
+  const grad = ctx.createLinearGradient(0, 0, 0, 1600)
+  grad.addColorStop(0, '#fff7fb')
+  grad.addColorStop(1, '#eef8ff')
+  ctx.fillStyle = grad
+  ctx.fillRect(0, 0, 1200, 1600)
+
+  ctx.textAlign = 'center'
+  ctx.fillStyle = '#ff6b9d'
+  ctx.font = '800 54px Fredoka, Nunito, Arial, sans-serif'
+  ctx.fillText('Bugünün Görevleri', 600, 100)
+  ctx.fillStyle = '#2d3436'
+  ctx.font = '700 32px Nunito, Arial, sans-serif'
+  ctx.fillText(childName || 'Küçük Kahraman', 600, 160)
+  ctx.fillStyle = '#636e72'
+  ctx.font = '600 24px Nunito, Arial, sans-serif'
+  ctx.fillText(new Date().toLocaleDateString('tr-TR'), 600, 210)
+
+  quests.forEach((q, i) => {
+    const y = 300 + i * 200
+    ctx.fillStyle = '#ffffff'
+    ctx.strokeStyle = '#ffd6e5'
+    ctx.lineWidth = 4
+    roundRect(ctx, 80, y, 1040, 160, 24)
+    ctx.fill()
+    ctx.stroke()
+    // checkbox
+    ctx.strokeStyle = '#a66cff'
+    ctx.lineWidth = 5
+    ctx.strokeRect(120, y + 50, 60, 60)
+    ctx.textAlign = 'left'
+    ctx.fillStyle = '#2d3436'
+    ctx.font = '800 40px Fredoka, Nunito, Arial, sans-serif'
+    ctx.fillText(`${q.emoji}  ${q.title}`, 220, y + 75)
+    ctx.fillStyle = '#636e72'
+    ctx.font = '600 26px Nunito, Arial, sans-serif'
+    ctx.fillText(`~${q.minutes} dk · ${q.stars} yıldız`, 220, y + 120)
+  })
+
+  ctx.textAlign = 'center'
+  ctx.fillStyle = '#ff6b9d'
+  ctx.font = '700 24px Nunito, Arial, sans-serif'
+  ctx.fillText('Kitap Cenneti — Evde yazdır, işaretle, kutla!', 600, 1500)
+
+  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+  pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 8, 8, 194, 280)
+  pdf.save('gunluk-gorevler.pdf')
+}
+
+/** Feeling cards printable pack */
+export function downloadFeelingsPackPdf(
+  feelings: { emoji: string; label: string; tip: string }[],
+) {
+  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+  const pageW = pdf.internal.pageSize.getWidth()
+  const pageH = pdf.internal.pageSize.getHeight()
+
+  for (let i = 0; i < feelings.length; i += 2) {
+    if (i > 0) pdf.addPage()
+    const canvas = document.createElement('canvas')
+    canvas.width = 1200
+    canvas.height = 1600
+    const ctx = canvas.getContext('2d')!
+    ctx.fillStyle = '#fffaf8'
+    ctx.fillRect(0, 0, 1200, 1600)
+    ctx.textAlign = 'center'
+    ctx.fillStyle = '#ff6b9d'
+    ctx.font = '800 44px Fredoka, Nunito, Arial, sans-serif'
+    ctx.fillText('Duygu Kartları', 600, 70)
+    ctx.fillStyle = '#999'
+    ctx.font = '600 22px Nunito, Arial, sans-serif'
+    ctx.fillText('Kitap Cenneti', 600, 110)
+
+    ;[feelings[i], feelings[i + 1]].filter(Boolean).forEach((f, idx) => {
+      const y = 180 + idx * 650
+      ctx.fillStyle = '#ffffff'
+      ctx.strokeStyle = '#ffe0ec'
+      ctx.lineWidth = 6
+      roundRect(ctx, 80, y, 1040, 580, 28)
+      ctx.fill()
+      ctx.stroke()
+      ctx.fillStyle = '#2d3436'
+      ctx.font = '800 90px Fredoka, Arial, sans-serif'
+      ctx.fillText(f.emoji, 600, y + 160)
+      ctx.font = '800 48px Fredoka, Nunito, Arial, sans-serif'
+      ctx.fillText(f.label, 600, y + 250)
+      ctx.fillStyle = '#444'
+      ctx.font = '600 30px Nunito, Arial, sans-serif'
+      wrapCanvasText(ctx, f.tip, 600, y + 340, 880, 42, 5)
+    })
+
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, pageW, pageH)
+  }
+
+  pdf.save('duygu-kartlari.pdf')
+}
+
+function roundRect(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
+  ctx.beginPath()
+  ctx.moveTo(x + r, y)
+  ctx.arcTo(x + w, y, x + w, y + h, r)
+  ctx.arcTo(x + w, y + h, x, y + h, r)
+  ctx.arcTo(x, y + h, x, y, r)
+  ctx.arcTo(x, y, x + w, y, r)
+  ctx.closePath()
 }

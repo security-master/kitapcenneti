@@ -1,6 +1,10 @@
 import type { PageId } from '../types/nav'
 import { AdSlot } from '../components/AdSlot'
+import { ProgressHub } from '../components/ProgressHub'
 import { useDailyQuests } from '../hooks/useDailyQuests'
+import { downloadQuestChecklistPdf } from '../utils/pdf'
+import { announceActivityResult } from '../components/Toast'
+import { completeActivity } from '../hooks/useProgress'
 
 interface QuestsPageProps {
   onNavigate: (page: PageId) => void
@@ -13,8 +17,13 @@ export function QuestsPage({ onNavigate }: QuestsPageProps) {
     <div className="page">
       <header className="page-header">
         <h1>⭐ Günlük Görevler</h1>
-        <p>Her gün yeni mini ödevler. Bitir, yıldız topla, seriyi bozma — kayıt cihazında kalır, üyelik gerekmez.</p>
+        <p>
+          Görevleri burada işaretleyebilirsin — ama masal dinlemek, oyun bitirmek veya boyama indirmek
+          de görevi otomatik tamamlar.
+        </p>
       </header>
+
+      <ProgressHub compact />
 
       <div className="quest-stats">
         <div className="quest-stat"><strong>{stars}</strong><span>Toplam yıldız</span></div>
@@ -24,6 +33,19 @@ export function QuestsPage({ onNavigate }: QuestsPageProps) {
 
       <div className="loading-progress" style={{ maxWidth: '100%', marginBottom: 20 }}>
         <div className="loading-progress__bar" style={{ width: `${progress}%` }} />
+      </div>
+
+      <div className="btn-row" style={{ marginBottom: 16 }}>
+        <button
+          type="button"
+          className="btn btn--ghost"
+          onClick={() => {
+            downloadQuestChecklistPdf(quests)
+            announceActivityResult(completeActivity('print'))
+          }}
+        >
+          🖨️ Bugünün listesini PDF indir
+        </button>
       </div>
 
       <div className="quest-list">

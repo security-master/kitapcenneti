@@ -20,6 +20,7 @@ import { PrintablesPage } from './pages/PrintablesPage'
 import { AboutPage, ContactPage, PrivacyPage, TermsPage } from './pages/LegalPages'
 import { ALL_PAGES, type PageId } from './types/nav'
 import { AdSlot } from './components/AdSlot'
+import { ToastHost } from './components/Toast'
 
 function readHash(): PageId {
   const hash = window.location.hash.replace('#', '') as PageId
@@ -70,6 +71,7 @@ export default function App() {
       </main>
       <Footer onNavigate={navigate} />
       <CookieBanner />
+      <ToastHost />
     </div>
   )
 }

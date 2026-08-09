@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CategoryGrid, scrollToCreateTop } from '../components/CategoryGrid'
 import { OptionsPanel } from '../components/OptionsPanel'
 import { PromptLibrary } from '../components/PromptLibrary'
@@ -9,6 +9,7 @@ import { StoryViewer } from '../components/StoryViewer'
 import { SavedStories } from '../components/SavedStories'
 import { useStoryGenerator } from '../hooks/useStoryGenerator'
 import { useSavedStories } from '../hooks/useSavedStories'
+import { consumeCreatePrefill } from '../hooks/useProgress'
 import { getCategoryInfo } from '../data/prompts'
 import type { ArtStyle, ImageProvider, StoryCategory, TextModel } from '../types'
 
@@ -30,6 +31,23 @@ export function CreateStoryPage() {
   const { isGenerating, progress, status, story, generateStory, loadStory, resetStory } = useStoryGenerator()
   const { savedStories, saveStory, deleteStory } = useSavedStories()
   const catInfo = category ? getCategoryInfo(category) : null
+
+  useEffect(() => {
+    const prefill = consumeCreatePrefill()
+    if (!prefill) return
+    if (prefill.heroName) setHeroName(prefill.heroName)
+    if (prefill.prompt) {
+      setCustomPrompt(prefill.prompt)
+      setSelectedPrompt('')
+    }
+    if (prefill.category) {
+      setCategory(prefill.category as StoryCategory)
+      setStep(2)
+    } else if (prefill.heroName) {
+      setCategory('personalized')
+      setStep(2)
+    }
+  }, [])
 
   const goTo = (next: WizardStep) => {
     setStep(next)
