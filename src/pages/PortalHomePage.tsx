@@ -10,6 +10,7 @@ import { SHOP_PACKS } from '../data/shop'
 import { AUDIO_STORIES } from '../data/audioStories'
 import { TEACHER_RESOURCES } from '../data/teachers'
 import { getDailyQuests } from '../data/quests'
+import { LivePulse } from '../components/LivePulse'
 
 interface Props {
   onNavigate: (page: PageId) => void
@@ -33,6 +34,7 @@ export function PortalHomePage({ onNavigate }: Props) {
           </p>
         </header>
         <ModeBanner mode={mode} onSwitch={setMode} />
+        <LivePulse onNavigate={onNavigate} />
 
         <div className="portal-dash-grid">
           <button type="button" className="portal-dash-card" onClick={() => onNavigate('calendar')}>
@@ -100,11 +102,18 @@ export function PortalHomePage({ onNavigate }: Props) {
       </header>
       <ModeBanner mode={mode} onSwitch={setMode} />
 
+      <LivePulse onNavigate={onNavigate} />
+
       <ProgressHub onNavigate={onNavigate} />
 
       <section className="section">
         <h2 className="section__title">Bugünün portalı</h2>
         <div className="portal-dash-grid">
+          <button type="button" className="portal-dash-card portal-dash-card--accent" onClick={() => onNavigate('live')}>
+            <span>⚡</span>
+            <h2>Canlı Arena</h2>
+            <p>Saatlik görev · gizemli kutu · düşüşler</p>
+          </button>
           <button type="button" className="portal-dash-card portal-dash-card--accent" onClick={() => onNavigate('quests')}>
             <span>⭐</span>
             <h2>Görevler</h2>

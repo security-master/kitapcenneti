@@ -680,5 +680,805 @@ Bugün ne öğrendik, bir cümle kuralım.`,
 Gülümse biraz, birlikte oynayalım.
 Yavaşça nefes al, sonra söyle bakalım,
 Bugün ne öğrendik, bir cümle kuralım.`,
+  },
+  {
+    id: 'mega-rhyme-1',
+    title: 'Mega Tekerleme 1',
+    emoji: '🎵',
+    lyrics: `El çırp 1 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-2',
+    title: 'Mega Tekerleme 2',
+    emoji: '🎵',
+    lyrics: `El çırp 2 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-3',
+    title: 'Mega Tekerleme 3',
+    emoji: '🎵',
+    lyrics: `El çırp 3 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-4',
+    title: 'Mega Tekerleme 4',
+    emoji: '🎵',
+    lyrics: `El çırp 4 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-5',
+    title: 'Mega Tekerleme 5',
+    emoji: '🎵',
+    lyrics: `El çırp 5 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-6',
+    title: 'Mega Tekerleme 6',
+    emoji: '🎵',
+    lyrics: `El çırp 6 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-7',
+    title: 'Mega Tekerleme 7',
+    emoji: '🎵',
+    lyrics: `El çırp 7 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-8',
+    title: 'Mega Tekerleme 8',
+    emoji: '🎵',
+    lyrics: `El çırp 8 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-9',
+    title: 'Mega Tekerleme 9',
+    emoji: '🎵',
+    lyrics: `El çırp 9 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-10',
+    title: 'Mega Tekerleme 10',
+    emoji: '🎵',
+    lyrics: `El çırp 10 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-11',
+    title: 'Mega Tekerleme 11',
+    emoji: '🎵',
+    lyrics: `El çırp 11 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-12',
+    title: 'Mega Tekerleme 12',
+    emoji: '🎵',
+    lyrics: `El çırp 12 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-13',
+    title: 'Mega Tekerleme 13',
+    emoji: '🎵',
+    lyrics: `El çırp 13 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-14',
+    title: 'Mega Tekerleme 14',
+    emoji: '🎵',
+    lyrics: `El çırp 14 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-15',
+    title: 'Mega Tekerleme 15',
+    emoji: '🎵',
+    lyrics: `El çırp 15 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-16',
+    title: 'Mega Tekerleme 16',
+    emoji: '🎵',
+    lyrics: `El çırp 16 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-17',
+    title: 'Mega Tekerleme 17',
+    emoji: '🎵',
+    lyrics: `El çırp 17 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-18',
+    title: 'Mega Tekerleme 18',
+    emoji: '🎵',
+    lyrics: `El çırp 18 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-19',
+    title: 'Mega Tekerleme 19',
+    emoji: '🎵',
+    lyrics: `El çırp 19 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-20',
+    title: 'Mega Tekerleme 20',
+    emoji: '🎵',
+    lyrics: `El çırp 20 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-21',
+    title: 'Mega Tekerleme 21',
+    emoji: '🎵',
+    lyrics: `El çırp 21 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-22',
+    title: 'Mega Tekerleme 22',
+    emoji: '🎵',
+    lyrics: `El çırp 22 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-23',
+    title: 'Mega Tekerleme 23',
+    emoji: '🎵',
+    lyrics: `El çırp 23 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-24',
+    title: 'Mega Tekerleme 24',
+    emoji: '🎵',
+    lyrics: `El çırp 24 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-25',
+    title: 'Mega Tekerleme 25',
+    emoji: '🎵',
+    lyrics: `El çırp 25 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-26',
+    title: 'Mega Tekerleme 26',
+    emoji: '🎵',
+    lyrics: `El çırp 26 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-27',
+    title: 'Mega Tekerleme 27',
+    emoji: '🎵',
+    lyrics: `El çırp 27 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-28',
+    title: 'Mega Tekerleme 28',
+    emoji: '🎵',
+    lyrics: `El çırp 28 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-29',
+    title: 'Mega Tekerleme 29',
+    emoji: '🎵',
+    lyrics: `El çırp 29 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-30',
+    title: 'Mega Tekerleme 30',
+    emoji: '🎵',
+    lyrics: `El çırp 30 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-31',
+    title: 'Mega Tekerleme 31',
+    emoji: '🎵',
+    lyrics: `El çırp 31 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-32',
+    title: 'Mega Tekerleme 32',
+    emoji: '🎵',
+    lyrics: `El çırp 32 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-33',
+    title: 'Mega Tekerleme 33',
+    emoji: '🎵',
+    lyrics: `El çırp 33 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-34',
+    title: 'Mega Tekerleme 34',
+    emoji: '🎵',
+    lyrics: `El çırp 34 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-35',
+    title: 'Mega Tekerleme 35',
+    emoji: '🎵',
+    lyrics: `El çırp 35 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-36',
+    title: 'Mega Tekerleme 36',
+    emoji: '🎵',
+    lyrics: `El çırp 36 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-37',
+    title: 'Mega Tekerleme 37',
+    emoji: '🎵',
+    lyrics: `El çırp 37 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-38',
+    title: 'Mega Tekerleme 38',
+    emoji: '🎵',
+    lyrics: `El çırp 38 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-39',
+    title: 'Mega Tekerleme 39',
+    emoji: '🎵',
+    lyrics: `El çırp 39 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-40',
+    title: 'Mega Tekerleme 40',
+    emoji: '🎵',
+    lyrics: `El çırp 40 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-41',
+    title: 'Mega Tekerleme 41',
+    emoji: '🎵',
+    lyrics: `El çırp 41 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-42',
+    title: 'Mega Tekerleme 42',
+    emoji: '🎵',
+    lyrics: `El çırp 42 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-43',
+    title: 'Mega Tekerleme 43',
+    emoji: '🎵',
+    lyrics: `El çırp 43 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-44',
+    title: 'Mega Tekerleme 44',
+    emoji: '🎵',
+    lyrics: `El çırp 44 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-45',
+    title: 'Mega Tekerleme 45',
+    emoji: '🎵',
+    lyrics: `El çırp 45 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-46',
+    title: 'Mega Tekerleme 46',
+    emoji: '🎵',
+    lyrics: `El çırp 46 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-47',
+    title: 'Mega Tekerleme 47',
+    emoji: '🎵',
+    lyrics: `El çırp 47 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-48',
+    title: 'Mega Tekerleme 48',
+    emoji: '🎵',
+    lyrics: `El çırp 48 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-49',
+    title: 'Mega Tekerleme 49',
+    emoji: '🎵',
+    lyrics: `El çırp 49 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-50',
+    title: 'Mega Tekerleme 50',
+    emoji: '🎵',
+    lyrics: `El çırp 50 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-51',
+    title: 'Mega Tekerleme 51',
+    emoji: '🎵',
+    lyrics: `El çırp 51 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-52',
+    title: 'Mega Tekerleme 52',
+    emoji: '🎵',
+    lyrics: `El çırp 52 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-53',
+    title: 'Mega Tekerleme 53',
+    emoji: '🎵',
+    lyrics: `El çırp 53 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-54',
+    title: 'Mega Tekerleme 54',
+    emoji: '🎵',
+    lyrics: `El çırp 54 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-55',
+    title: 'Mega Tekerleme 55',
+    emoji: '🎵',
+    lyrics: `El çırp 55 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-56',
+    title: 'Mega Tekerleme 56',
+    emoji: '🎵',
+    lyrics: `El çırp 56 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-57',
+    title: 'Mega Tekerleme 57',
+    emoji: '🎵',
+    lyrics: `El çırp 57 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-58',
+    title: 'Mega Tekerleme 58',
+    emoji: '🎵',
+    lyrics: `El çırp 58 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-59',
+    title: 'Mega Tekerleme 59',
+    emoji: '🎵',
+    lyrics: `El çırp 59 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-60',
+    title: 'Mega Tekerleme 60',
+    emoji: '🎵',
+    lyrics: `El çırp 60 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-61',
+    title: 'Mega Tekerleme 61',
+    emoji: '🎵',
+    lyrics: `El çırp 61 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-62',
+    title: 'Mega Tekerleme 62',
+    emoji: '🎵',
+    lyrics: `El çırp 62 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-63',
+    title: 'Mega Tekerleme 63',
+    emoji: '🎵',
+    lyrics: `El çırp 63 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-64',
+    title: 'Mega Tekerleme 64',
+    emoji: '🎵',
+    lyrics: `El çırp 64 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-65',
+    title: 'Mega Tekerleme 65',
+    emoji: '🎵',
+    lyrics: `El çırp 65 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-66',
+    title: 'Mega Tekerleme 66',
+    emoji: '🎵',
+    lyrics: `El çırp 66 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-67',
+    title: 'Mega Tekerleme 67',
+    emoji: '🎵',
+    lyrics: `El çırp 67 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-68',
+    title: 'Mega Tekerleme 68',
+    emoji: '🎵',
+    lyrics: `El çırp 68 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-69',
+    title: 'Mega Tekerleme 69',
+    emoji: '🎵',
+    lyrics: `El çırp 69 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-70',
+    title: 'Mega Tekerleme 70',
+    emoji: '🎵',
+    lyrics: `El çırp 70 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-71',
+    title: 'Mega Tekerleme 71',
+    emoji: '🎵',
+    lyrics: `El çırp 71 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-72',
+    title: 'Mega Tekerleme 72',
+    emoji: '🎵',
+    lyrics: `El çırp 72 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-73',
+    title: 'Mega Tekerleme 73',
+    emoji: '🎵',
+    lyrics: `El çırp 73 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-74',
+    title: 'Mega Tekerleme 74',
+    emoji: '🎵',
+    lyrics: `El çırp 74 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-75',
+    title: 'Mega Tekerleme 75',
+    emoji: '🎵',
+    lyrics: `El çırp 75 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-76',
+    title: 'Mega Tekerleme 76',
+    emoji: '🎵',
+    lyrics: `El çırp 76 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-77',
+    title: 'Mega Tekerleme 77',
+    emoji: '🎵',
+    lyrics: `El çırp 77 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-78',
+    title: 'Mega Tekerleme 78',
+    emoji: '🎵',
+    lyrics: `El çırp 78 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-79',
+    title: 'Mega Tekerleme 79',
+    emoji: '🎵',
+    lyrics: `El çırp 79 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-80',
+    title: 'Mega Tekerleme 80',
+    emoji: '🎵',
+    lyrics: `El çırp 80 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-81',
+    title: 'Mega Tekerleme 81',
+    emoji: '🎵',
+    lyrics: `El çırp 81 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-82',
+    title: 'Mega Tekerleme 82',
+    emoji: '🎵',
+    lyrics: `El çırp 82 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-83',
+    title: 'Mega Tekerleme 83',
+    emoji: '🎵',
+    lyrics: `El çırp 83 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-84',
+    title: 'Mega Tekerleme 84',
+    emoji: '🎵',
+    lyrics: `El çırp 84 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-85',
+    title: 'Mega Tekerleme 85',
+    emoji: '🎵',
+    lyrics: `El çırp 85 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-86',
+    title: 'Mega Tekerleme 86',
+    emoji: '🎵',
+    lyrics: `El çırp 86 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-87',
+    title: 'Mega Tekerleme 87',
+    emoji: '🎵',
+    lyrics: `El çırp 87 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-88',
+    title: 'Mega Tekerleme 88',
+    emoji: '🎵',
+    lyrics: `El çırp 88 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-89',
+    title: 'Mega Tekerleme 89',
+    emoji: '🎵',
+    lyrics: `El çırp 89 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-90',
+    title: 'Mega Tekerleme 90',
+    emoji: '🎵',
+    lyrics: `El çırp 90 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-91',
+    title: 'Mega Tekerleme 91',
+    emoji: '🎵',
+    lyrics: `El çırp 91 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-92',
+    title: 'Mega Tekerleme 92',
+    emoji: '🎵',
+    lyrics: `El çırp 92 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-93',
+    title: 'Mega Tekerleme 93',
+    emoji: '🎵',
+    lyrics: `El çırp 93 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-94',
+    title: 'Mega Tekerleme 94',
+    emoji: '🎵',
+    lyrics: `El çırp 94 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-95',
+    title: 'Mega Tekerleme 95',
+    emoji: '🎵',
+    lyrics: `El çırp 95 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-96',
+    title: 'Mega Tekerleme 96',
+    emoji: '🎵',
+    lyrics: `El çırp 96 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-97',
+    title: 'Mega Tekerleme 97',
+    emoji: '🎵',
+    lyrics: `El çırp 97 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-98',
+    title: 'Mega Tekerleme 98',
+    emoji: '🎵',
+    lyrics: `El çırp 98 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-99',
+    title: 'Mega Tekerleme 99',
+    emoji: '🎵',
+    lyrics: `El çırp 99 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
+  },
+  {
+    id: 'mega-rhyme-100',
+    title: 'Mega Tekerleme 100',
+    emoji: '🎵',
+    lyrics: `El çırp 100 kez, gülümse biraz,
+Birlikte sayalım, sonra bir nefes.
+Bugün ne öğrendik, söyle bakalım!`,
   }
 ]

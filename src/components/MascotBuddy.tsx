@@ -12,6 +12,8 @@ const LINES = [
   'Bir masal dinleyelim mi?',
   'Sürpriz çarkı seni bekliyor.',
   'Yeni bir sticker açabilirsin.',
+  'Canlı Arena’da saatlik görev var!',
+  'Gizemli kutu şarj olmuş olabilir…',
 ]
 
 export function MascotBuddy({ onNavigate }: MascotBuddyProps) {

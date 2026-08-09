@@ -2,6 +2,7 @@ import type { NavItem, PageId, PortalMode } from '../types/nav'
 
 export const KIDS_NAV: NavItem[] = [
   { id: 'portal', label: 'Portal', emoji: '🏛️', short: 'Portal', mode: 'kids' },
+  { id: 'live', label: 'Canlı Arena', emoji: '⚡', short: 'Canlı', mode: 'kids' },
   { id: 'quests', label: 'Görevler', emoji: '⭐', short: 'Görev', mode: 'kids' },
   { id: 'library', label: 'Kütüphane', emoji: '📚', short: 'Kütüphane', mode: 'kids' },
   { id: 'audio', label: 'Masallar', emoji: '🎧', short: 'Masal', mode: 'kids' },
@@ -13,6 +14,7 @@ export const KIDS_NAV: NavItem[] = [
 
 export const PARENT_NAV: NavItem[] = [
   { id: 'portal', label: 'Aile Paneli', emoji: '👨‍👩‍👧', short: 'Panel', mode: 'parent' },
+  { id: 'live', label: 'Canlı Ritim', emoji: '⚡', short: 'Canlı', mode: 'parent' },
   { id: 'parents', label: 'Aile Köşesi', emoji: '🏡', short: 'Aile', mode: 'parent' },
   { id: 'blog', label: 'Blog', emoji: '📝', short: 'Blog', mode: 'parent' },
   { id: 'paths', label: 'Öğrenme Yolları', emoji: '🛤️', short: 'Yollar', mode: 'parent' },

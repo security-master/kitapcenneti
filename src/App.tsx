@@ -29,6 +29,7 @@ import { DiscoverPage } from './pages/DiscoverPage'
 import { WorldPage } from './pages/WorldPage'
 import { ShopPage } from './pages/ShopPage'
 import { SearchPage } from './pages/SearchPage'
+import { LivePage } from './pages/LivePage'
 import { AboutPage, ContactPage, PrivacyPage, TermsPage } from './pages/LegalPages'
 import { ALL_PAGES, type PageId } from './types/nav'
 import { AdSlot } from './components/AdSlot'
@@ -93,6 +94,7 @@ export default function App() {
           {page === 'world' && <WorldPage onNavigate={navigate} />}
           {page === 'shop' && <ShopPage onNavigate={navigate} />}
           {page === 'search' && <SearchPage onNavigate={navigate} />}
+          {page === 'live' && <LivePage onNavigate={navigate} />}
           {page === 'about' && <AboutPage />}
           {page === 'privacy' && <PrivacyPage />}
           {page === 'terms' && <TermsPage />}

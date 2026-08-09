@@ -171,4 +171,5 @@ export const WHAT_NEXT: { emoji: string; title: string; page: string; blurb: str
   { emoji: '📚', title: 'Kütüphaneyi aç', page: 'library', blurb: 'Tüm içerikler bir arada' },
   { emoji: '🧭', title: 'Koleksiyon seç', page: 'discover', blurb: 'Hazır demetler seni bekliyor' },
   { emoji: '🛤️', title: 'Yoluna bak', page: 'paths', blurb: 'Yaşına özel program' },
+  { emoji: '⚡', title: 'Canlı Arena', page: 'live', blurb: 'Saatlik görev seni bekliyor' },
 ]

@@ -14,31 +14,40 @@ import { escapeHtml } from '../utils/escapeHtml'
 import { SocialShare } from '../components/SocialShare'
 import { ContentPortalBar } from '../components/ContentPortalBar'
 import { useContentItemId } from '../hooks/useContentItemId'
+import { dayKey, factoryStory, hashSeed } from '../engines/contentFactory'
 
 export function AudioStoriesPage() {
-  const [activeId, setActiveId] = useContentItemId('audio', AUDIO_STORIES[0].id)
+  const liveStories = useMemo(() => {
+    const base = hashSeed(dayKey(), 'audio-live')
+    return Array.from({ length: 48 }, (_, i) => factoryStory(hashSeed(base, i)))
+  }, [])
+
+  const library = useMemo(() => [...liveStories, ...AUDIO_STORIES], [liveStories])
+
+  const [activeId, setActiveId] = useContentItemId('audio', library[0].id)
   const [favorites, setFavorites] = useState(() => getFavoriteAudioIds())
   const [onlyFavs, setOnlyFavs] = useState(false)
   const [query, setQuery] = useState('')
   const [theme, setTheme] = useState('Tümü')
   const { bedtime, toggleBedtime } = useProgress()
-  const active = AUDIO_STORIES.find((s) => s.id === activeId) || AUDIO_STORIES[0]
+  const active = library.find((s) => s.id === activeId) || library[0]
   const { speaking, paused, speak, stop, togglePause, profile, setProfile } = useSpeech()
 
   const themes = useMemo(
-    () => ['Tümü', ...Array.from(new Set(AUDIO_STORIES.map((s) => s.theme)))],
+    () => ['Tümü', 'Canlı Düşüş', ...Array.from(new Set(AUDIO_STORIES.map((s) => s.theme)))],
     [],
   )
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return AUDIO_STORIES.filter((s) => {
+    return library.filter((s) => {
       if (onlyFavs && !favorites.includes(s.id)) return false
+      if (theme === 'Canlı Düşüş') return s.id.startsWith('live-story-')
       if (theme !== 'Tümü' && s.theme !== theme) return false
       if (!q) return true
       return `${s.title} ${s.summary} ${s.theme} ${s.age}`.toLowerCase().includes(q)
     })
-  }, [favorites, onlyFavs, query, theme])
+  }, [favorites, onlyFavs, query, theme, library])
 
   const startListen = () => {
     speak(active.text, bedtime ? 0.85 : 1)
@@ -50,7 +59,8 @@ export function AudioStoriesPage() {
       <header className="page-header">
         <h1>🎧 Sesli Masallar Portalı</h1>
         <p>
-          {AUDIO_STORIES.length} masal · tema ve yaşa göre keşfet, dinle, yazdır, tek tıkla paylaş.
+          {library.length}+ masal (statik + bugünün 48 canlı düşüşü) · her gün yeni · dinle, yazdır,
+          paylaş.
         </p>
       </header>
 

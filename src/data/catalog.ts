@@ -50,6 +50,7 @@ export const STATIC_PAGES: CatalogItem[] = [
   { id: 'p-calendar', kind: 'page', title: 'Haftalık Plan', emoji: '📅', description: '7 günlük aile planı', tags: ['plan', 'aile'], page: 'calendar' },
   { id: 'p-teachers', kind: 'page', title: 'Öğretmen Köşesi', emoji: '👩‍🏫', description: 'Sınıf etkinlikleri', tags: ['öğretmen', 'sınıf'], page: 'teachers' },
   { id: 'p-shop', kind: 'page', title: 'Ücretsiz Paketler', emoji: '🎁', description: 'İndirilebilir içerik paketleri', tags: ['pdf', 'indir'], page: 'shop' },
+  { id: 'p-live', kind: 'page', title: 'Canlı Arena', emoji: '⚡', description: 'Saatlik görevler, dilimler, gizemli kutu', tags: ['canlı', 'görev', 'saatlik'], page: 'live' },
 ]
 
 export function buildCatalog(): CatalogItem[] {

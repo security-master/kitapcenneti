@@ -404,6 +404,1006 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     question: 'Bitkiler büyümek için ne ister? (40)',
     options: ['Işık ve su', 'Sadece karanlık', 'Buz', 'Tuz'],
     answer: 0,
+  },
+  {
+    question: 'Mega quiz 82: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 83: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 84: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 85: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 86: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 87: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 88: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 89: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 90: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 91: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 92: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 93: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 94: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 95: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 96: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 97: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 98: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 99: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 100: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 101: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 102: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 103: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 104: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 105: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 106: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 107: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 108: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 109: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 110: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 111: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 112: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 113: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 114: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 115: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 116: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 117: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 118: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 119: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 120: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 121: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 122: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 123: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 124: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 125: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 126: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 127: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 128: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 129: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 130: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 131: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 132: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 133: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 134: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 135: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 136: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 137: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 138: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 139: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 140: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 141: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 142: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 143: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 144: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 145: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 146: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 147: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 148: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 149: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 150: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 151: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 152: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 153: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 154: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 155: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 156: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 157: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 158: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 159: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 160: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 161: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 162: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 163: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 164: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 165: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 166: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 167: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 168: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 169: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 170: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 171: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 172: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 173: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 174: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 175: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 176: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 177: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 178: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 179: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 180: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 181: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 182: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 183: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 184: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 185: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 186: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 187: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 188: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 189: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 190: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 191: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 192: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 193: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 194: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 195: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 196: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 197: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 198: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 199: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 200: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 201: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 202: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 203: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 204: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 205: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 206: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 207: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 208: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 209: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 210: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 211: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 212: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 213: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 214: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 215: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 216: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 217: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 218: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 219: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 220: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 221: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 222: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 223: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 224: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 225: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 226: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 227: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 228: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 229: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 230: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 231: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 232: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 233: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 234: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 235: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 236: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 237: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 238: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 239: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 240: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 241: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 242: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 243: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 244: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 245: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 246: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 247: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 248: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 249: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 250: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 251: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 252: 14 + 3 = ?',
+    options: ['16', '17', '19', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 253: 15 + 4 = ?',
+    options: ['18', '19', '21', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 254: 16 + 5 = ?',
+    options: ['20', '21', '23', '80'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 255: 2 + 6 = ?',
+    options: ['7', '8', '10', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 256: 3 + 7 = ?',
+    options: ['9', '10', '12', '21'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 257: 4 + 8 = ?',
+    options: ['11', '12', '14', '32'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 258: 5 + 9 = ?',
+    options: ['13', '14', '16', '45'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 259: 6 + 10 = ?',
+    options: ['15', '16', '18', '60'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 260: 7 + 1 = ?',
+    options: ['7', '8', '10', '7'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 261: 8 + 2 = ?',
+    options: ['9', '10', '12', '16'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 262: 9 + 3 = ?',
+    options: ['11', '12', '14', '27'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 263: 10 + 4 = ?',
+    options: ['13', '14', '16', '40'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 264: 11 + 5 = ?',
+    options: ['15', '16', '18', '55'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 265: 12 + 6 = ?',
+    options: ['17', '18', '20', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 266: 13 + 7 = ?',
+    options: ['19', '20', '22', '91'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 267: 14 + 8 = ?',
+    options: ['21', '22', '24', '112'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 268: 15 + 9 = ?',
+    options: ['23', '24', '26', '135'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 269: 16 + 10 = ?',
+    options: ['25', '26', '28', '160'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 270: 2 + 1 = ?',
+    options: ['2', '3', '5', '2'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 271: 3 + 2 = ?',
+    options: ['4', '5', '7', '6'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 272: 4 + 3 = ?',
+    options: ['6', '7', '9', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 273: 5 + 4 = ?',
+    options: ['8', '9', '11', '20'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 274: 6 + 5 = ?',
+    options: ['10', '11', '13', '30'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 275: 7 + 6 = ?',
+    options: ['12', '13', '15', '42'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 276: 8 + 7 = ?',
+    options: ['14', '15', '17', '56'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 277: 9 + 8 = ?',
+    options: ['16', '17', '19', '72'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 278: 10 + 9 = ?',
+    options: ['18', '19', '21', '90'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 279: 11 + 10 = ?',
+    options: ['20', '21', '23', '110'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 280: 12 + 1 = ?',
+    options: ['12', '13', '15', '12'],
+    answer: 1,
+  },
+  {
+    question: 'Mega quiz 281: 13 + 2 = ?',
+    options: ['14', '15', '17', '26'],
+    answer: 1,
   }
 ]
 
