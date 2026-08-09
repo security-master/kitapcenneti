@@ -34,8 +34,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <p className="home-hero__eyebrow">Bugün de maceradasın</p>
           <h1 className="home-hero__title">Kitap Cenneti</h1>
           <p className="home-hero__desc">
-            Çark çevir, oyun oyna, masal dinle, sticker topla — burası sıkılmak için değil,
-            keşfetmek için.
+            Masallar, oyunlar ve yaratıcı etkinlikler — ailece keşfedilecek, net ve davetkâr bir dünya.
           </p>
           <div className="home-hero__actions">
             <button className="btn btn--primary btn--pop" onClick={() => onNavigate('fun')}>
@@ -65,19 +64,23 @@ export function HomePage({ onNavigate }: HomePageProps) {
         >
           <div className="playground-stage">
             <button type="button" className="stage-bubble stage-bubble--a" onClick={() => onNavigate('audio')}>
-              🎧
+              <span aria-hidden="true">🎧</span>
+              <small>Masal</small>
             </button>
             <button type="button" className="stage-bubble stage-bubble--b" onClick={() => onNavigate('coloring')}>
-              🖍️
+              <span aria-hidden="true">🖍️</span>
+              <small>Boyama</small>
             </button>
             <button type="button" className="stage-bubble stage-bubble--c" onClick={() => onNavigate('fun')}>
-              🎡
+              <span aria-hidden="true">🎡</span>
+              <small>Eğlence</small>
             </button>
             <button type="button" className="stage-bubble stage-bubble--d" onClick={() => onNavigate('heroes')}>
-              🦸
+              <span aria-hidden="true">🦸</span>
+              <small>Kahraman</small>
             </button>
             <div className="stage-mascot" aria-hidden="true">🦊</div>
-            <p className="stage-caption">Tıkla, keşfet, oyna</p>
+            <p className="stage-caption">Bir yere dokun — keşfe çık</p>
           </div>
         </motion.div>
       </section>

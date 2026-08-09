@@ -7,11 +7,11 @@ interface MascotBuddyProps {
 }
 
 const LINES = [
-  'Bugün hangi maceraya?',
-  'Bir oyun oynasak mı?',
-  'Masal dinlemeye ne dersin?',
-  'Sürpriz çarkını çevir!',
-  'Bir sticker daha topla!',
+  'Bugün nereye bakalım?',
+  'Kısa bir oyun ister misin?',
+  'Bir masal dinleyelim mi?',
+  'Sürpriz çarkı seni bekliyor.',
+  'Yeni bir sticker açabilirsin.',
 ]
 
 export function MascotBuddy({ onNavigate }: MascotBuddyProps) {

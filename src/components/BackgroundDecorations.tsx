@@ -1,4 +1,4 @@
-const DECORATIONS = ['⭐', '🍋', '🦋', '🎈', '🌸', '🪁', '✨', '🌈', '🎪', '🦊', '🎯', '🎨']
+const DECORATIONS = ['✦', '·', '○', '✧', '◦', '✧', '·', '○', '✦', '✧', '◦', '·']
 
 export function BackgroundDecorations() {
   return (
