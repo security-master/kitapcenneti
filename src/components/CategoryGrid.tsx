@@ -2,12 +2,32 @@ import type { StoryCategory } from '../types'
 import { CATEGORIES, getCategoryInfo } from '../data/prompts'
 
 interface CategoryGridProps {
-  selected: StoryCategory
+  selected: StoryCategory | null
   onSelect: (category: StoryCategory) => void
+  /** Compact: only selected category + change button */
+  compact?: boolean
+  onChangeRequest?: () => void
 }
 
-export function CategoryGrid({ selected, onSelect }: CategoryGridProps) {
-  const selectedInfo = getCategoryInfo(selected)
+export function CategoryGrid({ selected, onSelect, compact = false, onChangeRequest }: CategoryGridProps) {
+  const selectedInfo = selected ? getCategoryInfo(selected) : null
+
+  if (compact && selectedInfo) {
+    return (
+      <section className="section category-compact" id="create-step-category">
+        <div className="category-compact__bar" style={{ background: selectedInfo.gradient }}>
+          <span className="category-compact__emoji" aria-hidden="true">{selectedInfo.emoji}</span>
+          <div className="category-compact__text">
+            <small>Seçili kategori</small>
+            <strong>{selectedInfo.title}</strong>
+          </div>
+          <button type="button" className="category-compact__change" onClick={onChangeRequest}>
+            Değiştir
+          </button>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="section" id="create-step-category">
@@ -15,18 +35,7 @@ export function CategoryGrid({ selected, onSelect }: CategoryGridProps) {
         <span className="section__title-emoji">🎨</span>
         1. Kategori Seç
       </h2>
-      <p className="section-hint">Bir karta dokun — seçimin sarı çerçeve ve ✓ ile görünür, sonra alta kayarız.</p>
-
-      {selectedInfo && (
-        <div className="category-selected-banner" style={{ background: selectedInfo.gradient }}>
-          <span>{selectedInfo.emoji}</span>
-          <div>
-            <strong>Seçili: {selectedInfo.title}</strong>
-            <small>{selectedInfo.description}</small>
-          </div>
-          <em>✓ Hazır</em>
-        </div>
-      )}
+      <p className="section-hint">Bir karta dokun — hemen sonraki adıma geçersin.</p>
 
       <div className="category-grid">
         {CATEGORIES.map((cat) => {
@@ -41,7 +50,7 @@ export function CategoryGrid({ selected, onSelect }: CategoryGridProps) {
               aria-pressed={isSelected}
             >
               {cat.featured && <span className="category-card__featured-badge">⭐ Özel</span>}
-              {isSelected && <span className="category-card__check">✓ Seçildi</span>}
+              {isSelected && <span className="category-card__check">✓</span>}
               <span className="category-card__bg-emoji" aria-hidden="true">{cat.emoji}</span>
               <span className="category-card__emoji">{cat.emoji}</span>
               <h3 className="category-card__title">{cat.title}</h3>
@@ -54,9 +63,8 @@ export function CategoryGrid({ selected, onSelect }: CategoryGridProps) {
   )
 }
 
-/** Scroll helper used by CreateStoryPage */
-export function scrollToCreateStep(id: string) {
+export function scrollToCreateTop() {
   requestAnimationFrame(() => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById('create-wizard')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   })
 }
