@@ -1,0 +1,1 @@
+const e="kitapcenneti-premium-voice";function t(){return localStorage.getItem(e)==="1"}function n(){localStorage.setItem(e,"1"),window.dispatchEvent(new CustomEvent("kitapcenneti-portal"))}const o="CENNETI2026";export{o as P,t as h,n as u};
