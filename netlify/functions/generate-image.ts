@@ -8,22 +8,27 @@ const CORS_HEADERS = {
 }
 
 function buildPollinationsUrl(prompt: string, seed: number): string {
-  const shortPrompt = prompt.slice(0, 150)
+  const shortPrompt = prompt.slice(0, 180)
   const encoded = encodeURIComponent(shortPrompt)
-  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+  return (
+    `https://image.pollinations.ai/prompt/${encoded}` +
+    `?width=1024&height=768&nologo=true&safe=true&seed=${seed}&model=flux`
+  )
 }
 
 async function fetchImage(url: string, retries = 3): Promise<{ base64: string; contentType: string } | null> {
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
       const res = await fetch(url, {
-        headers: { 'User-Agent': 'KitapCenneti/1.0' },
+        headers: { 'User-Agent': 'KitapCenneti/1.0', Accept: 'image/*' },
       })
       if (res.ok) {
         const buffer = await res.arrayBuffer()
-        const contentType = res.headers.get('content-type') || 'image/jpeg'
-        const base64 = Buffer.from(buffer).toString('base64')
-        return { base64, contentType }
+        const contentType = res.headers.get('content-type') || ''
+        if (contentType.startsWith('image/') && buffer.byteLength >= 8000) {
+          const base64 = Buffer.from(buffer).toString('base64')
+          return { base64, contentType }
+        }
       }
     } catch {
       // retry
@@ -49,20 +54,21 @@ export const handler: Handler = async (event) => {
       return { statusCode: 400, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Prompt required' }) }
     }
 
-    const url = buildPollinationsUrl(prompt, seed)
-    const result = await fetchImage(url)
-
-    if (!result) {
-      return { statusCode: 502, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Image generation failed' }) }
+    // Retry with alternate seeds if a payload looks invalid
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const url = buildPollinationsUrl(prompt, seed + attempt * 17)
+      const result = await fetchImage(url, 1)
+      if (result) {
+        const imageUrl = `data:${result.contentType};base64,${result.base64}`
+        return {
+          statusCode: 200,
+          headers: CORS_HEADERS,
+          body: JSON.stringify({ imageUrl }),
+        }
+      }
     }
 
-    const imageUrl = `data:${result.contentType};base64,${result.base64}`
-
-    return {
-      statusCode: 200,
-      headers: CORS_HEADERS,
-      body: JSON.stringify({ imageUrl }),
-    }
+    return { statusCode: 502, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Image generation failed' }) }
   } catch (error) {
     console.error('Image generation error:', error)
     return {

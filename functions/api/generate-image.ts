@@ -6,9 +6,12 @@ const cors = {
 }
 
 function buildPollinationsUrl(prompt: string, seed: number): string {
-  const shortPrompt = prompt.slice(0, 150)
+  const shortPrompt = prompt.slice(0, 180)
   const encoded = encodeURIComponent(shortPrompt)
-  return `https://image.pollinations.ai/prompt/${encoded}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+  return (
+    `https://image.pollinations.ai/prompt/${encoded}` +
+    `?width=1024&height=768&nologo=true&safe=true&seed=${seed}&model=flux`
+  )
 }
 
 export const onRequestOptions = async () =>
@@ -28,27 +31,32 @@ export const onRequestPost = async (context: { request: Request }) => {
       })
     }
 
-    const url = buildPollinationsUrl(prompt, seed)
     let lastError = 'unknown'
 
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
+        const url = buildPollinationsUrl(prompt, seed + attempt * 17)
         const res = await fetch(url, {
-          headers: { 'User-Agent': 'KitapCenneti/1.0' },
+          headers: { 'User-Agent': 'KitapCenneti/1.0', Accept: 'image/*' },
         })
         if (res.ok) {
           const buffer = await res.arrayBuffer()
-          const contentType = res.headers.get('content-type') || 'image/jpeg'
-          const bytes = new Uint8Array(buffer)
-          let binary = ''
-          for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i])
-          const base64 = btoa(binary)
-          return new Response(
-            JSON.stringify({ imageUrl: `data:${contentType};base64,${base64}` }),
-            { status: 200, headers: cors },
-          )
+          const contentType = res.headers.get('content-type') || ''
+          if (!contentType.startsWith('image/') || buffer.byteLength < 8000) {
+            lastError = `invalid payload (${contentType}, ${buffer.byteLength}b)`
+          } else {
+            const bytes = new Uint8Array(buffer)
+            let binary = ''
+            for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i])
+            const base64 = btoa(binary)
+            return new Response(
+              JSON.stringify({ imageUrl: `data:${contentType};base64,${base64}` }),
+              { status: 200, headers: cors },
+            )
+          }
+        } else {
+          lastError = `HTTP ${res.status}`
         }
-        lastError = `HTTP ${res.status}`
       } catch (e) {
         lastError = String(e)
       }

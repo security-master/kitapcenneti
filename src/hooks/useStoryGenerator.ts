@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import type { Story, StoryRequest } from '../types'
 import { generateFallbackStory } from '../utils/fallbackStory'
 import { buildShortImagePrompt } from '../utils/imagePrompt'
-import { buildDirectPollinationsUrl, callApi } from '../utils/api'
+import { buildDirectPollinationsUrl, callApi, fetchPollinationsImage } from '../utils/api'
 
 interface GenerationState {
   isGenerating: boolean
@@ -15,18 +15,33 @@ async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+function isUsableDataUrl(url?: string): boolean {
+  return !!url && url.startsWith('data:image/') && url.length > 12_000
+}
+
 async function generateImage(
   scene: string,
   request: StoryRequest,
   pageIndex: number,
 ): Promise<string> {
-  const prompt = buildShortImagePrompt(scene, request.heroName, request.artStyle)
+  const prompt = buildShortImagePrompt(
+    scene,
+    request.heroName,
+    request.artStyle,
+    request.category,
+  )
   const seed = pageIndex * 42 + 7
 
+  // 1) Hosting function (CF/Netlify) → base64
   const data = await callApi<{ imageUrl?: string }>('generate-image', { prompt, seed })
-  if (data?.imageUrl) return data.imageUrl
+  if (isUsableDataUrl(data?.imageUrl)) return data!.imageUrl!
 
-  return buildDirectPollinationsUrl(prompt, seed)
+  // 2) Client-side fetch + validate (GitHub Pages path)
+  const fetched = await fetchPollinationsImage(prompt, seed, 3)
+  if (fetched) return fetched
+
+  // 3) Last resort: direct URL (browser may still render it)
+  return buildDirectPollinationsUrl(prompt, seed + 99)
 }
 
 export function useStoryGenerator() {
@@ -62,9 +77,16 @@ export function useStoryGenerator() {
       })
 
       const imageUrl = await generateImage(page.imagePrompt, request, i)
-      pagesWithImages[i] = { ...page, imageUrl }
+      // Keep a clean English prompt on the page for retries / regenerate
+      const imagePrompt = buildShortImagePrompt(
+        page.imagePrompt,
+        request.heroName,
+        request.artStyle,
+        request.category,
+      )
+      pagesWithImages[i] = { ...page, imageUrl, imagePrompt }
 
-      if (i < totalPages - 1) await delay(2500)
+      if (i < totalPages - 1) await delay(2800)
     }
 
     const finalStory: Story = { ...generatedStory, pages: pagesWithImages }

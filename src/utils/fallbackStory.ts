@@ -1,8 +1,19 @@
 import type { Story, StoryRequest } from '../types'
 
-const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: string[] }> = {
+type Theme = {
+  setting: string
+  emoji: string
+  /** Turkish scene phrases for story text */
+  scenes: string[]
+  /** English scene phrases for image models */
+  imageScenes: string[]
+  imageSetting: string
+}
+
+const CATEGORY_THEMES: Record<string, Theme> = {
   personalized: {
     setting: 'sihirli bir dünya',
+    imageSetting: 'a magical adventure world',
     emoji: '🦸',
     scenes: [
       'parlayan bir kapıyı keşfetmek',
@@ -14,9 +25,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'büyük bir sırrı çözmek',
       'mutlu bir dönüş yapmak',
     ],
+    imageScenes: [
+      'discovering a glowing magical door',
+      'meeting talking animals',
+      'finding a secret treasure map',
+      'flying above soft clouds',
+      'searching for a magical treasure',
+      'making new friends',
+      'solving a big mystery',
+      'returning home happily',
+    ],
   },
   adventure: {
     setting: 'büyülü orman',
+    imageSetting: 'an enchanted forest',
     emoji: '🗺️',
     scenes: [
       'eski bir harita bulmak',
@@ -28,9 +50,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'hazine sandığını açmak',
       'kahramanca eve dönmek',
     ],
+    imageScenes: [
+      'finding an old adventure map',
+      'meeting talking trees',
+      'entering a secret cave',
+      'crossing a rainbow bridge',
+      'picking a magical flower',
+      'finding the lost path home',
+      'opening a treasure chest',
+      'returning home as a hero',
+    ],
   },
   animals: {
     setting: 'sevimli hayvanların ormanı',
+    imageSetting: 'a sunny forest of cute animals',
     emoji: '🐻',
     scenes: [
       'tavşanla tanışmak',
@@ -42,9 +75,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'hep birlikte dans etmek',
       'güzel bir veda partisi',
     ],
+    imageScenes: [
+      'meeting a friendly rabbit',
+      'having a picnic in the forest',
+      'singing with colorful birds',
+      'fishing with a friendly bear',
+      'playing hide and seek with a fox',
+      'watching stars at night',
+      'dancing happily together',
+      'a joyful farewell party',
+    ],
   },
   space: {
     setting: 'yıldızlar arası',
+    imageSetting: 'colorful outer space',
     emoji: '🚀',
     scenes: [
       'roketle fırlamak',
@@ -56,9 +100,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'galaksi haritası çizmek',
       'Dünya\'ya mutlu dönüş',
     ],
+    imageScenes: [
+      'launching in a colorful rocket',
+      'walking on the moon',
+      'meeting friendly aliens',
+      'watching a sparkling comet',
+      'exploring Mars',
+      'collecting stardust',
+      'drawing a galaxy map',
+      'returning happily to Earth',
+    ],
   },
   underwater: {
     setting: 'renkli deniz altı',
+    imageSetting: 'a bright underwater coral reef',
     emoji: '🐠',
     scenes: [
       'deniz kızı ile tanışmak',
@@ -70,9 +125,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'deniz yıldızı toplamak',
       'yüzeye çıkıp güneşi selamlamak',
     ],
+    imageScenes: [
+      'meeting a friendly mermaid',
+      'exploring coral reefs',
+      'swimming with dolphins',
+      'finding a treasure chest underwater',
+      'visiting an octopus art gallery',
+      'dancing with a school of fish',
+      'collecting starfish',
+      'surfacing and greeting the sun',
+    ],
   },
   fairy: {
     setting: 'peri krallığı',
+    imageSetting: 'a fairy tale castle kingdom',
     emoji: '🧚',
     scenes: [
       'peri tozu bulmak',
@@ -84,9 +150,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'kayıp tacı bulmak',
       'mutlu son yaşamak',
     ],
+    imageScenes: [
+      'finding sparkling fairy dust',
+      'learning to use a magic wand',
+      'seeing a castle in the clouds',
+      'making peace with a friendly dragon',
+      'walking in a magical flower garden',
+      'joining a fairy ball',
+      'finding a lost crown',
+      'celebrating a happy ending',
+    ],
   },
   dinosaurs: {
     setting: 'dinozor vadisi',
+    imageSetting: 'a friendly dinosaur valley',
     emoji: '🦕',
     scenes: [
       'dinozor yavrusu ile tanışmak',
@@ -98,9 +175,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'uçan dinozor görmek',
       'güvenli mağarada uyumak',
     ],
+    imageScenes: [
+      'meeting a baby dinosaur',
+      'collecting giant leaves',
+      'exploring a gentle volcano',
+      'becoming friends with a T-Rex',
+      'hunting for fossils',
+      'having a dinosaur picnic',
+      'seeing a flying dinosaur',
+      'sleeping safely in a cave',
+    ],
   },
   superhero: {
     setting: 'süper kahraman şehri',
+    imageSetting: 'a cheerful superhero city',
     emoji: '⚡',
     scenes: [
       'süper gücünü keşfetmek',
@@ -112,9 +200,20 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'medal almak',
       'kahraman olarak kutlanmak',
     ],
+    imageScenes: [
+      'discovering a colorful superpower',
+      'running to help others',
+      'stopping a storm with kindness',
+      'finding hero teammates',
+      'entering a secret hero base',
+      'saving the cheerful city',
+      'receiving a shiny medal',
+      'being celebrated as a hero',
+    ],
   },
   custom: {
     setting: 'hayal dünyası',
+    imageSetting: 'a whimsical world of imagination',
     emoji: '✨',
     scenes: [
       'maceraya başlamak',
@@ -125,6 +224,16 @@ const CATEGORY_THEMES: Record<string, { setting: string; emoji: string; scenes: 
       'yardımlaşmak',
       'başarıya ulaşmak',
       'mutlu son',
+    ],
+    imageScenes: [
+      'starting a big adventure',
+      'meeting an interesting character',
+      'facing a big challenge',
+      'finding a clever solution',
+      'making a surprise discovery',
+      'helping each other',
+      'reaching success together',
+      'happy ending celebration',
     ],
   },
 }
@@ -177,13 +286,16 @@ export function generateFallbackStory(request: StoryRequest): Story {
       ? request.prompt.slice(0, 40) + (request.prompt.length > 40 ? '...' : '')
       : `${theme.emoji} Sihirli Bir Masal`
 
-  const pages = texts.map((text, i) => ({
-    pageNumber: i + 1,
-    text,
-    imagePrompt: heroName
-      ? `A cheerful child hero named ${heroName}, ${theme.scenes[i % theme.scenes.length]}, ${theme.setting}, children's book illustration`
-      : `Children's storybook scene: ${theme.scenes[i % theme.scenes.length]}, ${theme.setting}, magical and colorful`,
-  }))
+  const pages = texts.map((text, i) => {
+    const scene = theme.imageScenes[i % theme.imageScenes.length]
+    return {
+      pageNumber: i + 1,
+      text,
+      imagePrompt: heroName
+        ? `${scene}, ${theme.imageSetting}, cheerful child hero`
+        : `${scene}, ${theme.imageSetting}, cute children, magical and colorful`,
+    }
+  })
 
   return {
     title,

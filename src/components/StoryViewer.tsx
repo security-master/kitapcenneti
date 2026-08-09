@@ -132,21 +132,36 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
                     const img = e.currentTarget
                     if (img.dataset.retried) return
                     img.dataset.retried = '1'
-                    const shortPrompt = page.imagePrompt.slice(0, 120)
-                    const seed = page.pageNumber * 99
+                    const seed = page.pageNumber * 99 + (Date.now() % 1000)
+                    let prompt = page.imagePrompt.slice(0, 160)
                     try {
-                      const { callApi, buildDirectPollinationsUrl } = await import('../utils/api')
+                      const { buildShortImagePrompt } = await import('../utils/imagePrompt')
+                      const { callApi, buildDirectPollinationsUrl, fetchPollinationsImage } =
+                        await import('../utils/api')
+                      prompt = buildShortImagePrompt(
+                        page.imagePrompt,
+                        story.heroName,
+                        story.artStyle,
+                        story.category,
+                      )
                       const data = await callApi<{ imageUrl?: string }>('generate-image', {
-                        prompt: shortPrompt,
+                        prompt,
                         seed,
                       })
-                      if (data?.imageUrl) {
+                      if (data?.imageUrl?.startsWith('data:image/')) {
                         img.src = data.imageUrl
                         return
                       }
-                      img.src = buildDirectPollinationsUrl(shortPrompt, seed)
+                      const fetched = await fetchPollinationsImage(prompt, seed, 2)
+                      if (fetched) {
+                        img.src = fetched
+                        return
+                      }
+                      img.src = buildDirectPollinationsUrl(prompt, seed)
                     } catch {
-                      img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(shortPrompt)}?width=768&height=576&nologo=true&seed=${seed}&model=flux`
+                      img.src =
+                        `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}` +
+                        `?width=1024&height=768&nologo=true&safe=true&seed=${seed}&model=flux`
                     }
                   }}
                 />
