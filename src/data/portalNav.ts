@@ -6,6 +6,7 @@ export const KIDS_NAV: NavItem[] = [
   { id: 'quests', label: 'Görevler', emoji: '⭐', short: 'Görev', mode: 'kids' },
   { id: 'library', label: 'Kütüphane', emoji: '📚', short: 'Kütüphane', mode: 'kids' },
   { id: 'audio', label: 'Masallar', emoji: '🎧', short: 'Masal', mode: 'kids' },
+  { id: 'playground', label: 'Arena', emoji: '🕹️', short: 'Arena', mode: 'kids' },
   { id: 'activities', label: 'Oyunlar', emoji: '🎮', short: 'Oyun', mode: 'kids' },
   { id: 'fun', label: 'Eğlence', emoji: '🎡', short: 'Eğlence', mode: 'kids' },
   { id: 'create', label: 'AI Hikaye', emoji: '✨', short: 'AI', mode: 'kids' },
@@ -37,6 +38,7 @@ export const SIDEBAR_EXTRA: { id: PageId; label: string; emoji: string }[] = [
   { id: 'discover', label: 'Koleksiyonlar', emoji: '🧭' },
   { id: 'profile', label: 'Profilim', emoji: '🧒' },
   { id: 'challenge', label: 'Meydan Okuma', emoji: '🤝' },
+  { id: 'playground', label: 'Etkileşim Arenası', emoji: '🕹️' },
   { id: 'classroom', label: 'Sınıf Merkezi', emoji: '🏫' },
   { id: 'search', label: 'Ara', emoji: '🔎' },
 ]

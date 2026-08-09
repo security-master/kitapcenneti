@@ -28,6 +28,7 @@ export type PageId =
   | 'live'
   | 'classroom'
   | 'challenge'
+  | 'playground'
   | 'about'
   | 'privacy'
   | 'terms'
@@ -47,6 +48,6 @@ export const ALL_PAGES: PageId[] = [
   'home', 'portal', 'quests', 'create', 'audio', 'coloring', 'heroes', 'activities', 'fun',
   'rhymes', 'stem', 'feelings', 'blog', 'printables', 'certificates', 'parents',
   'library', 'paths', 'journal', 'calendar', 'teachers', 'profile', 'discover', 'world', 'shop', 'search',
-  'live', 'classroom', 'challenge',
+  'live', 'classroom', 'challenge', 'playground',
   'about', 'privacy', 'terms', 'contact',
 ]

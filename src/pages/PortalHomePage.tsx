@@ -18,6 +18,7 @@ import { WeeklySummary } from '../components/WeeklySummary'
 import { InstallPrompt } from '../components/InstallPrompt'
 import { ReminderPanel } from '../components/ReminderPanel'
 import { FamilyLockModal } from '../components/FamilyLockModal'
+import { PetCare } from '../components/PetCare'
 
 interface Props {
   onNavigate: (page: PageId) => void
@@ -149,6 +150,10 @@ export function PortalHomePage({ onNavigate }: Props) {
       <InstallPrompt />
       <SmartPicks ageGroup={profile.ageGroup} interests={profile.interests} onNavigate={onNavigate} />
       <LivePulse onNavigate={onNavigate} />
+      <section className="section">
+        <h2 className="section__title">Portal dostun</h2>
+        <PetCare />
+      </section>
       <ProgressHub onNavigate={onNavigate} />
 
       <section className="section">
@@ -162,6 +167,15 @@ export function PortalHomePage({ onNavigate }: Props) {
             <span>⚡</span>
             <h2>Canlı Arena</h2>
             <p>Saatlik görev · gizemli kutu · düşüşler</p>
+          </button>
+          <button
+            type="button"
+            className="portal-dash-card portal-dash-card--accent"
+            onClick={() => onNavigate('playground')}
+          >
+            <span>🕹️</span>
+            <h2>Etkileşim Arenası</h2>
+            <p>Ritim · macera · dost · hazine</p>
           </button>
           <button
             type="button"

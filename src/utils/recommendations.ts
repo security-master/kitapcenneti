@@ -13,17 +13,17 @@ export interface SmartPick {
 }
 
 const MOOD_PAGES: Record<MoodId, PageId[]> = {
-  mutlu: ['fun', 'rhymes', 'activities'],
+  mutlu: ['fun', 'playground', 'activities'],
   sakin: ['audio', 'feelings', 'coloring'],
-  meraklı: ['stem', 'world', 'library'],
+  meraklı: ['stem', 'world', 'playground'],
   yorgun: ['audio', 'feelings', 'rhymes'],
   cesur: ['heroes', 'create', 'live'],
 }
 
 const AGE_BIAS: Record<AgeGroup, PageId[]> = {
-  '3-5': ['audio', 'coloring', 'rhymes', 'fun'],
-  '6-8': ['activities', 'heroes', 'stem', 'live'],
-  '9-12': ['create', 'stem', 'world', 'quests'],
+  '3-5': ['audio', 'coloring', 'playground', 'fun'],
+  '6-8': ['activities', 'playground', 'stem', 'live'],
+  '9-12': ['create', 'stem', 'world', 'playground'],
 }
 
 export function editorPicks(d = new Date()): SmartPick[] {

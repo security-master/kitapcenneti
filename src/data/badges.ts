@@ -18,6 +18,14 @@ export type ActivityKind =
   | 'speed'
   | 'doodle'
   | 'sticker'
+  | 'explore'
+  | 'calm'
+  | 'pet'
+  | 'rhythm'
+  | 'bubble'
+  | 'pattern'
+  | 'adventure'
+  | 'hunt'
 
 export interface Badge {
   id: string
@@ -137,6 +145,46 @@ export const BADGES: Badge[] = [
     title: 'Kelime Sihirbazı',
     description: 'Kelime karıştırmayı çözdün.',
     requireActivity: 'scramble',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'explorer',
+    emoji: '🗺️',
+    title: 'Dünya Gezgini',
+    description: '3 bölge keşfettin.',
+    requireActivity: 'explore',
+    requireActivityCount: 3,
+  },
+  {
+    id: 'zen',
+    emoji: '🌬️',
+    title: 'Nefes Ustası',
+    description: 'Sakinleşme nefes oyununu bitirdin.',
+    requireActivity: 'calm',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'pet-friend',
+    emoji: '🐾',
+    title: 'Dost Bakıcısı',
+    description: 'Portal dostunu besledin veya oynattın.',
+    requireActivity: 'pet',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'rhythm-star',
+    emoji: '🥁',
+    title: 'Ritim Yıldızı',
+    description: 'Ritim oyununu tamamladın.',
+    requireActivity: 'rhythm',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'adventurer',
+    emoji: '📖',
+    title: 'Seçimli Macera',
+    description: 'Bir etkileşimli hikâyeyi bitirdin.',
+    requireActivity: 'adventure',
     requireActivityCount: 1,
   },
 ]

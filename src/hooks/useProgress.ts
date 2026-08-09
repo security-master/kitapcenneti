@@ -101,7 +101,23 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
     }
   } else if (
     firstToday &&
-    ['bedtime', 'favorite', 'spin', 'scramble', 'speed', 'doodle', 'sticker'].includes(kind)
+    [
+      'bedtime',
+      'favorite',
+      'spin',
+      'scramble',
+      'speed',
+      'doodle',
+      'sticker',
+      'explore',
+      'calm',
+      'pet',
+      'rhythm',
+      'bubble',
+      'pattern',
+      'adventure',
+      'hunt',
+    ].includes(kind)
   ) {
     // Tiny reward for platform habits when not mapped to a quest
     stars += 1

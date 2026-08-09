@@ -14,6 +14,9 @@ const LINES = [
   'Yeni bir sticker açabilirsin.',
   'Canlı Arena’da saatlik görev var!',
   'Gizemli kutu şarj olmuş olabilir…',
+  'Portal dostun karnı acıkmış olabilir!',
+  'Etkileşim Arenası’nda ritim dansı var!',
+  'Haritada açılmamış bir hazine olabilir…',
 ]
 
 export function MascotBuddy({ onNavigate }: MascotBuddyProps) {

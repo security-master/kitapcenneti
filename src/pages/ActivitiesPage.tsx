@@ -6,7 +6,7 @@ import { completeActivity } from '../hooks/useProgress'
 import { ConfettiBurst } from '../components/ConfettiBurst'
 import { SocialShare } from '../components/SocialShare'
 
-type Mode = 'menu' | 'memory' | 'quiz' | 'scramble' | 'speed'
+type Mode = 'menu' | 'memory' | 'quiz' | 'scramble' | 'speed' | 'pattern' | 'bubbles'
 
 const SCRAMBLE_BANK =
   SCRAMBLE_WORDS.length > 0
@@ -29,7 +29,7 @@ export function ActivitiesPage() {
     <div className="page">
       <header className="page-header">
         <h1>🎮 Oyun Salonu</h1>
-        <p>Hafıza, quiz, kelime karıştırma ve hızlı yakalama — sıkılmaya fırsat yok!</p>
+        <p>6 oyun: hafıza, quiz, kelime, yakalama, desen ve baloncuk — sıkılmaya fırsat yok!</p>
       </header>
 
       {mode === 'menu' && (
@@ -55,11 +55,21 @@ export function ActivitiesPage() {
               <h2>Hızlı Yakalama</h2>
               <p>Doğru emojilere tıkla, skor kır!</p>
             </button>
+            <button className="panel activity-tile" onClick={() => setMode('pattern')}>
+              <span>🔆</span>
+              <h2>Desen Tekrar</h2>
+              <p>Işık sırasını ezberle.</p>
+            </button>
+            <button className="panel activity-tile" onClick={() => setMode('bubbles')}>
+              <span>🫧</span>
+              <h2>Sayı Baloncukları</h2>
+              <p>Hedef sayıyı patlat.</p>
+            </button>
           </div>
           <SocialShare
             payload={{
               title: '🎮 Oyun Salonu',
-              text: 'Hafıza, quiz, kelime karıştırma ve hızlı yakalama — Kitap Cenneti oyunları!',
+              text: 'Hafıza, quiz, kelime, yakalama, desen ve baloncuk — Kitap Cenneti oyunları!',
               page: 'activities',
               hashtags: ['KitapCenneti', 'Oyun', 'Cocuk'],
             }}
@@ -71,6 +81,8 @@ export function ActivitiesPage() {
       {mode === 'quiz' && <QuizGame onBack={() => setMode('menu')} />}
       {mode === 'scramble' && <ScrambleGame onBack={() => setMode('menu')} />}
       {mode === 'speed' && <SpeedGame onBack={() => setMode('menu')} />}
+      {mode === 'pattern' && <MiniPattern onBack={() => setMode('menu')} />}
+      {mode === 'bubbles' && <MiniBubbles onBack={() => setMode('menu')} />}
     </div>
   )
 }
@@ -375,4 +387,133 @@ function spawn(target: string) {
     id: `${Date.now()}-${i}-${Math.random()}`,
     emoji: Math.random() > 0.55 ? target : SPEED_EMOJIS[Math.floor(Math.random() * SPEED_EMOJIS.length)],
   }))
+}
+
+function MiniPattern({ onBack }: { onBack: () => void }) {
+  const colors = ['#e74c3c', '#2a9d8f', '#f4a261', '#4cc9f0']
+  const [seq, setSeq] = useState<number[]>([])
+  const [input, setInput] = useState<number[]>([])
+  const [flash, setFlash] = useState<number | null>(null)
+  const [phase, setPhase] = useState<'idle' | 'watch' | 'play' | 'win'>('idle')
+  const [confetti, setConfetti] = useState(false)
+
+  const playSeq = async (s: number[]) => {
+    setPhase('watch')
+    for (const n of s) {
+      setFlash(n)
+      await new Promise((r) => setTimeout(r, 420))
+      setFlash(null)
+      await new Promise((r) => setTimeout(r, 160))
+    }
+    setPhase('play')
+    setInput([])
+  }
+
+  return (
+    <div className="panel">
+      <ConfettiBurst active={confetti} onDone={() => setConfetti(false)} />
+      <button type="button" className="btn btn--ghost" onClick={onBack}>
+        ← Menü
+      </button>
+      <h2>🔆 Desen Tekrar</h2>
+      <p>{phase === 'watch' ? 'İzle…' : phase === 'win' ? 'Harika!' : phase === 'play' ? 'Tekrarla' : 'Başla'}</p>
+      <div className="pattern-grid">
+        {colors.map((c, i) => (
+          <button
+            key={c}
+            type="button"
+            className={`pattern-cell ${flash === i ? 'is-flash' : ''}`}
+            style={{ background: c }}
+            onClick={() => {
+              if (phase !== 'play') return
+              const next = [...input, i]
+              setInput(next)
+              if (seq[next.length - 1] !== i) {
+                void playSeq(seq)
+                return
+              }
+              if (next.length === seq.length) {
+                if (seq.length >= 4) {
+                  setPhase('win')
+                  setConfetti(true)
+                  announceActivityResult(completeActivity('pattern'))
+                  return
+                }
+                const grown = [...seq, Math.floor(Math.random() * 4)]
+                setSeq(grown)
+                window.setTimeout(() => void playSeq(grown), 400)
+              }
+            }}
+          />
+        ))}
+      </div>
+      <button
+        type="button"
+        className="btn btn--primary"
+        onClick={() => {
+          const s = [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)]
+          setSeq(s)
+          setConfetti(false)
+          void playSeq(s)
+        }}
+      >
+        Başlat
+      </button>
+    </div>
+  )
+}
+
+function MiniBubbles({ onBack }: { onBack: () => void }) {
+  const target = useMemo(() => 2 + Math.floor(Math.random() * 7), [])
+  const bubbles = useMemo(
+    () =>
+      Array.from({ length: 12 }, (_, i) => ({
+        id: i,
+        n: 1 + ((i * 5 + target) % 8),
+        x: 10 + ((i * 19) % 75),
+        y: 12 + ((i * 21) % 65),
+      })),
+    [target],
+  )
+  const [popped, setPopped] = useState<number[]>([])
+  const [confetti, setConfetti] = useState(false)
+  const need = bubbles.filter((b) => b.n === target).length
+  const got = popped.filter((id) => bubbles.find((b) => b.id === id)?.n === target).length
+
+  useEffect(() => {
+    if (got >= need && need > 0 && !confetti) {
+      setConfetti(true)
+      announceActivityResult(completeActivity('bubble'))
+    }
+  }, [got, need, confetti])
+
+  return (
+    <div className="panel">
+      <ConfettiBurst active={confetti} onDone={() => setConfetti(false)} />
+      <button type="button" className="btn btn--ghost" onClick={onBack}>
+        ← Menü
+      </button>
+      <h2>🫧 Sayı Baloncukları</h2>
+      <p>
+        Sadece <strong>{target}</strong> ({got}/{need})
+      </p>
+      <div className="bubble-stage bubble-stage--compact">
+        {bubbles.map((b) =>
+          popped.includes(b.id) ? null : (
+            <button
+              key={b.id}
+              type="button"
+              className={`bubble ${b.n === target ? '' : 'bubble--muted'}`}
+              style={{ left: `${b.x}%`, top: `${b.y}%` }}
+              onClick={() => {
+                if (b.n === target) setPopped((p) => [...p, b.id])
+              }}
+            >
+              {b.n}
+            </button>
+          ),
+        )}
+      </div>
+    </div>
+  )
 }

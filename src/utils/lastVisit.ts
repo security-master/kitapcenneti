@@ -26,6 +26,7 @@ const LABELS: Partial<Record<PageId, string>> = {
   paths: 'Öğrenme yolu',
   classroom: 'Sınıf',
   challenge: 'Meydan okuma',
+  playground: 'Etkileşim arenası',
 }
 
 export function recordLastVisit(page: PageId, itemId?: string) {

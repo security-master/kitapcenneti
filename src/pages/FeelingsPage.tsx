@@ -5,6 +5,22 @@ import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
 import { SocialShare } from '../components/SocialShare'
 import { useContentItemId } from '../hooks/useContentItemId'
+import { BreathGame } from '../components/BreathGame'
+import { setMood, type MoodId } from '../utils/lastVisit'
+
+const FEEL_TO_MOOD: Record<string, MoodId> = {
+  happy: 'mutlu',
+  calm: 'sakin',
+  peaceful: 'sakin',
+  excited: 'cesur',
+  energetic: 'cesur',
+  brave: 'cesur',
+  sad: 'yorgun',
+  tired: 'yorgun',
+  angry: 'cesur',
+  curious: 'meraklı',
+  hopeful: 'meraklı',
+}
 
 export function FeelingsPage() {
   const [selectedId, setSelectedId] = useContentItemId('feelings', FEELINGS[0].id)
@@ -17,11 +33,12 @@ export function FeelingsPage() {
       <header className="page-header">
         <h1>💛 Duygu Köşesi</h1>
         <p>
-          {FEELINGS.length} duygu kartı — bugün nasıl hissediyorsun? Seç, dinle, birlikte sakinleş.
+          {FEELINGS.length} duygu kartı + nefes oyunu — seç, dinle, bedenini yumuşat.
         </p>
       </header>
 
       <VoicePicker profile={profile} onChange={setProfile} />
+      <BreathGame />
 
       <div className="feelings-grid">
         {FEELINGS.map((f) => (
@@ -31,6 +48,7 @@ export function FeelingsPage() {
             style={{ background: f.color }}
             onClick={() => {
               setSelectedId(f.id)
+              setMood(FEEL_TO_MOOD[f.id] || 'meraklı')
               announceActivityResult(completeActivity('feel'))
             }}
           >
@@ -42,13 +60,19 @@ export function FeelingsPage() {
 
       {feeling && (
         <div className="panel">
-          <h2>{feeling.emoji} {feeling.label}</h2>
+          <h2>
+            {feeling.emoji} {feeling.label}
+          </h2>
           <p>{feeling.tip}</p>
-          <p><strong>Küçük aktivite:</strong> {feeling.activity}</p>
+          <p>
+            <strong>Küçük aktivite:</strong> {feeling.activity}
+          </p>
           <div className="btn-row">
             <button
               className="btn btn--primary"
-              onClick={() => (speaking ? stop() : speak(`${feeling.label}. ${feeling.tip} ${feeling.activity}`))}
+              onClick={() =>
+                speaking ? stop() : speak(`${feeling.label}. ${feeling.tip} ${feeling.activity}`)
+              }
             >
               {speaking ? '⏹ Durdur' : '🎧 Sesli dinle'}
             </button>
@@ -68,7 +92,9 @@ export function FeelingsPage() {
       <div className="panel" style={{ marginTop: 16 }}>
         <h3>🌬️ Sakinleşme scripti</h3>
         <p>{script}</p>
-        <button className="btn btn--ghost" onClick={() => speak(script, 0.8)}>Dinle</button>
+        <button className="btn btn--ghost" onClick={() => speak(script, 0.8)}>
+          Dinle
+        </button>
       </div>
     </div>
   )
