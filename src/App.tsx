@@ -9,6 +9,9 @@ import { ToastHost } from './components/Toast'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { ALL_PAGES, type PageId } from './types/nav'
 import { parseContentHash } from './utils/share'
+import { adsAllowedOnPage } from './config/ads'
+import { recordLastVisit } from './utils/lastVisit'
+import { scheduleTick } from './components/ReminderPanel'
 
 const PortalHomePage = lazy(() =>
   import('./pages/PortalHomePage').then((m) => ({ default: m.PortalHomePage })),
@@ -58,6 +61,12 @@ const WorldPage = lazy(() => import('./pages/WorldPage').then((m) => ({ default:
 const ShopPage = lazy(() => import('./pages/ShopPage').then((m) => ({ default: m.ShopPage })))
 const SearchPage = lazy(() => import('./pages/SearchPage').then((m) => ({ default: m.SearchPage })))
 const LivePage = lazy(() => import('./pages/LivePage').then((m) => ({ default: m.LivePage })))
+const ClassroomPage = lazy(() =>
+  import('./pages/ClassroomPage').then((m) => ({ default: m.ClassroomPage })),
+)
+const ChallengePage = lazy(() =>
+  import('./pages/ChallengePage').then((m) => ({ default: m.ChallengePage })),
+)
 const AboutPage = lazy(() => import('./pages/LegalPages').then((m) => ({ default: m.AboutPage })))
 const ContactPage = lazy(() => import('./pages/LegalPages').then((m) => ({ default: m.ContactPage })))
 const PrivacyPage = lazy(() => import('./pages/LegalPages').then((m) => ({ default: m.PrivacyPage })))
@@ -127,6 +136,10 @@ function RoutedPage({
       return <CalendarPage onNavigate={navigate} />
     case 'teachers':
       return <TeachersPage />
+    case 'classroom':
+      return <ClassroomPage onNavigate={navigate} />
+    case 'challenge':
+      return <ChallengePage onNavigate={navigate} />
     case 'profile':
       return <ProfilePage onNavigate={navigate} />
     case 'discover':
@@ -158,8 +171,14 @@ export default function App() {
   useEffect(() => {
     const onHash = () => setPage(readHash())
     window.addEventListener('hashchange', onHash)
+    scheduleTick()
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  useEffect(() => {
+    const { itemId } = parseContentHash(window.location.hash)
+    recordLastVisit(page, itemId)
+  }, [page])
 
   const navigate = (next: PageId, itemId?: string) => {
     const target = next === 'home' ? 'portal' : next
@@ -169,12 +188,11 @@ export default function App() {
         ? 'portal'
         : target
     setPage(target)
+    recordLastVisit(target, itemId)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const showAdRail = ['blog', 'parents', 'about', 'portal', 'quests', 'teachers', 'paths'].includes(
-    page,
-  )
+  const showAdRail = adsAllowedOnPage(page)
 
   return (
     <ErrorBoundary>

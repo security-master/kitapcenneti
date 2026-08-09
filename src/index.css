@@ -4159,3 +4159,183 @@ html.bedtime .navbar {
     opacity: 1;
   }
 }
+
+/* —— Next-level: profiles, PWA, picks, classroom —— */
+.portal-profiles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.portal-profiles select {
+  max-width: 120px;
+  border-radius: 999px;
+  border: 1px solid rgba(28, 35, 33, 0.15);
+  padding: 6px 10px;
+  font: inherit;
+  background: #fff;
+}
+.family-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(20, 24, 22, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.family-lock__card {
+  width: min(360px, 100%);
+  display: grid;
+  gap: 12px;
+}
+.family-lock__card input {
+  font-size: 1.6rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 35, 33, 0.2);
+}
+.family-lock__err { color: #c0392b; margin: 0; }
+.continue-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 14px 16px;
+  margin: 12px 0 4px;
+  border-radius: 16px;
+  border: 1px solid rgba(42, 157, 143, 0.35);
+  background: linear-gradient(120deg, rgba(254, 202, 87, 0.25), rgba(42, 157, 143, 0.12));
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.continue-card strong { display: block; }
+.continue-card p { margin: 2px 0 0; color: var(--text-light); font-size: 0.95rem; }
+.mood-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.mood-chip {
+  border-radius: 999px;
+  border: 1px solid rgba(28, 35, 33, 0.12);
+  background: #fff;
+  padding: 8px 12px;
+  font: inherit;
+}
+.mood-chip.is-active {
+  background: rgba(42, 157, 143, 0.15);
+  border-color: rgba(42, 157, 143, 0.5);
+}
+.smart-picks__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.smart-pick {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(28, 35, 33, 0.1);
+  background: #fff;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.smart-pick span { font-size: 1.4rem; }
+.smart-pick small { color: var(--text-light); }
+.smart-picks__grid--soft .smart-pick {
+  background: rgba(255, 255, 255, 0.7);
+}
+.weekly-summary__card { display: grid; gap: 10px; }
+.weekly-summary__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.install-prompt {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+}
+.install-prompt--done { grid-template-columns: auto 1fr; }
+.reminder-panel { display: grid; gap: 10px; margin: 12px 0; }
+.reminder-panel__check { display: flex; gap: 8px; align-items: center; }
+.profile-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.profile-chip {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 88px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(28, 35, 33, 0.12);
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.profile-chip.is-active {
+  border-color: rgba(42, 157, 143, 0.55);
+  background: rgba(42, 157, 143, 0.1);
+}
+.story-player { display: grid; gap: 12px; }
+.story-player__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.story-player__tog { display: flex; gap: 6px; align-items: center; }
+.chapter-dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.chapter-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(28, 35, 33, 0.2);
+  padding: 0;
+  cursor: pointer;
+}
+.chapter-dot.is-active { background: var(--teal, #2a9d8f); transform: scale(1.25); }
+.audio-player__text.is-together {
+  outline: 2px dashed rgba(42, 157, 143, 0.55);
+  background: rgba(254, 202, 87, 0.15);
+}
+.premium-pack {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+  align-items: start;
+}
+.premium-pack > span { font-size: 2.2rem; }
+.class-code {
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(42, 157, 143, 0.12);
+}
+@media (max-width: 860px) {
+  .portal-profiles { grid-area: avatar; justify-self: end; }
+  .install-prompt { grid-template-columns: auto 1fr; }
+  .install-prompt .btn { grid-column: 1 / -1; }
+}

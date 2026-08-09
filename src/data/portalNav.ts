@@ -10,6 +10,7 @@ export const KIDS_NAV: NavItem[] = [
   { id: 'fun', label: 'Eğlence', emoji: '🎡', short: 'Eğlence', mode: 'kids' },
   { id: 'create', label: 'AI Hikaye', emoji: '✨', short: 'AI', mode: 'kids' },
   { id: 'world', label: 'Dünya Haritası', emoji: '🗺️', short: 'Harita', mode: 'kids' },
+  { id: 'challenge', label: 'Meydan Okuma', emoji: '🤝', short: 'Kod', mode: 'kids' },
 ]
 
 export const PARENT_NAV: NavItem[] = [
@@ -20,6 +21,7 @@ export const PARENT_NAV: NavItem[] = [
   { id: 'paths', label: 'Öğrenme Yolları', emoji: '🛤️', short: 'Yollar', mode: 'parent' },
   { id: 'calendar', label: 'Haftalık Plan', emoji: '📅', short: 'Plan', mode: 'parent' },
   { id: 'teachers', label: 'Öğretmen', emoji: '👩‍🏫', short: 'Sınıf', mode: 'parent' },
+  { id: 'classroom', label: 'Sınıf Merkezi', emoji: '🏫', short: 'Kod', mode: 'parent' },
   { id: 'journal', label: 'Gelişim Günlüğü', emoji: '📔', short: 'Günlük', mode: 'parent' },
   { id: 'shop', label: 'Ücretsiz Paketler', emoji: '🎁', short: 'Paket', mode: 'parent' },
 ]
@@ -34,6 +36,8 @@ export const SIDEBAR_EXTRA: { id: PageId; label: string; emoji: string }[] = [
   { id: 'certificates', label: 'Sertifika', emoji: '🏆' },
   { id: 'discover', label: 'Koleksiyonlar', emoji: '🧭' },
   { id: 'profile', label: 'Profilim', emoji: '🧒' },
+  { id: 'challenge', label: 'Meydan Okuma', emoji: '🤝' },
+  { id: 'classroom', label: 'Sınıf Merkezi', emoji: '🏫' },
   { id: 'search', label: 'Ara', emoji: '🔎' },
 ]
 

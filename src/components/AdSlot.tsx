@@ -1,4 +1,4 @@
-import { ADS_ENABLED, ADSENSE_CLIENT, type AdSlotId } from '../config/ads'
+import { ADS_ENABLED, ADSENSE_CLIENT, hasAdConsent, type AdSlotId } from '../config/ads'
 
 interface AdSlotProps {
   slot?: AdSlotId
@@ -7,16 +7,18 @@ interface AdSlotProps {
 }
 
 /**
- * Google AdSense yer tutucu.
- * Onay gelince VITE_ADSENSE_CLIENT=ca-pub-XXXX ekleyin.
- * Çocuk odaklı sayfalarda dikkatli kullanın; ebeveyn/blog içeriğinde tercih edin.
+ * Google AdSense — yalnızca onay + aile sayfalarında (App katmanı sayfa filtresi uygular).
  */
 export function AdSlot({ slot = 'in-article', format = 'auto', className = '' }: AdSlotProps) {
-  if (!ADS_ENABLED) {
+  if (!ADS_ENABLED || !hasAdConsent()) {
     return (
       <aside className={`ad-slot ad-slot--placeholder ${className}`} aria-label="Reklam alanı">
         <span>📢 Reklam alanı</span>
-        <small>AdSense onayından sonra burada gösterilir · {slot}</small>
+        <small>
+          {!ADS_ENABLED
+            ? `AdSense onayından sonra · ${slot}`
+            : 'Çerez onayı sonrası gösterilir (yalnızca aile sayfaları)'}
+        </small>
       </aside>
     )
   }

@@ -1,12 +1,13 @@
 import { useState, useCallback, useEffect } from 'react'
 
-export type VoiceProfile = 'female' | 'child' | 'male' | 'auto'
+export type VoiceProfile = 'female' | 'child' | 'male' | 'auto' | 'storyteller'
 
-export const VOICE_OPTIONS: { id: VoiceProfile; label: string; emoji: string; desc: string }[] = [
+export const VOICE_OPTIONS: { id: VoiceProfile; label: string; emoji: string; desc: string; premium?: boolean }[] = [
   { id: 'female', label: 'Kadın sesi', emoji: '👩', desc: 'Sıcak anlatıcı' },
   { id: 'child', label: 'Çocuk sesi', emoji: '🧒', desc: 'Neşeli & ince' },
   { id: 'male', label: 'Erkek sesi', emoji: '👨', desc: 'Derin anlatıcı' },
   { id: 'auto', label: 'Otomatik', emoji: '🎙️', desc: 'Tarayıcı varsayılanı' },
+  { id: 'storyteller', label: 'Masal ustası', emoji: '✨', desc: 'Premium yumuşak tempo', premium: true },
 ]
 
 const STORAGE_KEY = 'kitapcenneti-voice-profile'
@@ -25,7 +26,7 @@ function scoreVoice(voice: SpeechSynthesisVoice, profile: VoiceProfile): number 
     if (/male|man|adam|erkek|ahmet|tolga|google.*turkish male/i.test(name)) score += 40
     if (/female|woman|kız|kadın/i.test(name)) score -= 20
   }
-  if (profile === 'child') {
+  if (profile === 'child' || profile === 'storyteller') {
     if (/child|kid|çocuk|junior|young/i.test(name)) score += 45
     if (/female|kız|kadın/i.test(name)) score += 15
     if (/male|adam|man/i.test(name) && !/female/.test(name)) score -= 5
@@ -47,6 +48,8 @@ function profileSettings(profile: VoiceProfile): { rate: number; pitch: number }
   switch (profile) {
     case 'child':
       return { rate: 0.95, pitch: 1.45 }
+    case 'storyteller':
+      return { rate: 0.82, pitch: 1.08 }
     case 'female':
       return { rate: 0.92, pitch: 1.15 }
     case 'male':

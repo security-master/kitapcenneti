@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react'
 import type { PageId } from '../types/nav'
-import { usePortalProfile, type PortalProfile } from '../hooks/usePortalProfile'
+import {
+  setFamilyPin,
+  usePortalProfile,
+  type PortalProfile,
+} from '../hooks/usePortalProfile'
 import { showToast } from '../components/Toast'
 import { useProgress } from '../hooks/useProgress'
 import { STICKERS } from '../data/stickers'
+import { SocialShare } from '../components/SocialShare'
 
 const AVATARS = ['🦊', '🐻', '🦄', '🐱', '🐼', '🦁', '🐸', '🦉', '🐯', '🐨']
 const INTERESTS = ['masal', 'oyun', 'boyama', 'uzay', 'hayvan', 'stem', 'müzik', 'duygu']
@@ -13,9 +18,19 @@ interface Props {
 }
 
 export function ProfilePage({ onNavigate }: Props) {
-  const { profile, saveProfile } = usePortalProfile()
+  const {
+    profile,
+    profiles,
+    saveProfile,
+    switchProfile,
+    addProfile,
+    removeProfile,
+    pinEnabled,
+  } = usePortalProfile()
   const { stars, streak, badges, stickers } = useProgress()
   const [draft, setDraft] = useState<PortalProfile>(profile)
+  const [pin, setPin] = useState('')
+  const [pin2, setPin2] = useState('')
 
   useEffect(() => {
     setDraft(profile)
@@ -34,14 +49,73 @@ export function ProfilePage({ onNavigate }: Props) {
     <div className="page">
       <header className="page-header">
         <h1>🧒 Portal Profili</h1>
-        <p>İsim, avatar, yaş grubu ve hedefler — öneriler buna göre kişiselleşir.</p>
+        <p>Kardeş profilleri, yaş grubu, aile PIN kilidi — her çocuk kendi dünyasında.</p>
       </header>
 
+      <section className="section">
+        <h2 className="section__title">Profiller ({profiles.length}/5)</h2>
+        <div className="profile-switcher">
+          {profiles.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              className={`profile-chip ${p.id === profile.id ? 'is-active' : ''}`}
+              onClick={() => switchProfile(p.id)}
+            >
+              <span>{p.avatar}</span>
+              <strong>{p.childName || 'İsimsiz'}</strong>
+              <small>{p.ageGroup}</small>
+            </button>
+          ))}
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => {
+              const n = addProfile()
+              if (n) showToast('Yeni kardeş profili eklendi')
+              else showToast('En fazla 5 profil')
+            }}
+          >
+            + Kardeş ekle
+          </button>
+          {profiles.length > 1 && (
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => {
+                removeProfile(profile.id)
+                showToast('Profil silindi')
+              }}
+            >
+              Bu profili sil
+            </button>
+          )}
+        </div>
+      </section>
+
       <div className="portal-dash-grid" style={{ marginBottom: 20 }}>
-        <div className="portal-dash-card"><span>⭐</span><h2>{stars}</h2><p>Yıldız</p></div>
-        <div className="portal-dash-card"><span>🔥</span><h2>{streak}</h2><p>Gün serisi</p></div>
-        <div className="portal-dash-card"><span>🏅</span><h2>{badges.length}</h2><p>Rozet</p></div>
-        <div className="portal-dash-card"><span>🏷️</span><h2>{stickers.length}/{STICKERS.length}</h2><p>Sticker</p></div>
+        <div className="portal-dash-card">
+          <span>⭐</span>
+          <h2>{stars}</h2>
+          <p>Yıldız</p>
+        </div>
+        <div className="portal-dash-card">
+          <span>🔥</span>
+          <h2>{streak}</h2>
+          <p>Gün serisi</p>
+        </div>
+        <div className="portal-dash-card">
+          <span>🏅</span>
+          <h2>{badges.length}</h2>
+          <p>Rozet</p>
+        </div>
+        <div className="portal-dash-card">
+          <span>🏷️</span>
+          <h2>
+            {stickers.length}/{STICKERS.length}
+          </h2>
+          <p>Sticker</p>
+        </div>
       </div>
 
       <div className="panel journal-form">
@@ -55,7 +129,9 @@ export function ProfilePage({ onNavigate }: Props) {
           />
         </label>
 
-        <p><strong>Avatar</strong></p>
+        <p>
+          <strong>Avatar</strong>
+        </p>
         <div className="library-filters">
           {AVATARS.map((a) => (
             <button
@@ -73,7 +149,9 @@ export function ProfilePage({ onNavigate }: Props) {
           Yaş grubu
           <select
             value={draft.ageGroup}
-            onChange={(e) => setDraft({ ...draft, ageGroup: e.target.value as PortalProfile['ageGroup'] })}
+            onChange={(e) =>
+              setDraft({ ...draft, ageGroup: e.target.value as PortalProfile['ageGroup'] })
+            }
           >
             <option value="3-5">3–5 yaş</option>
             <option value="6-8">6–8 yaş</option>
@@ -81,7 +159,9 @@ export function ProfilePage({ onNavigate }: Props) {
           </select>
         </label>
 
-        <p><strong>İlgi alanları</strong></p>
+        <p>
+          <strong>İlgi alanları</strong>
+        </p>
         <div className="library-filters">
           {INTERESTS.map((tag) => (
             <button
@@ -119,11 +199,83 @@ export function ProfilePage({ onNavigate }: Props) {
           <button type="button" className="btn btn--ghost" onClick={() => onNavigate('paths')}>
             Yaşıma uygun yol
           </button>
-          <button type="button" className="btn btn--ghost" onClick={() => onNavigate('journal')}>
-            Günlüğe git
+          <button type="button" className="btn btn--ghost" onClick={() => onNavigate('certificates')}>
+            Sertifikalar
           </button>
         </div>
       </div>
+
+      <section className="section">
+        <h2 className="section__title">🔐 Aile PIN kilidi</h2>
+        <div className="panel journal-form">
+          <p>Aile moduna geçişte 4 haneli PIN ister. Çocukların ayarlara kaçmasını zorlaştırır.</p>
+          <label>
+            Yeni PIN
+            <input
+              type="password"
+              inputMode="numeric"
+              maxLength={4}
+              value={pin}
+              onChange={(e) => setPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
+              placeholder="••••"
+            />
+          </label>
+          <label>
+            Tekrar
+            <input
+              type="password"
+              inputMode="numeric"
+              maxLength={4}
+              value={pin2}
+              onChange={(e) => setPin2(e.target.value.replace(/\D/g, '').slice(0, 4))}
+              placeholder="••••"
+            />
+          </label>
+          <div className="btn-row">
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={() => {
+                if (pin.length !== 4 || pin !== pin2) {
+                  showToast('PIN 4 hane olmalı ve eşleşmeli')
+                  return
+                }
+                setFamilyPin(pin)
+                setPin('')
+                setPin2('')
+                showToast('Aile kilidi ayarlandı')
+              }}
+            >
+              PIN kaydet
+            </button>
+            {pinEnabled && (
+              <button
+                type="button"
+                className="btn btn--ghost"
+                onClick={() => {
+                  setFamilyPin(null)
+                  showToast('Aile kilidi kaldırıldı')
+                }}
+              >
+                Kilidi kaldır
+              </button>
+            )}
+          </div>
+          <small>Durum: {pinEnabled ? 'aktif 🔐' : 'kapalı'}</small>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="section__title">Aile içi paylaşım</h2>
+        <SocialShare
+          payload={{
+            title: `${profile.avatar} ${profile.childName || 'Çocuğum'} — Kitap Cenneti`,
+            text: `⭐ ${stars} yıldız · 🔥 ${streak} gün · 🏷️ ${stickers.length} sticker. Birlikte okuyoruz!`,
+            page: 'profile',
+            hashtags: ['KitapCenneti', 'Aile', 'Okuma'],
+          }}
+        />
+      </section>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { PageId } from '../types/nav'
 import { ModeBanner } from '../components/PortalShell'
 import { ProgressHub } from '../components/ProgressHub'
@@ -11,21 +12,45 @@ import { TEACHER_RESOURCES } from '../data/teachers'
 import { getDailyQuests } from '../data/quests'
 import { factoryStory, hashSeed, dayKey } from '../engines/contentFactory'
 import { LivePulse } from '../components/LivePulse'
+import { ContinueCard } from '../components/ContinueCard'
+import { SmartPicks } from '../components/SmartPicks'
+import { WeeklySummary } from '../components/WeeklySummary'
+import { InstallPrompt } from '../components/InstallPrompt'
+import { ReminderPanel } from '../components/ReminderPanel'
+import { FamilyLockModal } from '../components/FamilyLockModal'
 
 interface Props {
   onNavigate: (page: PageId) => void
 }
 
 export function PortalHomePage({ onNavigate }: Props) {
-  const { mode, setMode, profile } = usePortalProfile()
+  const { mode, setMode, profile, pinEnabled, checkFamilyPin } = usePortalProfile()
   const { spinAvailable } = useProgress()
+  const [lockOpen, setLockOpen] = useState(false)
   const quests = getDailyQuests()
   const path = LEARNING_PATHS.find((p) => p.age === profile.ageGroup) || LEARNING_PATHS[0]
   const story = factoryStory(hashSeed(dayKey(), 'home-feature'))
 
+  const switchMode = (m: typeof mode) => {
+    if (m === 'parent' && mode !== 'parent' && pinEnabled) {
+      setLockOpen(true)
+      return
+    }
+    setMode(m)
+  }
+
   if (mode === 'parent') {
     return (
       <div className="page portal-home">
+        <FamilyLockModal
+          open={lockOpen}
+          onClose={() => setLockOpen(false)}
+          checkPin={checkFamilyPin}
+          onUnlock={() => {
+            setLockOpen(false)
+            setMode('parent')
+          }}
+        />
         <header className="page-header">
           <h1>Aile Portalı</h1>
           <p>
@@ -33,7 +58,10 @@ export function PortalHomePage({ onNavigate }: Props) {
             sınıf kaynakları ve gelişim günlüğü tek yerde.
           </p>
         </header>
-        <ModeBanner mode={mode} onSwitch={setMode} />
+        <ModeBanner mode={mode} onSwitch={switchMode} />
+        <InstallPrompt />
+        <WeeklySummary />
+        <ReminderPanel />
         <LivePulse onNavigate={onNavigate} />
 
         <div className="portal-dash-grid">
@@ -41,6 +69,11 @@ export function PortalHomePage({ onNavigate }: Props) {
             <span>📅</span>
             <h2>Haftalık Plan</h2>
             <p>7 güne yayılmış aile etkinlik takvimi</p>
+          </button>
+          <button type="button" className="portal-dash-card" onClick={() => onNavigate('classroom')}>
+            <span>🏫</span>
+            <h2>Sınıf Merkezi</h2>
+            <p>Kod, toplu görev, plan PDF</p>
           </button>
           <button type="button" className="portal-dash-card" onClick={() => onNavigate('paths')}>
             <span>🛤️</span>
@@ -77,7 +110,9 @@ export function PortalHomePage({ onNavigate }: Props) {
               <div>
                 <h3>{path.title}</h3>
                 <p>{path.summary}</p>
-                <small>{path.age} yaş · {path.weeks} hafta · {path.steps.length} adım</small>
+                <small>
+                  {path.age} yaş · {path.weeks} hafta · {path.steps.length} adım
+                </small>
               </div>
             </div>
             <button type="button" className="btn btn--primary" onClick={() => onNavigate('paths')}>
@@ -91,6 +126,15 @@ export function PortalHomePage({ onNavigate }: Props) {
 
   return (
     <div className="page portal-home">
+      <FamilyLockModal
+        open={lockOpen}
+        onClose={() => setLockOpen(false)}
+        checkPin={checkFamilyPin}
+        onUnlock={() => {
+          setLockOpen(false)
+          setMode('parent')
+        }}
+      />
       <header className="page-header">
         <h1>
           Merhaba{profile.childName ? `, ${profile.childName}` : ''}! {profile.avatar}
@@ -100,21 +144,39 @@ export function PortalHomePage({ onNavigate }: Props) {
           sürprizler seni bekliyor.
         </p>
       </header>
-      <ModeBanner mode={mode} onSwitch={setMode} />
-
+      <ModeBanner mode={mode} onSwitch={switchMode} />
+      <ContinueCard onNavigate={onNavigate} />
+      <InstallPrompt />
+      <SmartPicks ageGroup={profile.ageGroup} interests={profile.interests} onNavigate={onNavigate} />
       <LivePulse onNavigate={onNavigate} />
-
       <ProgressHub onNavigate={onNavigate} />
 
       <section className="section">
         <h2 className="section__title">Bugünün portalı</h2>
         <div className="portal-dash-grid">
-          <button type="button" className="portal-dash-card portal-dash-card--accent" onClick={() => onNavigate('live')}>
+          <button
+            type="button"
+            className="portal-dash-card portal-dash-card--accent"
+            onClick={() => onNavigate('live')}
+          >
             <span>⚡</span>
             <h2>Canlı Arena</h2>
             <p>Saatlik görev · gizemli kutu · düşüşler</p>
           </button>
-          <button type="button" className="portal-dash-card portal-dash-card--accent" onClick={() => onNavigate('quests')}>
+          <button
+            type="button"
+            className="portal-dash-card portal-dash-card--accent"
+            onClick={() => onNavigate('challenge')}
+          >
+            <span>🤝</span>
+            <h2>Meydan Okuma</h2>
+            <p>Kod paylaş, birlikte tamamla</p>
+          </button>
+          <button
+            type="button"
+            className="portal-dash-card portal-dash-card--accent"
+            onClick={() => onNavigate('quests')}
+          >
             <span>⭐</span>
             <h2>Görevler</h2>
             <p>{quests.length} görev hazır</p>
@@ -161,7 +223,12 @@ export function PortalHomePage({ onNavigate }: Props) {
         <h2 className="section__title">Hızlı koleksiyonlar</h2>
         <div className="collection-row">
           {COLLECTIONS.slice(0, 6).map((c) => (
-            <button key={c.id} type="button" className="collection-chip" onClick={() => onNavigate('discover')}>
+            <button
+              key={c.id}
+              type="button"
+              className="collection-chip"
+              onClick={() => onNavigate('discover')}
+            >
               <span>{c.emoji}</span>
               <strong>{c.title}</strong>
             </button>

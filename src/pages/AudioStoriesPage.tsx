@@ -1,7 +1,5 @@
 import { useMemo, useState } from 'react'
 import { AUDIO_STORIES } from '../data/audioStories'
-import { useSpeech } from '../hooks/useSpeech'
-import { VoicePicker } from '../components/VoicePicker'
 import { announceActivityResult } from '../components/Toast'
 import {
   completeActivity,
@@ -15,6 +13,7 @@ import { SocialShare } from '../components/SocialShare'
 import { ContentPortalBar } from '../components/ContentPortalBar'
 import { useContentItemId } from '../hooks/useContentItemId'
 import { dayKey, factoryStory, hashSeed } from '../engines/contentFactory'
+import { StoryPlayer } from '../components/StoryPlayer'
 
 export function AudioStoriesPage() {
   const liveStories = useMemo(() => {
@@ -31,7 +30,6 @@ export function AudioStoriesPage() {
   const [theme, setTheme] = useState('Tümü')
   const { bedtime, toggleBedtime } = useProgress()
   const active = library.find((s) => s.id === activeId) || library[0]
-  const { speaking, paused, speak, stop, togglePause, profile, setProfile } = useSpeech()
 
   const themes = useMemo(
     () => ['Tümü', 'Canlı Düşüş', ...Array.from(new Set(AUDIO_STORIES.map((s) => s.theme)))],
@@ -49,18 +47,13 @@ export function AudioStoriesPage() {
     })
   }, [favorites, onlyFavs, query, theme, library])
 
-  const startListen = () => {
-    speak(active.text, bedtime ? 0.85 : 1)
-    announceActivityResult(completeActivity('listen'))
-  }
-
   return (
     <div className={`page ${bedtime ? 'page--bedtime' : ''}`}>
       <header className="page-header">
         <h1>🎧 Sesli Masallar Portalı</h1>
         <p>
-          {library.length}+ masal (statik + bugünün 48 canlı düşüşü) · her gün yeni · dinle, yazdır,
-          paylaş.
+          Bölümlü oynatıcı · uyku zamanlayıcı · birlikte oku · {library.length}+ masal (statik + canlı
+          düşüş).
         </p>
       </header>
 
@@ -76,7 +69,6 @@ export function AudioStoriesPage() {
       />
 
       <div className="audio-toolbar">
-        <VoicePicker profile={profile} onChange={setProfile} />
         <div className="btn-row">
           <button
             type="button"
@@ -102,10 +94,7 @@ export function AudioStoriesPage() {
             <button
               key={story.id}
               className={`story-list__item ${activeId === story.id ? 'is-active' : ''}`}
-              onClick={() => {
-                stop()
-                setActiveId(story.id)
-              }}
+              onClick={() => setActiveId(story.id)}
             >
               <span className="story-list__emoji">{story.emoji}</span>
               <div>
@@ -127,21 +116,14 @@ export function AudioStoriesPage() {
               <p>{active.summary}</p>
             </div>
           </div>
-          <div className="audio-player__controls">
-            {!speaking ? (
-              <button className="btn btn--primary" onClick={startListen}>
-                ▶ Dinle
-              </button>
-            ) : (
-              <>
-                <button className="btn btn--primary" onClick={togglePause}>
-                  {paused ? '▶ Devam' : '⏸ Duraklat'}
-                </button>
-                <button className="btn btn--ghost" onClick={stop}>
-                  ⏹ Durdur
-                </button>
-              </>
-            )}
+
+          <StoryPlayer
+            story={active}
+            bedtime={bedtime}
+            onListened={() => announceActivityResult(completeActivity('listen'))}
+          />
+
+          <div className="btn-row" style={{ marginTop: 12 }}>
             <button
               className="btn btn--ghost"
               onClick={() => setFavorites(toggleFavoriteAudio(active.id))}
@@ -161,7 +143,6 @@ export function AudioStoriesPage() {
               🖨️ Yazdır
             </button>
           </div>
-          <div className="audio-player__text">{active.text}</div>
           <SocialShare
             payload={{
               title: `${active.emoji} ${active.title}`,

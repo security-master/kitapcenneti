@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { ACTIVITY_TO_QUEST, BADGES, type ActivityKind, type Badge } from '../data/badges'
 import { getDailyQuests, todayKey, type Quest } from '../data/quests'
+import { getActiveProfileId } from './usePortalProfile'
 
 const STARS_KEY = 'kitapcenneti-stars'
 const STREAK_KEY = 'kitapcenneti-streak'
@@ -12,6 +13,21 @@ const BEDTIME_KEY = 'kitapcenneti-bedtime'
 const FAV_AUDIO_KEY = 'kitapcenneti-fav-audio'
 const STICKERS_KEY = 'kitapcenneti-stickers'
 const SPIN_DAY_KEY = 'kitapcenneti-spin-day'
+
+/** Per-child progress namespace; migrates legacy unscoped keys for default profile */
+function pk(base: string): string {
+  const id = getActiveProfileId()
+  const scoped = `${base}::${id}`
+  try {
+    if (localStorage.getItem(scoped) == null && id === 'default') {
+      const legacy = localStorage.getItem(base)
+      if (legacy != null) localStorage.setItem(scoped, legacy)
+    }
+  } catch {
+    /* ignore */
+  }
+  return scoped
+}
 
 type Counts = Partial<Record<ActivityKind, number>>
 
@@ -44,21 +60,21 @@ const DAILY_ACT_PREFIX = 'kitapcenneti-act-'
 /** Imperative API for pages that don't need full hook re-renders */
 export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; questCompleted?: Quest } {
   const today = todayKey()
-  const dailyKey = DAILY_ACT_PREFIX + today
+  const dailyKey = pk(DAILY_ACT_PREFIX + today)
   const dailyDone = readJson<string[]>(dailyKey, [])
   const firstToday = !dailyDone.includes(kind)
 
-  const counts = readJson<Counts>(COUNTS_KEY, {})
+  const counts = readJson<Counts>(pk(COUNTS_KEY), {})
   // Lifetime counts only bump once per kind per day to avoid spam (viewer remounts etc.)
   if (firstToday) {
     counts[kind] = (counts[kind] || 0) + 1
-    localStorage.setItem(COUNTS_KEY, JSON.stringify(counts))
+    localStorage.setItem(pk(COUNTS_KEY), JSON.stringify(counts))
     localStorage.setItem(dailyKey, JSON.stringify([...dailyDone, kind]))
   }
 
-  let stars = Number(localStorage.getItem(STARS_KEY) || 0)
-  let streak = Number(localStorage.getItem(STREAK_KEY) || 0)
-  const owned = readJson<string[]>(BADGES_KEY, [])
+  let stars = Number(localStorage.getItem(pk(STARS_KEY)) || 0)
+  let streak = Number(localStorage.getItem(pk(STREAK_KEY)) || 0)
+  const owned = readJson<string[]>(pk(BADGES_KEY), [])
 
   const questId = ACTIVITY_TO_QUEST[kind]
   const quests = getDailyQuests()
@@ -66,20 +82,20 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
   let questCompleted: Quest | undefined
 
   if (quest) {
-    const key = DONE_PREFIX + today
+    const key = pk(DONE_PREFIX + today)
     const done = readJson<string[]>(key, [])
     if (!done.includes(quest.id)) {
       const nextDone = [...done, quest.id]
       localStorage.setItem(key, JSON.stringify(nextDone))
       stars += quest.stars
-      localStorage.setItem(STARS_KEY, String(stars))
+      localStorage.setItem(pk(STARS_KEY), String(stars))
 
       if (done.length === 0) {
-        const last = localStorage.getItem(LAST_DAY_KEY)
+        const last = localStorage.getItem(pk(LAST_DAY_KEY))
         const yesterday = todayKey(new Date(Date.now() - 86400000))
         streak = last === yesterday ? streak + 1 : last === today ? streak : 1
-        localStorage.setItem(STREAK_KEY, String(streak))
-        localStorage.setItem(LAST_DAY_KEY, today)
+        localStorage.setItem(pk(STREAK_KEY), String(streak))
+        localStorage.setItem(pk(LAST_DAY_KEY), today)
       }
       questCompleted = quest
     }
@@ -89,12 +105,12 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
   ) {
     // Tiny reward for platform habits when not mapped to a quest
     stars += 1
-    localStorage.setItem(STARS_KEY, String(stars))
+    localStorage.setItem(pk(STARS_KEY), String(stars))
   }
 
   const nextBadges = evaluateBadges(stars, streak, counts, owned)
   const newly = nextBadges.filter((id) => !owned.includes(id))
-  if (newly.length) localStorage.setItem(BADGES_KEY, JSON.stringify(nextBadges))
+  if (newly.length) localStorage.setItem(pk(BADGES_KEY), JSON.stringify(nextBadges))
 
   // Soft sticker unlocks from real play (not recursive via unlockSticker)
   const stickerMap: Partial<Record<ActivityKind, string>> = {
@@ -109,9 +125,9 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
   }
   const stickerId = stickerMap[kind]
   if (stickerId && firstToday) {
-    const stickers = readJson<string[]>(STICKERS_KEY, [])
+    const stickers = readJson<string[]>(pk(STICKERS_KEY), [])
     if (!stickers.includes(stickerId)) {
-      localStorage.setItem(STICKERS_KEY, JSON.stringify([...stickers, stickerId]))
+      localStorage.setItem(pk(STICKERS_KEY), JSON.stringify([...stickers, stickerId]))
     }
   }
 
@@ -135,42 +151,42 @@ export function setBedtime(on: boolean) {
 }
 
 export function getFavoriteAudioIds(): string[] {
-  return readJson<string[]>(FAV_AUDIO_KEY, [])
+  return readJson<string[]>(pk(FAV_AUDIO_KEY), [])
 }
 
 export function toggleFavoriteAudio(id: string): string[] {
   const current = getFavoriteAudioIds()
   const next = current.includes(id) ? current.filter((x) => x !== id) : [...current, id]
-  localStorage.setItem(FAV_AUDIO_KEY, JSON.stringify(next))
+  localStorage.setItem(pk(FAV_AUDIO_KEY), JSON.stringify(next))
   if (!current.includes(id)) completeActivity('favorite')
   window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
   return next
 }
 
 export function getOwnedStickers(): string[] {
-  return readJson<string[]>(STICKERS_KEY, [])
+  return readJson<string[]>(pk(STICKERS_KEY), [])
 }
 
 export function unlockSticker(id: string): boolean {
   const owned = getOwnedStickers()
   if (owned.includes(id)) return false
-  localStorage.setItem(STICKERS_KEY, JSON.stringify([...owned, id]))
+  localStorage.setItem(pk(STICKERS_KEY), JSON.stringify([...owned, id]))
   completeActivity('sticker')
   window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
   return true
 }
 
 export function canSpinToday(): boolean {
-  return localStorage.getItem(SPIN_DAY_KEY) !== todayKey()
+  return localStorage.getItem(pk(SPIN_DAY_KEY)) !== todayKey()
 }
 
 export function markSpunToday() {
-  localStorage.setItem(SPIN_DAY_KEY, todayKey())
+  localStorage.setItem(pk(SPIN_DAY_KEY), todayKey())
 }
 
 export function addBonusStars(amount: number) {
-  const stars = Number(localStorage.getItem(STARS_KEY) || 0) + amount
-  localStorage.setItem(STARS_KEY, String(stars))
+  const stars = Number(localStorage.getItem(pk(STARS_KEY)) || 0) + amount
+  localStorage.setItem(pk(STARS_KEY), String(stars))
   window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
 }
 
@@ -202,12 +218,12 @@ export function useProgress() {
   const [spinAvailable, setSpinAvailable] = useState(true)
 
   const refresh = useCallback(() => {
-    setStars(Number(localStorage.getItem(STARS_KEY) || 0))
-    setStreak(Number(localStorage.getItem(STREAK_KEY) || 0))
-    setBadgeIds(readJson<string[]>(BADGES_KEY, []))
-    setCounts(readJson<Counts>(COUNTS_KEY, {}))
+    setStars(Number(localStorage.getItem(pk(STARS_KEY)) || 0))
+    setStreak(Number(localStorage.getItem(pk(STREAK_KEY)) || 0))
+    setBadgeIds(readJson<string[]>(pk(BADGES_KEY), []))
+    setCounts(readJson<Counts>(pk(COUNTS_KEY), {}))
     setBedtimeState(getBedtime())
-    setDoneToday(readJson<string[]>(DONE_PREFIX + todayKey(), []))
+    setDoneToday(readJson<string[]>(pk(DONE_PREFIX + todayKey()), []))
     setStickers(getOwnedStickers())
     setSpinAvailable(canSpinToday())
   }, [])

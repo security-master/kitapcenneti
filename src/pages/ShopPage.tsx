@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import type { PageId } from '../types/nav'
 import { SHOP_PACKS } from '../data/shop'
 import { showToast } from '../components/Toast'
 import { addJournalEntry } from '../hooks/usePortalProfile'
 import { SocialShare } from '../components/SocialShare'
 import { useContentItemId } from '../hooks/useContentItemId'
+import { hasPremiumVoice, PREMIUM_UNLOCK_CODE, unlockPremiumVoice } from '../utils/premium'
 
 interface Props {
   onNavigate: (page: PageId) => void
@@ -12,6 +14,8 @@ interface Props {
 export function ShopPage({ onNavigate }: Props) {
   const [activeId, setActiveId] = useContentItemId('shop', SHOP_PACKS[0].id)
   const activePack = SHOP_PACKS.find((p) => p.id === activeId) || SHOP_PACKS[0]
+  const [code, setCode] = useState('')
+  const [premium, setPremium] = useState(() => hasPremiumVoice())
 
   return (
     <div className="page">
@@ -21,6 +25,56 @@ export function ShopPage({ onNavigate }: Props) {
           {SHOP_PACKS.length} paket — hepsi ücretsiz. "Al" demek: ilgili bölüme git ve kullanmaya başla.
         </p>
       </header>
+
+      <article className="panel premium-pack">
+        <span>✨</span>
+        <div>
+          <h2>Masal Ustası — premium ses paketi</h2>
+          <p>
+            Yumuşak tempo, birlikte oku uyumlu anlatıcı. Ödeme yok — aile hediye kodu veya tek tıkla
+            açılır (yerel).
+          </p>
+          {premium ? (
+            <strong>Açık ✓ — Sesli Masallar’da “Masal ustası”nı seç</strong>
+          ) : (
+            <div className="btn-row">
+              <button
+                type="button"
+                className="btn btn--primary"
+                onClick={() => {
+                  unlockPremiumVoice()
+                  setPremium(true)
+                  showToast('Premium ses açıldı')
+                  onNavigate('audio')
+                }}
+              >
+                Ücretsiz aç
+              </button>
+              <input
+                value={code}
+                onChange={(e) => setCode(e.target.value.toUpperCase())}
+                placeholder="Hediye kodu"
+                maxLength={16}
+                style={{ maxWidth: 160 }}
+              />
+              <button
+                type="button"
+                className="btn btn--ghost"
+                onClick={() => {
+                  if (code.trim() === PREMIUM_UNLOCK_CODE) {
+                    unlockPremiumVoice()
+                    setPremium(true)
+                    showToast('Kod kabul — premium ses açık')
+                  } else showToast('Kod geçersiz')
+                }}
+              >
+                Kodla aç
+              </button>
+            </div>
+          )}
+          <small>Örnek kod: {PREMIUM_UNLOCK_CODE}</small>
+        </div>
+      </article>
       <div className="shop-grid">
         {SHOP_PACKS.map((pack) => (
           <article
