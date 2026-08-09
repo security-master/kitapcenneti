@@ -1,0 +1,232 @@
+export type PathAge = '3-5' | '6-8' | '9-12'
+
+export interface PathStep {
+  title: string
+  page: string
+  minutes: number
+  tip: string
+}
+
+export interface LearningPath {
+  id: string
+  title: string
+  emoji: string
+  age: PathAge
+  summary: string
+  tags: string[]
+  weeks: number
+  steps: PathStep[]
+}
+
+export const LEARNING_PATHS: LearningPath[] = [
+  {
+    id: 'minik-okur',
+    title: 'Minik Okur Yolculuğu',
+    emoji: '📚',
+    age: '3-5',
+    summary: 'Sesli masal, tekerleme ve boyama ile okuma sevgisini yumuşakça başlatır.',
+    tags: ['okuma', 'okul öncesi', 'rutin'],
+    weeks: 4,
+    steps: [
+      { title: 'İlk ninni masalı', page: 'audio', minutes: 5, tip: 'Yastıkta yan yana dinleyin; bitince bir duyguyu adlandırın.' },
+      { title: 'Renkli hayvan boyama', page: 'coloring', minutes: 15, tip: '3 renk yeterli — mükemmel boyamak şart değil.' },
+      { title: 'Kısa tekerleme korosu', page: 'rhymes', minutes: 5, tip: 'Ellerle tempo tutun, ikinci turda çocuğunuz başlasın.' },
+      { title: 'Bugün nasıl hissediyorum?', page: 'feelings', minutes: 3, tip: 'Yüz ifadesi taklit etmek kelimeyi güçlendirir.' },
+      { title: 'Haftalık yıldız görevi', page: 'quests', minutes: 10, tip: 'Bir görevi birlikte seçip kutlayın.' },
+      { title: 'Mini aile blog ipucu', page: 'blog', minutes: 5, tip: 'Sesli okuma yazısını ebeveyn okusun; çocuk masal seçsin.' },
+    ],
+  },
+  {
+    id: 'duygu-bahcivan',
+    title: 'Duygu Bahçıvanı',
+    emoji: '💛',
+    age: '3-5',
+    summary: 'Küçük çocukların duygularını adlandırması, sakinleşmesi ve paylaşması için yol.',
+    tags: ['duygu', 'empati', 'sakinleşme'],
+    weeks: 3,
+    steps: [
+      { title: 'Duygu kartı seçimi', page: 'feelings', minutes: 5, tip: '“Kızgın” ve “üzgün” farkını birlikte konuşun.' },
+      { title: 'Yumuşak uyku masalı', page: 'audio', minutes: 5, tip: 'Derin nefes + masal = akşam köprüsü.' },
+      { title: 'Mutluluk yüzü boyama', page: 'coloring', minutes: 12, tip: 'Yüze kendi ifadenizi ekleyin.' },
+      { title: 'Paylaşım tekerlemesi', page: 'rhymes', minutes: 5, tip: 'Şarkıyı bitince “bugün kimi mutlu ettin?” sorun.' },
+      { title: 'Nazik kahraman oku', page: 'heroes', minutes: 6, tip: 'Kahramanın hangi duyguyu yönettiğini bulun.' },
+      { title: 'Sakin köşe görevi', page: 'quests', minutes: 8, tip: 'Görevi bitince 3 nefes ödülü verin.' },
+    ],
+  },
+  {
+    id: 'renk-atolyesi',
+    title: 'Renk Atölyesi',
+    emoji: '🎨',
+    age: '3-5',
+    summary: 'Boyama, yaratma ve eğlence ile ince motor ve renk bilgisini güçlendirir.',
+    tags: ['sanat', 'motor', 'renk'],
+    weeks: 3,
+    steps: [
+      { title: 'İlk büyük şekil boyama', page: 'coloring', minutes: 15, tip: 'Kalın pastel tercih edin.' },
+      { title: 'Eğlence bahçesinde doodle', page: 'fun', minutes: 8, tip: 'Serbest çizgi = yaratıcılık ısınması.' },
+      { title: 'AI ile 4 kare masal', page: 'create', minutes: 12, tip: 'Kahramanı çocuğunuz seçsin, siz yazmaya yardım edin.' },
+      { title: 'Renkli bilim dansı', page: 'stem', minutes: 10, tip: 'Sütte gökkuşağı deneyi süper eşlikçi.' },
+      { title: 'Çıktı al ve buzdolabına as', page: 'printables', minutes: 10, tip: 'Bitmiş işi görünür kılmak motivasyon getirir.' },
+      { title: 'Sanat yıldızı topla', page: 'quests', minutes: 8, tip: 'Bugünün sanat görevini işaretleyin.' },
+    ],
+  },
+  {
+    id: 'okuma-kasifi',
+    title: 'Okuma Kâşifi',
+    emoji: '🔍',
+    age: '6-8',
+    summary: 'Masal, kahraman ve tekerlemeyle kelime dağarcığını ve dinleme becerisini büyütür.',
+    tags: ['okuma', 'kelime', 'anlama'],
+    weeks: 5,
+    steps: [
+      { title: 'Keşif temalı masal', page: 'audio', minutes: 6, tip: 'Dinlerken 2 anahtar kelime not alın.' },
+      { title: 'Kahraman biyografisi', page: 'heroes', minutes: 8, tip: '“Gücü ne işe yarıyor?” sorusunu sorun.' },
+      { title: 'Hafıza oyunu ısınması', page: 'activities', minutes: 10, tip: 'Okuma öncesi dikkat ısındırır.' },
+      { title: 'Kendi devam hikâyen', page: 'create', minutes: 15, tip: 'Masalın sonuna bir sayfa ekleyin.' },
+      { title: 'Ritimli tekerleme', page: 'rhymes', minutes: 5, tip: 'Tempo tutarak hece bilinci artar.' },
+      { title: 'Haftalık okuma görevi', page: 'quests', minutes: 10, tip: 'Seriyi bozmamak için aile panosuna yazın.' },
+      { title: 'Ebeveyn okuma ipucu', page: 'blog', minutes: 6, tip: 'Sesli okuma yazısındaki 2 soruyu uygulayın.' },
+    ],
+  },
+  {
+    id: 'stem-meraklisi',
+    title: 'STEM Meraklısı',
+    emoji: '🔬',
+    age: '6-8',
+    summary: 'Evde güvenli deneyler, gözlem ve yaratıcı kayıt ile bilim alışkanlığı kurar.',
+    tags: ['stem', 'bilim', 'merak'],
+    weeks: 4,
+    steps: [
+      { title: 'İlk bilim kartını seç', page: 'stem', minutes: 15, tip: 'Malzemeleri önceden masaya dizin.' },
+      { title: 'Gözlem boyaması', page: 'coloring', minutes: 12, tip: 'Deneyde gördüğünüz rengi boyayın.' },
+      { title: 'Sonucu hikâyeye çevir', page: 'create', minutes: 12, tip: '“Bilimci kahraman” karakteri uydurun.' },
+      { title: 'Mini bilim quiz', page: 'activities', minutes: 8, tip: 'Yanlış cevap da keşiftir — kutlayın.' },
+      { title: 'Çalışma kağıdı yazdır', page: 'printables', minutes: 10, tip: 'Hipotez / gözlem / sonuç kutuları çizin.' },
+      { title: 'STEM görevi tamamla', page: 'quests', minutes: 8, tip: 'Yıldızı bilardo tahtasına değil, günlüğe yazın.' },
+    ],
+  },
+  {
+    id: 'nazik-lider',
+    title: 'Nazik Lider',
+    emoji: '🦸',
+    age: '6-8',
+    summary: 'Kahraman hikâyeleri ve duygu çalışmalarıyla cesaret, yardımlaşma ve özgüven.',
+    tags: ['cesaret', 'değerler', 'liderlik'],
+    weeks: 4,
+    steps: [
+      { title: 'Günün kahramanını oku', page: 'heroes', minutes: 7, tip: '“Bugün kimlere yardım etti?” diye sorun.' },
+      { title: 'Cesaret masalı dinle', page: 'audio', minutes: 5, tip: 'Korkuyu yenme anını birlikte işaretleyin.' },
+      { title: 'Duygu check-in', page: 'feelings', minutes: 4, tip: 'Cesur olmak korkmamak değil, denemektir.' },
+      { title: 'Yardımlaşma oyunu', page: 'activities', minutes: 10, tip: 'Quiz’i sırayla sorun — herkes kazanır.' },
+      { title: 'Kendi nazik kahramanını yarat', page: 'create', minutes: 15, tip: 'Süper güç: dinlemek veya paylaşmak olsun.' },
+      { title: 'Liderlik görevi', page: 'quests', minutes: 10, tip: 'Evde küçük bir sorumluluk ekleyin.' },
+      { title: 'Aile değerler yazısı', page: 'blog', minutes: 6, tip: 'Ebeveynler için kısa bir okuma molası.' },
+    ],
+  },
+  {
+    id: 'oyunla-ogren',
+    title: 'Oyunla Öğren Bandı',
+    emoji: '🎮',
+    age: '6-8',
+    summary: 'Oyun salonu, eğlence bahçesi ve görevlerle dikkat, bellek ve motivasyon.',
+    tags: ['oyun', 'dikkat', 'motivasyon'],
+    weeks: 3,
+    steps: [
+      { title: 'Hafıza çiftlerini bul', page: 'activities', minutes: 10, tip: 'Süre tutmadan başlayın.' },
+      { title: 'Çark çevir, ödül seç', page: 'fun', minutes: 8, tip: 'Ödül gerçekten kısa bir aktivite olsun.' },
+      { title: 'Günlük 3 görev', page: 'quests', minutes: 15, tip: 'Hepsi aynı anda bitmek zorunda değil.' },
+      { title: 'Hızlı tekerleme turu', page: 'rhymes', minutes: 5, tip: 'Yanlış söylemek de güldürür — baskı yok.' },
+      { title: 'Kazanılanı boya', page: 'coloring', minutes: 12, tip: '“Bugünün rozeti”ni boyayın.' },
+      { title: 'Sertifika hayali', page: 'printables', minutes: 8, tip: 'Hafta sonu küçük bir ödül belgesi asın.' },
+    ],
+  },
+  {
+    id: 'yazar-yolcusu',
+    title: 'Yazar Yolcusu',
+    emoji: '✍️',
+    age: '9-12',
+    summary: 'Hikâye kurma, kahraman analizi ve yaratıcı yazma ile anlatım becerisi.',
+    tags: ['yazma', 'hikaye', 'yaratıcılık'],
+    weeks: 6,
+    steps: [
+      { title: 'İki kahramanı karşılaştır', page: 'heroes', minutes: 10, tip: 'Güç / zayıf yan / değer tablosu yapın.' },
+      { title: 'İlham masalı dinle', page: 'audio', minutes: 6, tip: 'Sonu değiştirerek yeniden anlatın.' },
+      { title: 'AI ile taslak oluştur', page: 'create', minutes: 20, tip: 'Taslağı sonra elle genişletin.' },
+      { title: 'Duygu derinliği çalışması', page: 'feelings', minutes: 5, tip: 'Karakterin 3 duygu katmanı yazın.' },
+      { title: 'Kelime oyunu ısınması', page: 'activities', minutes: 10, tip: 'Yeni fiilleri hikâyeye ekleyin.' },
+      { title: 'Yazma görevi serisi', page: 'quests', minutes: 12, tip: 'Her gün 5 cümle kuralı koyun.' },
+      { title: 'Aile geri bildirimi', page: 'blog', minutes: 8, tip: 'Ebeveyn “en sevdiğim cümle” seçsin.' },
+    ],
+  },
+  {
+    id: 'bilim-muhendis',
+    title: 'Bilim & Mühendis Rotası',
+    emoji: '🛠️',
+    age: '9-12',
+    summary: 'STEM kartları, gözlem notları ve problem çözme oyunlarıyla mühendislik düşüncesi.',
+    tags: ['stem', 'mühendislik', 'problem çözme'],
+    weeks: 5,
+    steps: [
+      { title: 'İleri seviye STEM kartı', page: 'stem', minutes: 20, tip: 'Hipotezi önceden yazın.' },
+      { title: 'Sonucu görselleştir', page: 'coloring', minutes: 12, tip: 'Diyagram gibi boyayın.' },
+      { title: 'Quiz ile pekiştir', page: 'activities', minutes: 10, tip: 'Yanlışları “araştırma sorusu” yapın.' },
+      { title: 'Proje hikâyesi yaz', page: 'create', minutes: 15, tip: 'İcat eden bir kahraman kurgulayın.' },
+      { title: 'Plan çıktısı al', page: 'printables', minutes: 10, tip: 'Malzeme listesi + adımlar tek sayfa.' },
+      { title: 'Haftalık bilim görevi', page: 'quests', minutes: 10, tip: 'Fotoğraflı günlüğe ekleyin (isterseniz).' },
+      { title: 'Ebeveyn STEM rehberi', page: 'blog', minutes: 7, tip: 'Güvenlik ve merak dengesi için okuyun.' },
+    ],
+  },
+  {
+    id: 'empati-kulubu',
+    title: 'Empati Kulübü',
+    emoji: '🤝',
+    age: '9-12',
+    summary: 'Duygular, değerler ve aile sohbetleriyle sosyal-duygusal becerileri derinleştirir.',
+    tags: ['empati', 'iletişim', 'değerler'],
+    weeks: 4,
+    steps: [
+      { title: 'Derin duygu check-in', page: 'feelings', minutes: 6, tip: '“Bedenimde nerede hissediyorum?” ekleyin.' },
+      { title: 'Empatik kahraman oku', page: 'heroes', minutes: 8, tip: 'Çatışmayı nasıl çözdüğünü tartışın.' },
+      { title: 'Senaryolu masal dinle', page: 'audio', minutes: 6, tip: 'Alternatif son uydurun.' },
+      { title: 'Rol yapma hikâyesi', page: 'create', minutes: 15, tip: 'İki bakış açılı kısa hikâye yazın.' },
+      { title: 'Aile iletişim yazısı', page: 'blog', minutes: 8, tip: 'Ebeveyn önce okusun, sonra birlikte uygulayın.' },
+      { title: 'Naziklik görevi', page: 'quests', minutes: 10, tip: 'Ev dışında bir iyilik hedefi koyun.' },
+    ],
+  },
+  {
+    id: 'aile-ritmi',
+    title: 'Aile Ritmi 4 Hafta',
+    emoji: '🏡',
+    age: '6-8',
+    summary: 'Ebeveyn + çocuk için dengeli ekran, okuma ve oyun rutini kuran pratik yol.',
+    tags: ['aile', 'rutin', 'denge'],
+    weeks: 4,
+    steps: [
+      { title: 'Ekran dengesi yazısı', page: 'blog', minutes: 8, tip: 'Aile kuralını tek cümleyle yazın.' },
+      { title: 'Akşam masalı ritüeli', page: 'audio', minutes: 5, tip: 'Her gün aynı saatte 5 dk.' },
+      { title: 'Haftalık görev panosu', page: 'quests', minutes: 12, tip: 'Çocuk kendi 2 görevini seçsin.' },
+      { title: 'Birlikte boyama saati', page: 'coloring', minutes: 15, tip: 'Siz de boyayın — model olun.' },
+      { title: 'Duygu pazartesi', page: 'feelings', minutes: 4, tip: 'Haftaya duyguyla başlamak yumuşatır.' },
+      { title: 'Eğlence cuması', page: 'fun', minutes: 10, tip: 'Ödül günü: çark + sticker.' },
+      { title: 'Çıktı arşivi', page: 'printables', minutes: 10, tip: 'Haftanın en güzel işini dosyalayın.' },
+    ],
+  },
+  {
+    id: 'tatil-kesif',
+    title: 'Tatil Keşif Rotası',
+    emoji: '☀️',
+    age: '9-12',
+    summary: 'Yaz veya ara tatilde merakı canlı tutan hafif ama zengin 3 haftalık keşif.',
+    tags: ['tatil', 'keşif', 'proje'],
+    weeks: 3,
+    steps: [
+      { title: 'Tatil planı blogu', page: 'blog', minutes: 7, tip: 'Her güne tek ana aktivite seçin.' },
+      { title: 'Doğa / bilim deneyi', page: 'stem', minutes: 20, tip: 'Dışarıda gözlem + içeride kayıt.' },
+      { title: 'Seyahat hikâyesi yaz', page: 'create', minutes: 15, tip: 'Gitmeden hayali bir yolculuk da olur.' },
+      { title: 'Oyun molası', page: 'activities', minutes: 12, tip: 'Sıcak saatlerde zihin oyunu.' },
+      { title: 'Kahraman günlüğü', page: 'heroes', minutes: 8, tip: '“Bugünün kahramanı bendim çünkü…”' },
+      { title: 'Görev avı', page: 'quests', minutes: 15, tip: 'Tatilde yıldız hedefini düşürün, keyfi yükseltin.' },
+      { title: 'Anı boyaması', page: 'coloring', minutes: 15, tip: 'Haftanın en güzel anını çizin/boyayın.' },
+    ],
+  },
+]
