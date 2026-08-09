@@ -7,8 +7,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'audio', label: 'Sesli Masallar', emoji: '🎧', short: 'Ses' },
   { id: 'coloring', label: 'Boyama', emoji: '🖍️', short: 'Boya' },
   { id: 'activities', label: 'Oyunlar', emoji: '🎮', short: 'Oyun' },
-  { id: 'blog', label: 'Aile Blog', emoji: '📝', short: 'Blog' },
-  { id: 'parents', label: 'Aile Köşesi', emoji: '👨‍👩‍👧', short: 'Aile' },
+  { id: 'fun', label: 'Eğlence', emoji: '🎡', short: 'Eğlence' },
   { id: 'create', label: 'AI Hikaye', emoji: '✨', short: 'AI' },
 ]
 
@@ -17,6 +16,8 @@ export const MORE_LINKS: { id: PageId; label: string; emoji: string }[] = [
   { id: 'rhymes', label: 'Şarkılar', emoji: '🎵' },
   { id: 'stem', label: 'STEM & Bilim', emoji: '🔬' },
   { id: 'feelings', label: 'Duygular', emoji: '💛' },
+  { id: 'blog', label: 'Aile Blog', emoji: '📝' },
+  { id: 'parents', label: 'Aile Köşesi', emoji: '👨‍👩‍👧' },
   { id: 'printables', label: 'Çıktılar', emoji: '🖨️' },
   { id: 'certificates', label: 'Sertifika', emoji: '🏆' },
   { id: 'about', label: 'Hakkımızda', emoji: 'ℹ️' },
@@ -75,9 +76,16 @@ export const FEATURE_CARDS = [
   },
   {
     id: 'activities' as const,
-    title: 'Eğitici Oyunlar',
+    title: 'Oyun Salonu',
     emoji: '🎮',
-    desc: 'Hafıza ve quiz ile eğlenerek öğren.',
+    desc: 'Hafıza, quiz, kelime karıştırma ve hızlı yakalama.',
     gradient: 'linear-gradient(135deg, #f12711, #f5af19)',
+  },
+  {
+    id: 'fun' as const,
+    title: 'Eğlence Bahçesi',
+    emoji: '🎡',
+    desc: 'Sürpriz çarkı, doodle, sticker albümü ve bilmeceler.',
+    gradient: 'linear-gradient(135deg, #00b09b, #96c93d)',
   },
 ]

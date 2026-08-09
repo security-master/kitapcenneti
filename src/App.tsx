@@ -9,6 +9,8 @@ import { AudioStoriesPage } from './pages/AudioStoriesPage'
 import { ColoringPagesPage } from './pages/ColoringPagesPage'
 import { HeroesPage } from './pages/HeroesPage'
 import { ActivitiesPage } from './pages/ActivitiesPage'
+import { FunPage } from './pages/FunPage'
+import { MascotBuddy } from './components/MascotBuddy'
 import { RhymesPage } from './pages/RhymesPage'
 import { ParentsPage } from './pages/ParentsPage'
 import { CertificatesPage } from './pages/CertificatesPage'
@@ -56,6 +58,7 @@ export default function App() {
         {page === 'coloring' && <ColoringPagesPage />}
         {page === 'heroes' && <HeroesPage onNavigate={navigate} />}
         {page === 'activities' && <ActivitiesPage />}
+        {page === 'fun' && <FunPage onNavigate={navigate} />}
         {page === 'rhymes' && <RhymesPage />}
         {page === 'stem' && <StemPage />}
         {page === 'feelings' && <FeelingsPage />}
@@ -72,6 +75,7 @@ export default function App() {
       <Footer onNavigate={navigate} />
       <CookieBanner />
       <ToastHost />
+      <MascotBuddy onNavigate={navigate} />
     </div>
   )
 }

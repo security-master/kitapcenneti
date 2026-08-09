@@ -6,6 +6,7 @@ export type PageId =
   | 'coloring'
   | 'heroes'
   | 'activities'
+  | 'fun'
   | 'rhymes'
   | 'stem'
   | 'feelings'
@@ -26,7 +27,7 @@ export interface NavItem {
 }
 
 export const ALL_PAGES: PageId[] = [
-  'home', 'quests', 'create', 'audio', 'coloring', 'heroes', 'activities',
+  'home', 'quests', 'create', 'audio', 'coloring', 'heroes', 'activities', 'fun',
   'rhymes', 'stem', 'feelings', 'blog', 'printables', 'certificates', 'parents',
   'about', 'privacy', 'terms', 'contact',
 ]

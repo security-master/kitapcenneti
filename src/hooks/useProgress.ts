@@ -10,6 +10,8 @@ const BADGES_KEY = 'kitapcenneti-badges'
 const COUNTS_KEY = 'kitapcenneti-activity-counts'
 const BEDTIME_KEY = 'kitapcenneti-bedtime'
 const FAV_AUDIO_KEY = 'kitapcenneti-fav-audio'
+const STICKERS_KEY = 'kitapcenneti-stickers'
+const SPIN_DAY_KEY = 'kitapcenneti-spin-day'
 
 type Counts = Partial<Record<ActivityKind, number>>
 
@@ -81,7 +83,10 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
       }
       questCompleted = quest
     }
-  } else if (firstToday && ['bedtime', 'favorite'].includes(kind)) {
+  } else if (
+    firstToday &&
+    ['bedtime', 'favorite', 'spin', 'scramble', 'speed', 'doodle', 'sticker'].includes(kind)
+  ) {
     // Tiny reward for platform habits when not mapped to a quest
     stars += 1
     localStorage.setItem(STARS_KEY, String(stars))
@@ -90,6 +95,25 @@ export function completeActivity(kind: ActivityKind): { newBadges: Badge[]; ques
   const nextBadges = evaluateBadges(stars, streak, counts, owned)
   const newly = nextBadges.filter((id) => !owned.includes(id))
   if (newly.length) localStorage.setItem(BADGES_KEY, JSON.stringify(nextBadges))
+
+  // Soft sticker unlocks from real play (not recursive via unlockSticker)
+  const stickerMap: Partial<Record<ActivityKind, string>> = {
+    story: 'dragon',
+    color: 'fish',
+    quiz: 'owl',
+    memory: 'fox',
+    feel: 'rainbow',
+    stem: 'robot',
+    bedtime: 'moon',
+    favorite: 'unicorn',
+  }
+  const stickerId = stickerMap[kind]
+  if (stickerId && firstToday) {
+    const stickers = readJson<string[]>(STICKERS_KEY, [])
+    if (!stickers.includes(stickerId)) {
+      localStorage.setItem(STICKERS_KEY, JSON.stringify([...stickers, stickerId]))
+    }
+  }
 
   window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
 
@@ -123,6 +147,33 @@ export function toggleFavoriteAudio(id: string): string[] {
   return next
 }
 
+export function getOwnedStickers(): string[] {
+  return readJson<string[]>(STICKERS_KEY, [])
+}
+
+export function unlockSticker(id: string): boolean {
+  const owned = getOwnedStickers()
+  if (owned.includes(id)) return false
+  localStorage.setItem(STICKERS_KEY, JSON.stringify([...owned, id]))
+  completeActivity('sticker')
+  window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
+  return true
+}
+
+export function canSpinToday(): boolean {
+  return localStorage.getItem(SPIN_DAY_KEY) !== todayKey()
+}
+
+export function markSpunToday() {
+  localStorage.setItem(SPIN_DAY_KEY, todayKey())
+}
+
+export function addBonusStars(amount: number) {
+  const stars = Number(localStorage.getItem(STARS_KEY) || 0) + amount
+  localStorage.setItem(STARS_KEY, String(stars))
+  window.dispatchEvent(new CustomEvent('kitapcenneti-progress'))
+}
+
 export const CREATE_PREFILL_KEY = 'kitapcenneti-create-prefill'
 
 export function setCreatePrefill(data: { heroName?: string; category?: string; prompt?: string }) {
@@ -147,6 +198,8 @@ export function useProgress() {
   const [counts, setCounts] = useState<Counts>({})
   const [bedtime, setBedtimeState] = useState(false)
   const [doneToday, setDoneToday] = useState<string[]>([])
+  const [stickers, setStickers] = useState<string[]>([])
+  const [spinAvailable, setSpinAvailable] = useState(true)
 
   const refresh = useCallback(() => {
     setStars(Number(localStorage.getItem(STARS_KEY) || 0))
@@ -155,6 +208,8 @@ export function useProgress() {
     setCounts(readJson<Counts>(COUNTS_KEY, {}))
     setBedtimeState(getBedtime())
     setDoneToday(readJson<string[]>(DONE_PREFIX + todayKey(), []))
+    setStickers(getOwnedStickers())
+    setSpinAvailable(canSpinToday())
   }, [])
 
   useEffect(() => {
@@ -193,6 +248,8 @@ export function useProgress() {
     todayQuests,
     doneToday,
     todayProgress,
+    stickers,
+    spinAvailable,
     refresh,
     record: completeActivity,
   }

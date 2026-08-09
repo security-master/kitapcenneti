@@ -13,6 +13,11 @@ export type ActivityKind =
   | 'cert'
   | 'bedtime'
   | 'favorite'
+  | 'spin'
+  | 'scramble'
+  | 'speed'
+  | 'doodle'
+  | 'sticker'
 
 export interface Badge {
   id: string
@@ -108,6 +113,30 @@ export const BADGES: Badge[] = [
     title: 'Yıldızlı Gece',
     description: 'Yatmadan önce modunu açtın.',
     requireActivity: 'bedtime',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'spinner',
+    emoji: '🎡',
+    title: 'Şanslı Çarkçı',
+    description: 'Sürpriz çarkını çevirdin.',
+    requireActivity: 'spin',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'artist-doodle',
+    emoji: '🎨',
+    title: 'Serbest Ressam',
+    description: 'Doodle tahtasında çizdin.',
+    requireActivity: 'doodle',
+    requireActivityCount: 1,
+  },
+  {
+    id: 'word-wizard',
+    emoji: '🔤',
+    title: 'Kelime Sihirbazı',
+    description: 'Kelime karıştırmayı çözdün.',
+    requireActivity: 'scramble',
     requireActivityCount: 1,
   },
 ]
