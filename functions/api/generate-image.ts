@@ -3,7 +3,11 @@ const cors = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Content-Type': 'application/json',
+  'X-Content-Type-Options': 'nosniff',
 }
+
+const MAX_PROMPT = 500
+const MAX_IMAGE_BYTES = 8_000_000
 
 function buildPollinationsUrl(prompt: string, seed: number): string {
   const shortPrompt = prompt.slice(0, 180)
@@ -19,10 +23,23 @@ export const onRequestOptions = async () =>
 
 export const onRequestPost = async (context: { request: Request }) => {
   try {
-    const { prompt, seed = 42 } = await context.request.json() as {
-      prompt?: string
-      seed?: number
+    const raw = await context.request.text()
+    if (raw.length > 16_000) {
+      return new Response(JSON.stringify({ error: 'Payload too large' }), { status: 413, headers: cors })
     }
+
+    let parsed: { prompt?: unknown; seed?: unknown }
+    try {
+      parsed = JSON.parse(raw) as { prompt?: unknown; seed?: unknown }
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: cors })
+    }
+
+    const prompt = typeof parsed.prompt === 'string' ? parsed.prompt.trim().slice(0, MAX_PROMPT) : ''
+    const seed =
+      typeof parsed.seed === 'number' && Number.isFinite(parsed.seed)
+        ? Math.floor(Math.abs(parsed.seed)) % 1_000_000_000
+        : 42
 
     if (!prompt) {
       return new Response(JSON.stringify({ error: 'Prompt required' }), {
@@ -44,6 +61,8 @@ export const onRequestPost = async (context: { request: Request }) => {
           const contentType = res.headers.get('content-type') || ''
           if (!contentType.startsWith('image/') || buffer.byteLength < 8000) {
             lastError = `invalid payload (${contentType}, ${buffer.byteLength}b)`
+          } else if (buffer.byteLength > MAX_IMAGE_BYTES) {
+            lastError = 'image too large'
           } else {
             const bytes = new Uint8Array(buffer)
             let binary = ''

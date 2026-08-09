@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { HEROES } from '../data/heroes'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity, setCreatePrefill } from '../hooks/useProgress'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 import type { PageId } from '../types/nav'
 
 interface HeroesPageProps {
@@ -11,24 +14,40 @@ interface HeroesPageProps {
 }
 
 export function HeroesPage({ onNavigate }: HeroesPageProps) {
-  const [activeId, setActiveId] = useState(HEROES[0].id)
+  const [activeId, setActiveId] = useContentItemId('heroes', HEROES[0].id)
+  const [query, setQuery] = useState('')
   const hero = HEROES.find((h) => h.id === activeId) || HEROES[0]
   const { speaking, speak, stop, profile, setProfile } = useSpeech()
+
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return HEROES
+    return HEROES.filter((h) =>
+      `${h.name} ${h.motto} ${h.power} ${h.bio} ${h.age}`.toLowerCase().includes(q),
+    )
+  }, [query])
 
   return (
     <div className="page">
       <header className="page-header">
         <h1>🦸 Özgün Kahramanlar</h1>
         <p>
-          Marvel/DC kopyası değil — tamamen Kitap Cenneti’ne ait telifsiz karakterler.
-          Çiz, oyna, hikayene ekle.
+          {HEROES.length} telifsiz karakter — Marvel/DC kopyası değil. Çiz, oyna, hikayene ekle.
         </p>
       </header>
+
+      <ContentPortalBar
+        count={list.length}
+        label="Kahraman"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Kahraman, güç veya motto ara…"
+      />
 
       <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="heroes-grid">
-        {HEROES.map((h) => (
+        {list.map((h) => (
           <button
             key={h.id}
             className={`hero-card ${activeId === h.id ? 'is-active' : ''}`}
@@ -47,7 +66,7 @@ export function HeroesPage({ onNavigate }: HeroesPageProps) {
           <span className="hero-detail__emoji">{hero.emoji}</span>
           <div>
             <h2>{hero.name}</h2>
-            <p className="hero-detail__motto">“{hero.motto}”</p>
+            <p className="hero-detail__motto">"{hero.motto}"</p>
           </div>
         </div>
         <div className="hero-detail__meta">
@@ -90,6 +109,15 @@ export function HeroesPage({ onNavigate }: HeroesPageProps) {
             🖍️ Boyama sayfalarına git
           </button>
         </div>
+        <SocialShare
+          payload={{
+            title: `${hero.emoji} ${hero.name}`,
+            text: `${hero.motto} — ${hero.power}`,
+            page: 'heroes',
+            itemId: hero.id,
+            hashtags: ['KitapCenneti', 'Kahraman', 'Cocuk'],
+          }}
+        />
       </div>
     </div>
   )

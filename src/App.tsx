@@ -33,11 +33,12 @@ import { AboutPage, ContactPage, PrivacyPage, TermsPage } from './pages/LegalPag
 import { ALL_PAGES, type PageId } from './types/nav'
 import { AdSlot } from './components/AdSlot'
 import { ToastHost } from './components/Toast'
+import { parseContentHash } from './utils/share'
 
 function readHash(): PageId {
-  const raw = window.location.hash.replace('#', '') as PageId
-  if (!raw || raw === 'home') return 'portal'
-  return ALL_PAGES.includes(raw) ? raw : 'portal'
+  const { page } = parseContentHash(window.location.hash)
+  if (!page || page === 'home') return 'portal'
+  return ALL_PAGES.includes(page as PageId) ? (page as PageId) : 'portal'
 }
 
 export default function App() {
@@ -49,9 +50,13 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  const navigate = (next: PageId) => {
+  const navigate = (next: PageId, itemId?: string) => {
     const target = next === 'home' ? 'portal' : next
-    window.location.hash = target === 'portal' ? 'portal' : target
+    window.location.hash = itemId
+      ? `${target}/${encodeURIComponent(itemId)}`
+      : target === 'portal'
+        ? 'portal'
+        : target
     setPage(target)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }

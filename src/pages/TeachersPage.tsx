@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { TEACHER_RESOURCES } from '../data/teachers'
 import { addJournalEntry } from '../hooks/usePortalProfile'
 import { showToast } from '../components/Toast'
 import { printHtml } from '../utils/pdf'
+import { escapeHtml } from '../utils/escapeHtml'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function TeachersPage() {
-  const [activeId, setActiveId] = useState(TEACHER_RESOURCES[0].id)
+  const [activeId, setActiveId] = useContentItemId('teachers', TEACHER_RESOURCES[0].id)
   const [subject, setSubject] = useState('Tümü')
+  const [query, setQuery] = useState('')
   const subjects = ['Tümü', ...Array.from(new Set(TEACHER_RESOURCES.map((t) => t.subject)))]
-  const list = subject === 'Tümü' ? TEACHER_RESOURCES : TEACHER_RESOURCES.filter((t) => t.subject === subject)
+
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    return TEACHER_RESOURCES.filter((t) => {
+      if (subject !== 'Tümü' && t.subject !== subject) return false
+      if (!q) return true
+      return `${t.title} ${t.summary} ${t.subject} ${t.age} ${t.materials.join(' ')}`.toLowerCase().includes(q)
+    })
+  }, [query, subject])
+
   const res = list.find((t) => t.id === activeId) || list[0] || TEACHER_RESOURCES[0]
 
   return (
@@ -16,26 +30,24 @@ export function TeachersPage() {
       <header className="page-header">
         <h1>👩‍🏫 Öğretmen & Sınıf Köşesi</h1>
         <p>
-          {TEACHER_RESOURCES.length} hazır etkinlik — sabah çemberinden STEM’e. Yazdır, uygula, günlüğe işle.
+          {TEACHER_RESOURCES.length} hazır etkinlik — sabah çemberinden STEM'e. Yazdır, uygula, günlüğe işle.
         </p>
       </header>
 
-      <div className="library-filters" style={{ marginBottom: 16 }}>
-        {subjects.map((s) => (
-          <button
-            key={s}
-            type="button"
-            className={`stem-chip ${subject === s ? 'is-active' : ''}`}
-            onClick={() => {
-              setSubject(s)
-              const first = s === 'Tümü' ? TEACHER_RESOURCES[0] : TEACHER_RESOURCES.find((t) => t.subject === s)
-              if (first) setActiveId(first.id)
-            }}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
+      <ContentPortalBar
+        count={list.length}
+        label="Etkinlik"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Etkinlik, konu veya malzeme ara…"
+        filters={subjects.map((s) => ({ id: s, label: s }))}
+        activeFilter={subject}
+        onFilter={(s) => {
+          setSubject(s)
+          const first = s === 'Tümü' ? TEACHER_RESOURCES[0] : TEACHER_RESOURCES.find((t) => t.subject === s)
+          if (first) setActiveId(first.id)
+        }}
+      />
 
       <div className="split">
         <div className="story-list">
@@ -84,7 +96,7 @@ export function TeachersPage() {
               onClick={() => {
                 printHtml(
                   res.title,
-                  `<p>${res.summary}</p><h3>Malzemeler</h3><ul>${res.materials.map((m) => `<li>${m}</li>`).join('')}</ul><h3>Adımlar</h3><ol>${res.steps.map((s) => `<li>${s}</li>`).join('')}</ol>`,
+                  `<p>${escapeHtml(res.summary)}</p><h3>Malzemeler</h3><ul>${res.materials.map((m) => `<li>${escapeHtml(m)}</li>`).join('')}</ul><h3>Adımlar</h3><ol>${res.steps.map((s) => `<li>${escapeHtml(s)}</li>`).join('')}</ol>`,
                 )
               }}
             >
@@ -106,6 +118,15 @@ export function TeachersPage() {
               Günlüğe işle
             </button>
           </div>
+          <SocialShare
+            payload={{
+              title: `${res.emoji} ${res.title}`,
+              text: `${res.summary} (${res.subject}, ${res.age})`,
+              page: 'teachers',
+              itemId: res.id,
+              hashtags: ['KitapCenneti', 'Ogretmen', res.subject.replace(/\s+/g, '')],
+            }}
+          />
         </article>
       </div>
     </div>

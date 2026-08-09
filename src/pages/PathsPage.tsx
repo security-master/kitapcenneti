@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import type { PageId } from '../types/nav'
 import { LEARNING_PATHS } from '../data/paths'
 import { usePortalProfile } from '../hooks/usePortalProfile'
 import { addJournalEntry } from '../hooks/usePortalProfile'
 import { showToast } from '../components/Toast'
+import { SocialShare } from '../components/SocialShare'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 interface Props {
   onNavigate: (page: PageId) => void
@@ -11,9 +12,9 @@ interface Props {
 
 export function PathsPage({ onNavigate }: Props) {
   const { profile } = usePortalProfile()
-  const [activeId, setActiveId] = useState(
-    () => LEARNING_PATHS.find((p) => p.age === profile.ageGroup)?.id || LEARNING_PATHS[0].id,
-  )
+  const defaultPathId =
+    LEARNING_PATHS.find((p) => p.age === profile.ageGroup)?.id || LEARNING_PATHS[0].id
+  const [activeId, setActiveId] = useContentItemId('paths', defaultPathId)
   const path = LEARNING_PATHS.find((p) => p.id === activeId) || LEARNING_PATHS[0]
 
   return (
@@ -77,6 +78,15 @@ export function PathsPage({ onNavigate }: Props) {
             </li>
           ))}
         </ol>
+        <SocialShare
+          payload={{
+            title: `${path.emoji} ${path.title}`,
+            text: `${path.summary} (${path.weeks} hafta, ${path.steps.length} adım)`,
+            page: 'paths',
+            itemId: path.id,
+            hashtags: ['KitapCenneti', 'Ogrenme', path.age.replace(/\s+/g, '')],
+          }}
+        />
       </article>
     </div>
   )

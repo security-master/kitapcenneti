@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import type { PageId } from '../types/nav'
 import { WORLD_REGIONS } from '../data/world'
+import { SocialShare } from '../components/SocialShare'
 
 interface Props {
   onNavigate: (page: PageId) => void
 }
 
 export function WorldPage({ onNavigate }: Props) {
+  const [shareId, setShareId] = useState<string | null>(null)
+
   return (
     <div className="page">
       <header className="page-header">
@@ -33,6 +37,26 @@ export function WorldPage({ onNavigate }: Props) {
                   </button>
                 ))}
               </div>
+              <button
+                type="button"
+                className="btn btn--ghost btn--small"
+                style={{ marginTop: 10 }}
+                onClick={() => setShareId((id) => (id === region.id ? null : region.id))}
+              >
+                {shareId === region.id ? 'Paylaşımı gizle' : 'Paylaş'}
+              </button>
+              {shareId === region.id && (
+                <SocialShare
+                  compact
+                  payload={{
+                    title: `${region.emoji} ${region.title}`,
+                    text: region.blurb,
+                    page: 'world',
+                    itemId: region.id,
+                    hashtags: ['KitapCenneti', 'Macera', region.title.replace(/\s+/g, '')],
+                  }}
+                />
+              )}
             </div>
           </article>
         ))}

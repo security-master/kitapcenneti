@@ -489,4 +489,1842 @@ Yıldız ikisinin de olmuş — paylaşılınca eksilmeden.
 Lara defterine yazmış: "Gökyüzü ortak bahçemiz."
 Keşif bazen uzaya gitmek değil, birlikte bakmakmış.`,
   },
+  {
+    id: 'masal-gen-uyku-1',
+    title: 'Uyku Masalı: Elif\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Elif, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Elif adında meraklı bir çocuk varmış.
+Elif, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Elif demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-2',
+    title: 'Dostluk Masalı: Deniz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Deniz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Deniz adında meraklı bir çocuk varmış.
+Deniz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Deniz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-3',
+    title: 'Doğa Masalı: Aras\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Aras, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Aras adında meraklı bir çocuk varmış.
+Aras, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Aras demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-4',
+    title: 'Uzay Masalı: Mira\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Mira, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Mira adında meraklı bir çocuk varmış.
+Mira, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Mira demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-5',
+    title: 'Okul Masalı: Kuzey\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kuzey, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kuzey adında meraklı bir çocuk varmış.
+Kuzey, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kuzey demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-6',
+    title: 'Duygu Masalı: Defne\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Defne, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Defne adında meraklı bir çocuk varmış.
+Defne, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Defne demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-7',
+    title: 'Macera Masalı: Alp\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Alp, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Alp adında meraklı bir çocuk varmış.
+Alp, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Alp demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-8',
+    title: 'Hayvan Masalı: Ece\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Ece, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Ece adında meraklı bir çocuk varmış.
+Ece, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Ece demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-deniz-9',
+    title: 'Deniz Masalı: Barış\'in Hikâyesi',
+    emoji: '🌊',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Deniz',
+    summary: 'Barış, deniz temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Barış adında meraklı bir çocuk varmış.
+Barış, deniz hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Barış demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra deniz ona güzel bir hatırlatma olmuş.
+Sen de bugün deniz için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-mevsim-10',
+    title: 'Mevsim Masalı: Selin\'in Macerası',
+    emoji: '🍂',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Selin, mevsim temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Selin adında meraklı bir çocuk varmış.
+Selin, mevsim hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Selin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra mevsim ona güzel bir hatırlatma olmuş.
+Sen de bugün mevsim için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uyku-11',
+    title: 'Uyku Masalı: Can\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Can, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Can adında meraklı bir çocuk varmış.
+Can, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Can demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-12',
+    title: 'Dostluk Masalı: Naz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Naz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Naz adında meraklı bir çocuk varmış.
+Naz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Naz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-13',
+    title: 'Doğa Masalı: Emre\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Emre, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Emre adında meraklı bir çocuk varmış.
+Emre, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Emre demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-14',
+    title: 'Uzay Masalı: Zeynep\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Zeynep, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Zeynep adında meraklı bir çocuk varmış.
+Zeynep, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Zeynep demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-15',
+    title: 'Okul Masalı: Kaan\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kaan, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kaan adında meraklı bir çocuk varmış.
+Kaan, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kaan demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-16',
+    title: 'Duygu Masalı: Yasemin\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Yasemin, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Yasemin adında meraklı bir çocuk varmış.
+Yasemin, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Yasemin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-17',
+    title: 'Macera Masalı: Derin\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Derin, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Derin adında meraklı bir çocuk varmış.
+Derin, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Derin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-18',
+    title: 'Hayvan Masalı: Umut\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Umut, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Umut adında meraklı bir çocuk varmış.
+Umut, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Umut demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-deniz-19',
+    title: 'Deniz Masalı: Lale\'in Hikâyesi',
+    emoji: '🌊',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Deniz',
+    summary: 'Lale, deniz temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Lale adında meraklı bir çocuk varmış.
+Lale, deniz hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Lale demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra deniz ona güzel bir hatırlatma olmuş.
+Sen de bugün deniz için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-mevsim-20',
+    title: 'Mevsim Masalı: Poyraz\'in Macerası',
+    emoji: '🍂',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Poyraz, mevsim temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Poyraz adında meraklı bir çocuk varmış.
+Poyraz, mevsim hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Poyraz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra mevsim ona güzel bir hatırlatma olmuş.
+Sen de bugün mevsim için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uyku-21',
+    title: 'Uyku Masalı: Elif\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Elif, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Elif adında meraklı bir çocuk varmış.
+Elif, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Elif demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-22',
+    title: 'Dostluk Masalı: Deniz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Deniz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Deniz adında meraklı bir çocuk varmış.
+Deniz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Deniz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-23',
+    title: 'Doğa Masalı: Aras\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Aras, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Aras adında meraklı bir çocuk varmış.
+Aras, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Aras demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-24',
+    title: 'Uzay Masalı: Mira\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Mira, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Mira adında meraklı bir çocuk varmış.
+Mira, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Mira demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-25',
+    title: 'Okul Masalı: Kuzey\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kuzey, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kuzey adında meraklı bir çocuk varmış.
+Kuzey, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kuzey demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-26',
+    title: 'Duygu Masalı: Defne\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Defne, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Defne adında meraklı bir çocuk varmış.
+Defne, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Defne demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-27',
+    title: 'Macera Masalı: Alp\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Alp, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Alp adında meraklı bir çocuk varmış.
+Alp, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Alp demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-28',
+    title: 'Hayvan Masalı: Ece\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Ece, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Ece adında meraklı bir çocuk varmış.
+Ece, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Ece demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-deniz-29',
+    title: 'Deniz Masalı: Barış\'in Hikâyesi',
+    emoji: '🌊',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Deniz',
+    summary: 'Barış, deniz temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Barış adında meraklı bir çocuk varmış.
+Barış, deniz hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Barış demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra deniz ona güzel bir hatırlatma olmuş.
+Sen de bugün deniz için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-mevsim-30',
+    title: 'Mevsim Masalı: Selin\'in Macerası',
+    emoji: '🍂',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Selin, mevsim temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Selin adında meraklı bir çocuk varmış.
+Selin, mevsim hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Selin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra mevsim ona güzel bir hatırlatma olmuş.
+Sen de bugün mevsim için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uyku-31',
+    title: 'Uyku Masalı: Can\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Can, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Can adında meraklı bir çocuk varmış.
+Can, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Can demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-32',
+    title: 'Dostluk Masalı: Naz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Naz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Naz adında meraklı bir çocuk varmış.
+Naz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Naz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-33',
+    title: 'Doğa Masalı: Emre\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Emre, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Emre adında meraklı bir çocuk varmış.
+Emre, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Emre demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-34',
+    title: 'Uzay Masalı: Zeynep\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Zeynep, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Zeynep adında meraklı bir çocuk varmış.
+Zeynep, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Zeynep demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-35',
+    title: 'Okul Masalı: Kaan\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kaan, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kaan adında meraklı bir çocuk varmış.
+Kaan, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kaan demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-36',
+    title: 'Duygu Masalı: Yasemin\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Yasemin, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Yasemin adında meraklı bir çocuk varmış.
+Yasemin, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Yasemin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-37',
+    title: 'Macera Masalı: Derin\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Derin, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Derin adında meraklı bir çocuk varmış.
+Derin, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Derin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-38',
+    title: 'Hayvan Masalı: Umut\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Umut, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Umut adında meraklı bir çocuk varmış.
+Umut, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Umut demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-deniz-39',
+    title: 'Deniz Masalı: Lale\'in Hikâyesi',
+    emoji: '🌊',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Deniz',
+    summary: 'Lale, deniz temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Lale adında meraklı bir çocuk varmış.
+Lale, deniz hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Lale demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra deniz ona güzel bir hatırlatma olmuş.
+Sen de bugün deniz için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-mevsim-40',
+    title: 'Mevsim Masalı: Poyraz\'in Macerası',
+    emoji: '🍂',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Poyraz, mevsim temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Poyraz adında meraklı bir çocuk varmış.
+Poyraz, mevsim hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Poyraz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra mevsim ona güzel bir hatırlatma olmuş.
+Sen de bugün mevsim için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uyku-41',
+    title: 'Uyku Masalı: Elif\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Elif, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Elif adında meraklı bir çocuk varmış.
+Elif, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Elif demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-42',
+    title: 'Dostluk Masalı: Deniz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Deniz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Deniz adında meraklı bir çocuk varmış.
+Deniz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Deniz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-43',
+    title: 'Doğa Masalı: Aras\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Aras, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Aras adında meraklı bir çocuk varmış.
+Aras, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Aras demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-44',
+    title: 'Uzay Masalı: Mira\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Mira, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Mira adında meraklı bir çocuk varmış.
+Mira, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Mira demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-45',
+    title: 'Okul Masalı: Kuzey\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kuzey, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kuzey adında meraklı bir çocuk varmış.
+Kuzey, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kuzey demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-46',
+    title: 'Duygu Masalı: Defne\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Defne, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Defne adında meraklı bir çocuk varmış.
+Defne, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Defne demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-47',
+    title: 'Macera Masalı: Alp\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Alp, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Alp adında meraklı bir çocuk varmış.
+Alp, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Alp demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-48',
+    title: 'Hayvan Masalı: Ece\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Ece, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Ece adında meraklı bir çocuk varmış.
+Ece, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Ece demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-deniz-49',
+    title: 'Deniz Masalı: Barış\'in Hikâyesi',
+    emoji: '🌊',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Deniz',
+    summary: 'Barış, deniz temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Barış adında meraklı bir çocuk varmış.
+Barış, deniz hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Barış demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra deniz ona güzel bir hatırlatma olmuş.
+Sen de bugün deniz için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-mevsim-50',
+    title: 'Mevsim Masalı: Selin\'in Macerası',
+    emoji: '🍂',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Selin, mevsim temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Selin adında meraklı bir çocuk varmış.
+Selin, mevsim hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Selin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra mevsim ona güzel bir hatırlatma olmuş.
+Sen de bugün mevsim için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uyku-51',
+    title: 'Uyku Masalı: Can\'in Yolculuğu',
+    emoji: '🌙',
+    age: '3-6',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Can, uyku temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Can adında meraklı bir çocuk varmış.
+Can, uyku hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Can demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uyku ona güzel bir hatırlatma olmuş.
+Sen de bugün uyku için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-dostluk-52',
+    title: 'Dostluk Masalı: Naz\'in Keşfi',
+    emoji: '🤝',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Naz, dostluk temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Naz adında meraklı bir çocuk varmış.
+Naz, dostluk hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Naz demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra dostluk ona güzel bir hatırlatma olmuş.
+Sen de bugün dostluk için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-doga-53',
+    title: 'Doğa Masalı: Emre\'in Günü',
+    emoji: '🌿',
+    age: '4-9',
+    duration: '4 dk',
+    theme: 'Doğa',
+    summary: 'Emre, doğa temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Emre adında meraklı bir çocuk varmış.
+Emre, doğa hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Emre demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra doğa ona güzel bir hatırlatma olmuş.
+Sen de bugün doğa için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-uzay-54',
+    title: 'Uzay Masalı: Zeynep\'in Hikâyesi',
+    emoji: '🚀',
+    age: '5-10',
+    duration: '5 dk',
+    theme: 'Uzay',
+    summary: 'Zeynep, uzay temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Zeynep adında meraklı bir çocuk varmış.
+Zeynep, uzay hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Zeynep demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra uzay ona güzel bir hatırlatma olmuş.
+Sen de bugün uzay için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-okul-55',
+    title: 'Okul Masalı: Kaan\'in Macerası',
+    emoji: '🎒',
+    age: '5-9',
+    duration: '4 dk',
+    theme: 'Okul',
+    summary: 'Kaan, okul temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Kaan adında meraklı bir çocuk varmış.
+Kaan, okul hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Kaan demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra okul ona güzel bir hatırlatma olmuş.
+Sen de bugün okul için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-duygu-56',
+    title: 'Duygu Masalı: Yasemin\'in Yolculuğu',
+    emoji: '💛',
+    age: '4-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Yasemin, duygu temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Yasemin adında meraklı bir çocuk varmış.
+Yasemin, duygu hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Yasemin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra duygu ona güzel bir hatırlatma olmuş.
+Sen de bugün duygu için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-macera-57',
+    title: 'Macera Masalı: Derin\'in Keşfi',
+    emoji: '🗺️',
+    age: '6-11',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Derin, macera temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Derin adında meraklı bir çocuk varmış.
+Derin, macera hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Derin demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra macera ona güzel bir hatırlatma olmuş.
+Sen de bugün macera için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-gen-hayvan-58',
+    title: 'Hayvan Masalı: Umut\'in Günü',
+    emoji: '🐾',
+    age: '3-7',
+    duration: '3 dk',
+    theme: 'Hayvan',
+    summary: 'Umut, hayvan temalı sıcak bir macerada yeni bir şey öğrenir.',
+    text: `Bir varmış bir yokmuş, Umut adında meraklı bir çocuk varmış.
+Umut, hayvan hakkında düşünürken küçük bir sürprizle karşılaşmış.
+Önce korkmuş, sonra nefes alıp yardım istemiş.
+Arkadaşları ve ailesi birlikte olunca işler kolaylaşmış.
+Umut demiş ki: "Her gün küçük bir adım, büyük bir değişim getirir."
+Ve o günden sonra hayvan ona güzel bir hatırlatma olmuş.
+Sen de bugün hayvan için minik bir iyilik yapabilirsin.`,
+  },
+  {
+    id: 'masal-portal-1',
+    title: 'Dostluk Masalı 1',
+    emoji: '🦊',
+    age: '4-7',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-2',
+    title: 'Doğa Masalı 2',
+    emoji: '🌙',
+    age: '5-8',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-3',
+    title: 'Uzay Masalı 3',
+    emoji: '🌊',
+    age: '6-9',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-4',
+    title: 'Okul Masalı 4',
+    emoji: '🚀',
+    age: '7-10',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-5',
+    title: 'Duygu Masalı 5',
+    emoji: '🌿',
+    age: '3-5',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-6',
+    title: 'Macera Masalı 6',
+    emoji: '🎈',
+    age: '4-7',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-7',
+    title: 'Hayvan Masalı 7',
+    emoji: '🐻',
+    age: '5-8',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-8',
+    title: 'Deniz Masalı 8',
+    emoji: '🦋',
+    age: '6-9',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-9',
+    title: 'Mevsim Masalı 9',
+    emoji: '🌈',
+    age: '7-10',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-10',
+    title: 'Cesaret Masalı 10',
+    emoji: '🐢',
+    age: '3-5',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-11',
+    title: 'Paylaşım Masalı 11',
+    emoji: '🦄',
+    age: '4-7',
+    duration: '6 dk',
+    theme: 'Paylaşım',
+    summary: 'Paylaşım temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, paylaşım dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-12',
+    title: 'Uyku Masalı 12',
+    emoji: '🐠',
+    age: '5-8',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Uyku temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uyku dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-13',
+    title: 'Dostluk Masalı 13',
+    emoji: '🌻',
+    age: '6-9',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-14',
+    title: 'Doğa Masalı 14',
+    emoji: '🏰',
+    age: '7-10',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-15',
+    title: 'Uzay Masalı 15',
+    emoji: '🧠',
+    age: '3-5',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-16',
+    title: 'Okul Masalı 16',
+    emoji: '💛',
+    age: '4-7',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-17',
+    title: 'Duygu Masalı 17',
+    emoji: '🎵',
+    age: '5-8',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-18',
+    title: 'Macera Masalı 18',
+    emoji: '⭐',
+    age: '6-9',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-19',
+    title: 'Hayvan Masalı 19',
+    emoji: '🦊',
+    age: '7-10',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-20',
+    title: 'Deniz Masalı 20',
+    emoji: '🌙',
+    age: '3-5',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-21',
+    title: 'Mevsim Masalı 21',
+    emoji: '🌊',
+    age: '4-7',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-22',
+    title: 'Cesaret Masalı 22',
+    emoji: '🚀',
+    age: '5-8',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-23',
+    title: 'Paylaşım Masalı 23',
+    emoji: '🌿',
+    age: '6-9',
+    duration: '6 dk',
+    theme: 'Paylaşım',
+    summary: 'Paylaşım temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, paylaşım dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-24',
+    title: 'Uyku Masalı 24',
+    emoji: '🎈',
+    age: '7-10',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Uyku temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uyku dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-25',
+    title: 'Dostluk Masalı 25',
+    emoji: '🐻',
+    age: '3-5',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-26',
+    title: 'Doğa Masalı 26',
+    emoji: '🦋',
+    age: '4-7',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-27',
+    title: 'Uzay Masalı 27',
+    emoji: '🌈',
+    age: '5-8',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-28',
+    title: 'Okul Masalı 28',
+    emoji: '🐢',
+    age: '6-9',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-29',
+    title: 'Duygu Masalı 29',
+    emoji: '🦄',
+    age: '7-10',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-30',
+    title: 'Macera Masalı 30',
+    emoji: '🐠',
+    age: '3-5',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-31',
+    title: 'Hayvan Masalı 31',
+    emoji: '🌻',
+    age: '4-7',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-32',
+    title: 'Deniz Masalı 32',
+    emoji: '🏰',
+    age: '5-8',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-33',
+    title: 'Mevsim Masalı 33',
+    emoji: '🧠',
+    age: '6-9',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-34',
+    title: 'Cesaret Masalı 34',
+    emoji: '💛',
+    age: '7-10',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-35',
+    title: 'Paylaşım Masalı 35',
+    emoji: '🎵',
+    age: '3-5',
+    duration: '6 dk',
+    theme: 'Paylaşım',
+    summary: 'Paylaşım temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, paylaşım dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-36',
+    title: 'Uyku Masalı 36',
+    emoji: '⭐',
+    age: '4-7',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Uyku temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uyku dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-37',
+    title: 'Dostluk Masalı 37',
+    emoji: '🦊',
+    age: '5-8',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-38',
+    title: 'Doğa Masalı 38',
+    emoji: '🌙',
+    age: '6-9',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-39',
+    title: 'Uzay Masalı 39',
+    emoji: '🌊',
+    age: '7-10',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-40',
+    title: 'Okul Masalı 40',
+    emoji: '🚀',
+    age: '3-5',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-41',
+    title: 'Duygu Masalı 41',
+    emoji: '🌿',
+    age: '4-7',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-42',
+    title: 'Macera Masalı 42',
+    emoji: '🎈',
+    age: '5-8',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-43',
+    title: 'Hayvan Masalı 43',
+    emoji: '🐻',
+    age: '6-9',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-44',
+    title: 'Deniz Masalı 44',
+    emoji: '🦋',
+    age: '7-10',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-45',
+    title: 'Mevsim Masalı 45',
+    emoji: '🌈',
+    age: '3-5',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-46',
+    title: 'Cesaret Masalı 46',
+    emoji: '🐢',
+    age: '4-7',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-47',
+    title: 'Paylaşım Masalı 47',
+    emoji: '🦄',
+    age: '5-8',
+    duration: '6 dk',
+    theme: 'Paylaşım',
+    summary: 'Paylaşım temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, paylaşım dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-48',
+    title: 'Uyku Masalı 48',
+    emoji: '🐠',
+    age: '6-9',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Uyku temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uyku dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-49',
+    title: 'Dostluk Masalı 49',
+    emoji: '🌻',
+    age: '7-10',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-50',
+    title: 'Doğa Masalı 50',
+    emoji: '🏰',
+    age: '3-5',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-51',
+    title: 'Uzay Masalı 51',
+    emoji: '🧠',
+    age: '4-7',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-52',
+    title: 'Okul Masalı 52',
+    emoji: '💛',
+    age: '5-8',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-53',
+    title: 'Duygu Masalı 53',
+    emoji: '🎵',
+    age: '6-9',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-54',
+    title: 'Macera Masalı 54',
+    emoji: '⭐',
+    age: '7-10',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-55',
+    title: 'Hayvan Masalı 55',
+    emoji: '🦊',
+    age: '3-5',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-56',
+    title: 'Deniz Masalı 56',
+    emoji: '🌙',
+    age: '4-7',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-57',
+    title: 'Mevsim Masalı 57',
+    emoji: '🌊',
+    age: '5-8',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-58',
+    title: 'Cesaret Masalı 58',
+    emoji: '🚀',
+    age: '6-9',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-59',
+    title: 'Paylaşım Masalı 59',
+    emoji: '🌿',
+    age: '7-10',
+    duration: '6 dk',
+    theme: 'Paylaşım',
+    summary: 'Paylaşım temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, paylaşım dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-60',
+    title: 'Uyku Masalı 60',
+    emoji: '🎈',
+    age: '3-5',
+    duration: '3 dk',
+    theme: 'Uyku',
+    summary: 'Uyku temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uyku dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-61',
+    title: 'Dostluk Masalı 61',
+    emoji: '🐻',
+    age: '4-7',
+    duration: '4 dk',
+    theme: 'Dostluk',
+    summary: 'Dostluk temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, dostluk dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-62',
+    title: 'Doğa Masalı 62',
+    emoji: '🦋',
+    age: '5-8',
+    duration: '5 dk',
+    theme: 'Doğa',
+    summary: 'Doğa temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, doğa dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-63',
+    title: 'Uzay Masalı 63',
+    emoji: '🌈',
+    age: '6-9',
+    duration: '6 dk',
+    theme: 'Uzay',
+    summary: 'Uzay temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, uzay dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-64',
+    title: 'Okul Masalı 64',
+    emoji: '🐢',
+    age: '7-10',
+    duration: '3 dk',
+    theme: 'Okul',
+    summary: 'Okul temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, okul dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-65',
+    title: 'Duygu Masalı 65',
+    emoji: '🦄',
+    age: '3-5',
+    duration: '4 dk',
+    theme: 'Duygu',
+    summary: 'Duygu temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, duygu dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-66',
+    title: 'Macera Masalı 66',
+    emoji: '🐠',
+    age: '4-7',
+    duration: '5 dk',
+    theme: 'Macera',
+    summary: 'Macera temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, macera dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-67',
+    title: 'Hayvan Masalı 67',
+    emoji: '🌻',
+    age: '5-8',
+    duration: '6 dk',
+    theme: 'Hayvan',
+    summary: 'Hayvan temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, hayvan dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-68',
+    title: 'Deniz Masalı 68',
+    emoji: '🏰',
+    age: '6-9',
+    duration: '3 dk',
+    theme: 'Deniz',
+    summary: 'Deniz temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, deniz dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-69',
+    title: 'Mevsim Masalı 69',
+    emoji: '🧠',
+    age: '7-10',
+    duration: '4 dk',
+    theme: 'Mevsim',
+    summary: 'Mevsim temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, mevsim dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  },
+  {
+    id: 'masal-portal-70',
+    title: 'Cesaret Masalı 70',
+    emoji: '💛',
+    age: '3-5',
+    duration: '5 dk',
+    theme: 'Cesaret',
+    summary: 'Cesaret temalı kısa bir masal — dinle, hisset, paylaş.',
+    text: `Bir varmış bir yokmuş, cesaret dolu bir günde minik bir kahraman yola çıkmış.
+Yolda bir dost bulmuş, birlikte küçük bir sorunu çözmüşler.
+Sonunda herkes gülümsemiş ve gökyüzü biraz daha parlak görünmüş.
+Sen de derin bir nefes al… bu masalın sıcaklığını yanında tut.`,
+  }
 ]

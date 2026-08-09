@@ -3,16 +3,25 @@ import { COLORING_CATEGORIES, COLORING_PAGES, getColoringSvg } from '../data/col
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
 import { downloadSvgAsPdf } from '../utils/pdf'
+import { escapeHtml } from '../utils/escapeHtml'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function ColoringPagesPage() {
   const [category, setCategory] = useState<(typeof COLORING_CATEGORIES)[number]>('Tümü')
-  const [selected, setSelected] = useState(COLORING_PAGES[0].id)
+  const [selected, setSelected] = useContentItemId('coloring', COLORING_PAGES[0].id)
+  const [query, setQuery] = useState('')
   const [busy, setBusy] = useState(false)
 
-  const filtered = useMemo(
-    () => (category === 'Tümü' ? COLORING_PAGES : COLORING_PAGES.filter((p) => p.category === category)),
-    [category],
-  )
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    return COLORING_PAGES.filter((p) => {
+      if (category !== 'Tümü' && p.category !== category) return false
+      if (!q) return true
+      return `${p.title} ${p.description} ${p.category} ${p.age}`.toLowerCase().includes(q)
+    })
+  }, [category, query])
 
   const page = COLORING_PAGES.find((p) => p.id === selected) || filtered[0] || COLORING_PAGES[0]
   const svg = getColoringSvg(page.id)
@@ -32,11 +41,21 @@ export function ColoringPagesPage() {
   const handlePrint = () => {
     const win = window.open('', '_blank', 'noopener,noreferrer')
     if (!win) return
-    win.document.write(`<!doctype html><html><head><meta charset="utf-8"/><title>${page.title}</title>
+    const safeTitle = escapeHtml(page.title)
+    win.document.open()
+    win.document.write(`<!doctype html><html><head><meta charset="utf-8"/><title>${safeTitle}</title>
       <style>body{margin:0;display:flex;flex-direction:column;align-items:center;font-family:Nunito,sans-serif}
       h1{margin:16px} svg{width:90vw;max-width:640px}</style></head>
-      <body><h1>${page.title}</h1>${svg}<script>window.onload=()=>window.print()</script></body></html>`)
+      <body><h1>${safeTitle}</h1>${svg}</body></html>`)
     win.document.close()
+    setTimeout(() => {
+      try {
+        win.focus()
+        win.print()
+      } catch {
+        /* ignore */
+      }
+    }, 250)
   }
 
   return (
@@ -46,21 +65,20 @@ export function ColoringPagesPage() {
         <p>{COLORING_PAGES.length} telifsiz sayfa · kategoriye göre filtrele, PDF indir veya yazdır.</p>
       </header>
 
-      <div className="coloring-cats">
-        {COLORING_CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            className={`stem-chip ${category === cat ? 'is-active' : ''}`}
-            onClick={() => {
-              setCategory(cat)
-              const first = cat === 'Tümü' ? COLORING_PAGES[0] : COLORING_PAGES.find((p) => p.category === cat)
-              if (first) setSelected(first.id)
-            }}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <ContentPortalBar
+        count={filtered.length}
+        label="Boyama"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Sayfa, kategori veya yaş ara…"
+        filters={COLORING_CATEGORIES.map((cat) => ({ id: cat, label: cat }))}
+        activeFilter={category}
+        onFilter={(cat) => {
+          setCategory(cat as (typeof COLORING_CATEGORIES)[number])
+          const first = cat === 'Tümü' ? COLORING_PAGES[0] : COLORING_PAGES.find((p) => p.category === cat)
+          if (first) setSelected(first.id)
+        }}
+      />
 
       <div className="coloring-layout">
         <div className="coloring-grid">
@@ -87,6 +105,15 @@ export function ColoringPagesPage() {
             </button>
             <button className="btn btn--ghost" onClick={handlePrint}>🖨️ Yazdır</button>
           </div>
+          <SocialShare
+            payload={{
+              title: `${page.emoji || '🖍️'} ${page.title}`,
+              text: page.description,
+              page: 'coloring',
+              itemId: page.id,
+              hashtags: ['KitapCenneti', 'Boyama', page.category.replace(/\s+/g, '')],
+            }}
+          />
         </div>
       </div>
     </div>

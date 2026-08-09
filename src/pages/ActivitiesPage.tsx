@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { MEMORY_EMOJIS, QUIZ_QUESTIONS } from '../data/activities'
-import { SPEED_EMOJIS, WORD_BANK } from '../data/extraGames'
+import { SCRAMBLE_WORDS, SPEED_EMOJIS, WORD_BANK } from '../data/extraGames'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
 import { ConfettiBurst } from '../components/ConfettiBurst'
+import { SocialShare } from '../components/SocialShare'
 
 type Mode = 'menu' | 'memory' | 'quiz' | 'scramble' | 'speed'
+
+const SCRAMBLE_BANK =
+  SCRAMBLE_WORDS.length > 0
+    ? SCRAMBLE_WORDS.map(({ word, hint }) => ({ word, hint }))
+    : WORD_BANK
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -27,28 +33,38 @@ export function ActivitiesPage() {
       </header>
 
       {mode === 'menu' && (
-        <div className="activity-menu activity-menu--rich">
-          <button className="panel activity-tile" onClick={() => setMode('memory')}>
-            <span>🧠</span>
-            <h2>Hafıza Kartları</h2>
-            <p>Eşleri bul, beynini çalıştır!</p>
-          </button>
-          <button className="panel activity-tile" onClick={() => setMode('quiz')}>
-            <span>❓</span>
-            <h2>Mini Quiz</h2>
-            <p>Genel kültür — ailece yarışın.</p>
-          </button>
-          <button className="panel activity-tile" onClick={() => setMode('scramble')}>
-            <span>🔤</span>
-            <h2>Kelime Karıştır</h2>
-            <p>Harfleri doğru sıraya diz.</p>
-          </button>
-          <button className="panel activity-tile" onClick={() => setMode('speed')}>
-            <span>⚡</span>
-            <h2>Hızlı Yakalama</h2>
-            <p>Doğru emojilere tıkla, skor kır!</p>
-          </button>
-        </div>
+        <>
+          <div className="activity-menu activity-menu--rich">
+            <button className="panel activity-tile" onClick={() => setMode('memory')}>
+              <span>🧠</span>
+              <h2>Hafıza Kartları</h2>
+              <p>Eşleri bul, beynini çalıştır!</p>
+            </button>
+            <button className="panel activity-tile" onClick={() => setMode('quiz')}>
+              <span>❓</span>
+              <h2>Mini Quiz</h2>
+              <p>Genel kültür — ailece yarışın.</p>
+            </button>
+            <button className="panel activity-tile" onClick={() => setMode('scramble')}>
+              <span>🔤</span>
+              <h2>Kelime Karıştır</h2>
+              <p>Harfleri doğru sıraya diz.</p>
+            </button>
+            <button className="panel activity-tile" onClick={() => setMode('speed')}>
+              <span>⚡</span>
+              <h2>Hızlı Yakalama</h2>
+              <p>Doğru emojilere tıkla, skor kır!</p>
+            </button>
+          </div>
+          <SocialShare
+            payload={{
+              title: '🎮 Oyun Salonu',
+              text: 'Hafıza, quiz, kelime karıştırma ve hızlı yakalama — Kitap Cenneti oyunları!',
+              page: 'activities',
+              hashtags: ['KitapCenneti', 'Oyun', 'Cocuk'],
+            }}
+          />
+        </>
       )}
 
       {mode === 'memory' && <MemoryGame onBack={() => setMode('menu')} />}
@@ -193,7 +209,7 @@ function QuizGame({ onBack }: { onBack: () => void }) {
 
 function ScrambleGame({ onBack }: { onBack: () => void }) {
   const [round, setRound] = useState(0)
-  const item = WORD_BANK[round % WORD_BANK.length]
+  const item = SCRAMBLE_BANK[round % SCRAMBLE_BANK.length]
   const [letters, setLetters] = useState(() => shuffle(item.word.split('')))
   const [picked, setPicked] = useState<string[]>([])
   const [won, setWon] = useState(false)
@@ -201,7 +217,7 @@ function ScrambleGame({ onBack }: { onBack: () => void }) {
   const pool = letters.map((ch, i) => ({ ch, i }))
 
   const resetWord = (r: number) => {
-    const next = WORD_BANK[r % WORD_BANK.length]
+    const next = SCRAMBLE_BANK[r % SCRAMBLE_BANK.length]
     setLetters(shuffle(next.word.split('')))
     setPicked([])
     setWon(false)

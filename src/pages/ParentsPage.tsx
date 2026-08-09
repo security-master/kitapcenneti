@@ -1,12 +1,19 @@
 import { PARENT_TIPS, DAILY_CHALLENGES } from '../data/parentTips'
 import { AdSlot } from '../components/AdSlot'
+import { SocialShare } from '../components/SocialShare'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function ParentsPage() {
+  const [activeId, setActiveId] = useContentItemId('parents', PARENT_TIPS[0].id)
+  const activeTip = PARENT_TIPS.find((t) => t.id === activeId) || PARENT_TIPS[0]
+
   return (
     <div className="page">
       <header className="page-header">
         <h1>👨‍👩‍👧 Aile Köşesi</h1>
-        <p>Yaş rehberi, ekran süresi, uyku rutini ve güvenli içerik ipuçları. Daha uzun yazılar için Aile Blog’a bakın.</p>
+        <p>
+          {PARENT_TIPS.length} ebeveyn ipucu — yaş rehberi, ekran süresi, uyku rutini ve güvenli içerik. Daha uzun yazılar için Aile Blog'a bakın.
+        </p>
       </header>
 
       <AdSlot slot="top" format="horizontal" />
@@ -19,14 +26,26 @@ export function ParentsPage() {
           ))}
         </ul>
         <div className="btn-row">
-          <a className="btn btn--primary" href="#blog">📝 Aile Blog’u oku</a>
+          <a className="btn btn--primary" href="#blog">📝 Aile Blog'u oku</a>
           <a className="btn btn--ghost" href="#quests">⭐ Çocuk görev panosu</a>
         </div>
       </div>
 
       <div className="tips-grid">
         {PARENT_TIPS.map((tip) => (
-          <article key={tip.id} className="panel tip-card">
+          <article
+            key={tip.id}
+            className={`panel tip-card ${activeId === tip.id ? 'is-active' : ''}`}
+            role="button"
+            tabIndex={0}
+            onClick={() => setActiveId(tip.id)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                setActiveId(tip.id)
+              }
+            }}
+          >
             <div className="tip-card__top">
               <span>{tip.emoji}</span>
               <small>{tip.category}</small>
@@ -37,13 +56,27 @@ export function ParentsPage() {
         ))}
       </div>
 
+      <div className="panel" style={{ marginTop: 20 }}>
+        <h2>{activeTip.emoji} {activeTip.title}</h2>
+        <p>{activeTip.body}</p>
+        <SocialShare
+          payload={{
+            title: `${activeTip.emoji} ${activeTip.title}`,
+            text: activeTip.body.slice(0, 160) + (activeTip.body.length > 160 ? '…' : ''),
+            page: 'parents',
+            itemId: activeTip.id,
+            hashtags: ['KitapCenneti', 'Aile', activeTip.category.replace(/\s+/g, '')],
+          }}
+        />
+      </div>
+
       <AdSlot slot="in-article" />
 
       <div className="panel safety-box">
         <h2>🛡️ Güvenlik Notu</h2>
         <p>
           Küçük çocuklar uygulamayı ebeveyn eşliğinde kullanmalıdır. Reklamlar (AdSense)
-          onay sonrası özellikle ebeveyn içeriklerinde gösterilir. Detaylar için Gizlilik Politikası’na bakın.
+          onay sonrası özellikle ebeveyn içeriklerinde gösterilir. Detaylar için Gizlilik Politikası'na bakın.
         </p>
       </div>
     </div>

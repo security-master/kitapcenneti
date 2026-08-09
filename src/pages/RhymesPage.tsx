@@ -1,26 +1,46 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { RHYMES } from '../data/rhymes'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function RhymesPage() {
-  const [activeId, setActiveId] = useState(RHYMES[0].id)
+  const [activeId, setActiveId] = useContentItemId('rhymes', RHYMES[0].id)
+  const [query, setQuery] = useState('')
   const rhyme = RHYMES.find((r) => r.id === activeId) || RHYMES[0]
   const { speaking, speak, stop, profile, setProfile } = useSpeech()
+
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return RHYMES
+    return RHYMES.filter((r) =>
+      `${r.title} ${r.lyrics}`.toLowerCase().includes(q),
+    )
+  }, [query])
 
   return (
     <div className="page">
       <header className="page-header">
         <h1>🎵 Şarkılar & Tekerlemeler</h1>
-        <p>Klasik çocuk tekerlemeleri — ezberle, söyle, sesli okut.</p>
+        <p>{RHYMES.length} klasik çocuk tekerlemesi — ezberle, söyle, sesli okut.</p>
       </header>
+
+      <ContentPortalBar
+        count={list.length}
+        label="Tekerleme"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Tekerleme veya söz ara…"
+      />
 
       <VoicePicker profile={profile} onChange={setProfile} />
 
       <div className="rhymes-grid">
-        {RHYMES.map((r) => (
+        {list.map((r) => (
           <button
             key={r.id}
             className={`rhyme-chip ${activeId === r.id ? 'is-active' : ''}`}
@@ -51,6 +71,15 @@ export function RhymesPage() {
             {speaking ? '⏹ Durdur' : '🎧 Sesli Oku'}
           </button>
         </div>
+        <SocialShare
+          payload={{
+            title: `${rhyme.emoji} ${rhyme.title}`,
+            text: rhyme.lyrics.slice(0, 120) + (rhyme.lyrics.length > 120 ? '…' : ''),
+            page: 'rhymes',
+            itemId: rhyme.id,
+            hashtags: ['KitapCenneti', 'Tekerleme', 'Cocuk'],
+          }}
+        />
       </div>
     </div>
   )

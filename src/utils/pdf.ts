@@ -1,5 +1,6 @@
 import { jsPDF } from 'jspdf'
 import type { Story } from '../types'
+import { escapeAttr, escapeHtml } from './escapeHtml'
 
 export async function downloadSvgAsPdf(svgMarkup: string, filename: string, title: string) {
   const svgBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' })
@@ -133,19 +134,40 @@ export function printHtml(title: string, bodyHtml: string) {
     alert('Açılır pencere engellendi. Lütfen tarayıcıda izin ver.')
     return
   }
-  win.document.write(`<!doctype html><html><head><meta charset="utf-8"/><title>${title}</title>
+  const safeTitle = escapeHtml(title)
+  const safeAttr = escapeAttr(title)
+  // bodyHtml must be composed by callers from trusted/escaped fragments only
+  win.document.open()
+  win.document.write(`<!doctype html><html><head><meta charset="utf-8"/><title>${safeAttr}</title>
     <style>
       body{font-family:Nunito,Georgia,serif;padding:40px;color:#222}
       h1{text-align:center}
       .meta{text-align:center;color:#666;margin-bottom:24px}
       @media print{body{padding:0}}
     </style></head><body>
-    <h1>${title}</h1>
+    <h1>${safeTitle}</h1>
     <div class="meta">Kitap Cenneti</div>
     ${bodyHtml}
-    <script>window.onload=()=>{window.print()}</script>
     </body></html>`)
   win.document.close()
+  // Prefer programmatic print after load — avoid inline script injection surface
+  win.addEventListener('load', () => {
+    try {
+      win.focus()
+      win.print()
+    } catch {
+      /* ignore */
+    }
+  })
+  // Some browsers fire load before listener attaches on document.write docs
+  setTimeout(() => {
+    try {
+      win.focus()
+      win.print()
+    } catch {
+      /* ignore */
+    }
+  }, 250)
 }
 
 async function loadImage(src: string): Promise<HTMLImageElement | null> {

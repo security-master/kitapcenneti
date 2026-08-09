@@ -1,17 +1,6 @@
 import type { Handler } from '@netlify/functions'
 import OpenAI from 'openai'
 
-interface StoryRequest {
-  category: string
-  prompt?: string
-  heroName?: string
-  heroImage?: string
-  artStyle: string
-  textModel: string
-  pageCount: number
-  ageGroup: string
-}
-
 const CATEGORY_LABELS: Record<string, string> = {
   adventure: 'Büyülü Macera',
   animals: 'Hayvan Dostları',
@@ -24,26 +13,53 @@ const CATEGORY_LABELS: Record<string, string> = {
   custom: 'Özel Hikaye',
 }
 
+const ALLOWED_MODELS = new Set(['gpt-4o-mini', 'gpt-4o', 'gpt-4.1-mini'])
+
+function clampStr(v: unknown, max: number): string {
+  if (typeof v !== 'string') return ''
+  return v.trim().slice(0, max)
+}
+
+function clampInt(v: unknown, min: number, max: number, fallback: number): number {
+  const n = typeof v === 'number' ? v : Number(v)
+  if (!Number.isFinite(n)) return fallback
+  return Math.min(max, Math.max(min, Math.floor(n)))
+}
+
 export const handler: Handler = async (event) => {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
+    }
+  }
+
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) }
   }
 
   try {
-    const body: StoryRequest = JSON.parse(event.body || '{}')
-    const {
-      category,
-      prompt,
-      heroName,
-      artStyle,
-      textModel,
-      pageCount = 6,
-      ageGroup = '6-8',
-    } = body
+    if ((event.body || '').length > 32_000) {
+      return { statusCode: 413, body: JSON.stringify({ error: 'Payload too large' }) }
+    }
+
+    const body = JSON.parse(event.body || '{}') as Record<string, unknown>
+    const category = clampStr(body.category, 40)
+    const prompt = clampStr(body.prompt, 500)
+    const heroName = clampStr(body.heroName, 40)
+    const artStyle = clampStr(body.artStyle, 40) || 'watercolor'
+    const textModel = clampStr(body.textModel, 40)
+    const model = ALLOWED_MODELS.has(textModel) ? textModel : 'gpt-4o-mini'
+    const ageGroup = clampStr(body.ageGroup, 16) || '6-8'
+    const pageCount = clampInt(body.pageCount, 4, 8, 6)
 
     const categoryLabel = CATEGORY_LABELS[category] || 'Masal'
     const heroContext = heroName
-      ? `Kahramanın adı "${heroName}" olmalı ve hikayenin merkezinde yer almalı. ${heroName} cesur, meraklı ve sevimli bir çocuk karakter.`
+      ? `Kahramanın adı "${heroName}" olmalı ve hikayenin merkezinde yer almalı.`
       : ''
 
     const systemPrompt = `Sen çocuklar için Türkçe görsel hikaye kitabı yazan bir masalcısın.
@@ -53,30 +69,18 @@ ${heroContext}
 ${prompt ? `Hikaye konusu: ${prompt}` : ''}
 
 Kurallar:
-- Her sayfa kısa, akıcı ve çocukların anlayabileceği Türkçe olmalı
-- Her sayfa 2-3 cümle olmalı
-- Pozitif, eğitici ve eğlenceli bir ton kullan
-- Şiddet, korku veya olumsuz içerik olmamalı
-- Her sayfa için ayrı bir görsel prompt (İngilizce) yaz
+- Her sayfa kısa, akıcı Türkçe
+- Her sayfa 2-3 cümle
+- Şiddet, korku veya uygunsuz içerik yok
+- Her sayfa için İngilizce imagePrompt
 
-JSON formatında yanıt ver:
-{
-  "title": "Hikaye başlığı",
-  "pages": [
-    {
-      "pageNumber": 1,
-      "text": "Türkçe hikaye metni",
-      "imagePrompt": "English illustration prompt for this page scene"
-    }
-  ]
-}
-
-Tam olarak ${pageCount} sayfa oluştur.`
+JSON: {"title":"...","pages":[{"pageNumber":1,"text":"...","imagePrompt":"..."}]}
+Tam ${pageCount} sayfa.`
 
     const openai = new OpenAI()
 
     const completion = await openai.chat.completions.create({
-      model: textModel || 'gpt-4o-mini',
+      model,
       messages: [
         { role: 'system', content: systemPrompt },
         {
@@ -89,19 +93,26 @@ Tam olarak ${pageCount} sayfa oluştur.`
     })
 
     const content = completion.choices[0]?.message?.content
-    if (!content) {
+    if (!content || content.length > 100_000) {
       throw new Error('No content generated')
     }
 
-    const story = JSON.parse(content)
+    const story = JSON.parse(content) as { title?: string; pages?: unknown[] }
+    const title = clampStr(story.title, 120) || 'Masal'
+    const pages = Array.isArray(story.pages) ? story.pages.slice(0, pageCount) : []
 
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-Content-Type-Options': 'nosniff',
+      },
       body: JSON.stringify({
-        ...story,
-        heroName,
-        category,
+        title,
+        pages,
+        heroName: heroName || undefined,
+        category: category || undefined,
         artStyle,
       }),
     }

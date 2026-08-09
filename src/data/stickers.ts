@@ -41,6 +41,21 @@ export const STICKERS: Sticker[] = [
   { id: 'leaf', emoji: '🍃', title: 'Yeşil Yaprak', hint: 'Doğa boyaması' },
   { id: 'diamond', emoji: '💎', title: 'Değer Taşı', hint: '7 günlük seri' },
   { id: 'balloon', emoji: '🎈', title: 'Uçan Balon', hint: 'Eğlence çarkı' },
+  { id: 'penguin', emoji: '🐧', title: 'Kutup Pengueni', hint: 'Dünya haritası ziyareti' },
+  { id: 'dolphin', emoji: '🐬', title: 'Neşeli Yunus', hint: 'Deniz temalı masal' },
+  { id: 'rocket2', emoji: '🛸', title: 'Uçan Disk', hint: 'Uzay keşfi' },
+  { id: 'flower2', emoji: '🌺', title: 'Tropik Çiçek', hint: 'Doğa boyaması' },
+  { id: 'snowflake', emoji: '❄️', title: 'Kar Tanesi', hint: 'Kış koleksiyonu' },
+  { id: 'tree', emoji: '🌳', title: 'Kökün Gücü', hint: 'Doğa görevi' },
+  { id: 'camera', emoji: '📷', title: 'Anı Fotoğrafı', hint: 'Günlük kaydı' },
+  { id: 'pizza', emoji: '🍕', title: 'Pizza Dilimi', hint: 'Mutfak oyunu' },
+  { id: 'cookie', emoji: '🍪', title: 'Kurabiye', hint: 'Paylaşım görevi' },
+  { id: 'rainbow2', emoji: '🌈', title: 'Çift Gökkuşağı', hint: 'Duygu check-in' },
+  { id: 'key', emoji: '🔑', title: 'Anahtar', hint: 'Keşif görevi' },
+  { id: 'anchor', emoji: '⚓', title: 'Demir', hint: 'Deniz macerası' },
+  { id: 'feather', emoji: '🪶', title: 'Tüy', hint: 'Hafif nefes' },
+  { id: 'gem', emoji: '💠', title: 'Mavi Taş', hint: '7 günlük seri' },
+  { id: 'ticket', emoji: '🎫', title: 'Bilet', hint: 'Hafta sonu festivali' }
 ]
 
 export const SPIN_REWARDS: {
@@ -92,6 +107,22 @@ export const RIDDLES = [
   { q: 'Okul çantasında taşınır, defter ve kalem tutar. Nedir?', a: 'Çanta 🎒' },
   { q: 'Gece uyumadan önce okunur, rüya getirir. Nedir?', a: 'Masal 📖' },
   { q: 'Küçük deliklerden su akar, elleri yıkarız. Nedir?', a: 'Musluk 🚰' },
+  { q: 'Gökyüzünde asılı, yağmur taşır. Nedir?', a: 'Bulut ☁️' },
+  { q: 'Dört ayaklı, havlar. Nedir?', a: 'Köpek 🐶' },
+  { q: 'Sarıdır, maymun sever. Nedir?', a: 'Muz 🍌' },
+  { q: 'Gece parlar, gündüz saklanır. Nedir?', a: 'Yıldız ⭐' },
+  { q: 'Okulda tahta, tebeşir. Nedir?', a: 'Sınıf 🎒' },
+  { q: 'Denizde yüzer, kabuğu vardır. Nedir?', a: 'Kaplumbağa 🐢' },
+  { q: 'Uçar, kanatları vardır, miyavlamaz. Nedir?', a: 'Kuş 🐦' },
+  { q: 'Kışın giyilir, sıcak tutar. Nedir?', a: 'Mont 🧥' },
+  { q: 'Yazın serinletir, dondurma satar. Nedir?', a: 'Dondurmacı 🍦' },
+  { q: 'Top oynanır, kale vardır. Nedir?', a: 'Futbol sahası ⚽' },
+  { q: 'Dişleri vardır, ısırmaz. Nedir?', a: 'Tarak 🪮' },
+  { q: 'Herkesin bir tane, parmak izi benzersiz. Nedir?', a: 'El ✋' },
+  { q: 'Sabah açılır, akşam kapanır. Nedir?', a: 'Göz 👁️' },
+  { q: 'Yemek yer, çatal kullanırız. Nedir?', a: 'Sofra 🍽️' },
+  { q: 'Rengi değişir, sonbaharda dökülür. Nedir?', a: 'Yaprak 🍂' },
+  { q: 'Uzayda gezer, astronot biner. Nedir?', a: 'Roket 🚀' }
 ]
 
 export const JOKES = [
@@ -114,6 +145,17 @@ export const JOKES = [
   'Öğretmen: “Ödevini köpek mi yedi?” Öğrenci: “Hayır, yazıcı bozuldu!” 🖨️',
   'Neden kalem tahtaya çıktı? Çünkü çizgi roman yazacaktı! ✏️',
   'Bulut neden spor yaptı? Çünkü yağmur formunda kalmak istedi! ☁️',
+  'Domates neden kırmızı? Çünkü utandı! 🍅',
+  'Karpuz neden gülümsedi? Çünkü dilimlendi! 🍉',
+  'Ay neden gece çıkar? Çünkü gündüz uyur! 🌙',
+  'Kitap neden yorgun? Çünkü çok sayfa çevirdi! 📚',
+  'Tavşan neden hızlı? Çünkü kahvaltıda havuç yedi! 🐰',
+  'Deniz neden tuzlu? Balıklar çok şaka yaptı! 🌊',
+  'Kalem neden düştü? Çünkü yürüyemez! ✏️',
+  'Güneş neden gözlük takmaz? Çünkü çok parlak! ☀️',
+  'Fil neden hortumlu? Çünkü eli kısa! 🐘',
+  'Bilgisayar neden üşüdü? Windows açık kaldı! 💻',
+  'Arı neden vız vız? Çünkü müzik dinliyor! 🐝'
 ]
 
 export const WHAT_NEXT: { emoji: string; title: string; page: string; blurb: string }[] = [

@@ -27,7 +27,17 @@ export const FEELINGS: Feeling[] = [
   { id: 'confused', label: 'Kafası Karışık', emoji: '😕', color: '#636e72', tip: 'Anlamadığın bir şey sorun — bu cesarettir.', activity: 'Bir yetişkine "Anlamadım" de.' },
   { id: 'brave', label: 'Cesur', emoji: '💪', color: '#e17055', tip: 'Cesaret korkusuz olmak değil, denemektir.', activity: 'Bugün küçük bir cesaret göster.' },
   { id: 'peaceful', label: 'Huzurlu', emoji: '🕊️', color: '#74b9ff', tip: 'Huzur anlarını hatırla, tekrar yakala.', activity: 'Sessizce 1 dakika otur, dinle.' },
-]
+  { id: 'jealous', label: 'Kıskanç', emoji: '😒', color: '#fab1a0', tip: 'Kıskançlık bazen sevdiğimizi korumak ister.', activity: 'Güvendiğin birine anlat.' },
+  { id: 'shy', label: 'Utangaç', emoji: '😳', color: '#ffeaa7', tip: 'Utangaçlık yeni ortamlarda normaldir.', activity: 'Gülümse ve el salla.' },
+  { id: 'disappointed', label: 'Hayal Kırıklığı', emoji: '😞', color: '#b2bec3', tip: 'Beklenti tutmayınca üzülürüz; bu geçer.', activity: 'Derin nefes + yeni plan.' },
+  { id: 'energetic', label: 'Enerjik', emoji: '⚡', color: '#fdcb6e', tip: 'Enerjiyi güvenli oyuna yönlendir.', activity: '5 dk zıpla veya dans et.' },
+  { id: 'thankful', label: 'Teşekkür Dolu', emoji: '🤗', color: '#55efc4', tip: 'Teşekkür etmek kalbi büyütür.', activity: 'Bugün kime teşekkür edersin?' }
+,
+  { id: 'feel-portal-1', label: 'Merak Dolu', emoji: '🤩', color: '#fdcb6e', tip: 'Bu duyguyu fark etmek güçtür.', activity: 'Bir cümleyle anlat.' },
+  { id: 'feel-portal-2', label: 'Şükran', emoji: '🙏', color: '#a29bfe', tip: 'Bu duyguyu fark etmek güçtür.', activity: 'Bir cümleyle anlat.' },
+  { id: 'feel-portal-3', label: 'Umut', emoji: '🌱', color: '#55efc4', tip: 'Bu duyguyu fark etmek güçtür.', activity: 'Bir cümleyle anlat.' },
+  { id: 'feel-portal-4', label: 'Heyecan Patlaması', emoji: '🎉', color: '#ff9ff3', tip: 'Bu duyguyu fark etmek güçtür.', activity: 'Bir cümleyle anlat.' },
+  { id: 'feel-portal-5', label: 'Dingin', emoji: '🧘', color: '#74b9ff', tip: 'Bu duyguyu fark etmek güçtür.', activity: 'Bir cümleyle anlat.' }]
 
 export const CALM_SCRIPTS = [
   'Burnundan 4 sayarak nefes al… ağzından 4 sayarak ver.',
@@ -42,4 +52,22 @@ export const CALM_SCRIPTS = [
   'Bu an geçecek. Yanında seni seven biri var.',
   'Dudaklarını birleştir, burnundan nefes al. Sakin bir dalga gibi.',
   'Bugün yaptığın bir iyi şeyi hatırla. Gurur duy.',
+  'Ayak tabanlarını yere bastır. Bedenin güvende.',
+  'Omuzlarını kulaklarından uzaklaştır. Gerginlik akıp gitsin.',
+  'Burnundan yavaşça nefes al… 1… 2… 3… Ağzından ver.',
+  'Gözlerinin önünde sakin bir yer hayal et — sahilde, ormanda.',
+  'Kalbine elini koy. Kalp atışını hisset, yavaşlasın.',
+  'İçinden "Ben değerliyim" de. Her çocuk değerlidir.',
+  'Bir renk seç ve etrafında o renkte 3 şey bul.',
+  'Yavaşça başını sağa sola çevir. Boynunu rahatlat.',
+  'Sakinleşme notu 1: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 2: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 3: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 4: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 5: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 6: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 7: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 8: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 9: burnundan nefes al, omuzlarını indir.',
+  'Sakinleşme notu 10: burnundan nefes al, omuzlarını indir.'
 ]

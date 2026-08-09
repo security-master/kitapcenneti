@@ -37,6 +37,8 @@ export interface CatalogItem {
   age?: string
   page: PageId
   minutes?: number
+  /** Deep-link item id for #page/itemId */
+  sourceId?: string
 }
 
 export const STATIC_PAGES: CatalogItem[] = [
@@ -63,6 +65,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [s.theme, s.age, 'masal', 'sesli'],
       age: s.age,
       page: 'audio',
+      sourceId: s.id,
       minutes: parseInt(s.duration, 10) || 5,
     })
   }
@@ -75,6 +78,7 @@ export function buildCatalog(): CatalogItem[] {
       description: b.summary,
       tags: [...b.tags, 'blog', 'aile'],
       page: 'blog',
+      sourceId: b.id,
       minutes: b.minutes,
     })
   }
@@ -88,6 +92,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [c.category, c.age, 'boyama'],
       age: c.age,
       page: 'coloring',
+      sourceId: c.id,
     })
   }
   for (const h of HEROES) {
@@ -100,6 +105,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [h.power, h.age, 'kahraman'],
       age: h.age,
       page: 'heroes',
+      sourceId: h.id,
     })
   }
   for (const r of RHYMES) {
@@ -111,6 +117,7 @@ export function buildCatalog(): CatalogItem[] {
       description: r.lyrics.slice(0, 80),
       tags: ['şarkı', 'tekerleme'],
       page: 'rhymes',
+      sourceId: r.id,
     })
   }
   for (const s of STEM_CARDS) {
@@ -123,6 +130,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [s.age, 'stem', 'bilim'],
       age: s.age,
       page: 'stem',
+      sourceId: s.id,
       minutes: s.minutes,
     })
   }
@@ -135,6 +143,7 @@ export function buildCatalog(): CatalogItem[] {
       description: f.tip,
       tags: ['duygu', 'empati'],
       page: 'feelings',
+      sourceId: f.id,
     })
   }
   for (const p of LEARNING_PATHS) {
@@ -147,6 +156,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [...p.tags, 'yol', p.age],
       age: p.age,
       page: 'paths',
+      sourceId: p.id,
     })
   }
   for (const c of COLLECTIONS) {
@@ -158,6 +168,7 @@ export function buildCatalog(): CatalogItem[] {
       description: c.description,
       tags: [...c.tags, 'koleksiyon'],
       page: 'discover',
+      sourceId: c.id,
     })
   }
   for (const w of WORLD_REGIONS) {
@@ -169,6 +180,7 @@ export function buildCatalog(): CatalogItem[] {
       description: w.blurb,
       tags: [...w.tags, 'dünya', 'harita'],
       page: 'world',
+      sourceId: w.id,
     })
   }
   for (const s of SHOP_PACKS) {
@@ -181,6 +193,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [...s.tags, 'paket', 'ücretsiz'],
       age: s.age,
       page: 'shop',
+      sourceId: s.id,
     })
   }
   for (const t of TEACHER_RESOURCES) {
@@ -193,6 +206,7 @@ export function buildCatalog(): CatalogItem[] {
       tags: [...t.tags, 'öğretmen', 'sınıf'],
       age: t.age,
       page: 'teachers',
+      sourceId: t.id,
     })
   }
 

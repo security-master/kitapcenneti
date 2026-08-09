@@ -10,19 +10,35 @@ import {
   useProgress,
 } from '../hooks/useProgress'
 import { printHtml } from '../utils/pdf'
+import { escapeHtml } from '../utils/escapeHtml'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function AudioStoriesPage() {
-  const [activeId, setActiveId] = useState(AUDIO_STORIES[0].id)
+  const [activeId, setActiveId] = useContentItemId('audio', AUDIO_STORIES[0].id)
   const [favorites, setFavorites] = useState(() => getFavoriteAudioIds())
   const [onlyFavs, setOnlyFavs] = useState(false)
+  const [query, setQuery] = useState('')
+  const [theme, setTheme] = useState('Tümü')
   const { bedtime, toggleBedtime } = useProgress()
   const active = AUDIO_STORIES.find((s) => s.id === activeId) || AUDIO_STORIES[0]
   const { speaking, paused, speak, stop, togglePause, profile, setProfile } = useSpeech()
 
+  const themes = useMemo(
+    () => ['Tümü', ...Array.from(new Set(AUDIO_STORIES.map((s) => s.theme)))],
+    [],
+  )
+
   const list = useMemo(() => {
-    if (!onlyFavs) return AUDIO_STORIES
-    return AUDIO_STORIES.filter((s) => favorites.includes(s.id))
-  }, [favorites, onlyFavs])
+    const q = query.trim().toLowerCase()
+    return AUDIO_STORIES.filter((s) => {
+      if (onlyFavs && !favorites.includes(s.id)) return false
+      if (theme !== 'Tümü' && s.theme !== theme) return false
+      if (!q) return true
+      return `${s.title} ${s.summary} ${s.theme} ${s.age}`.toLowerCase().includes(q)
+    })
+  }, [favorites, onlyFavs, query, theme])
 
   const startListen = () => {
     speak(active.text, bedtime ? 0.85 : 1)
@@ -32,9 +48,22 @@ export function AudioStoriesPage() {
   return (
     <div className={`page ${bedtime ? 'page--bedtime' : ''}`}>
       <header className="page-header">
-        <h1>🎧 Sesli Masallar</h1>
-        <p>Kadın, çocuk veya erkek anlatıcıyla dinle. Yatmadan önce modu yumuşak ışık ve yavaş tempo getirir.</p>
+        <h1>🎧 Sesli Masallar Portalı</h1>
+        <p>
+          {AUDIO_STORIES.length} masal · tema ve yaşa göre keşfet, dinle, yazdır, tek tıkla paylaş.
+        </p>
       </header>
+
+      <ContentPortalBar
+        count={list.length}
+        label="Masal"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Masal, tema veya yaş ara…"
+        filters={themes.map((t) => ({ id: t, label: t }))}
+        activeFilter={theme}
+        onFilter={setTheme}
+      />
 
       <div className="audio-toolbar">
         <VoicePicker profile={profile} onChange={setProfile} />
@@ -58,9 +87,7 @@ export function AudioStoriesPage() {
 
       <div className="split">
         <div className="story-list">
-          {list.length === 0 && (
-            <p className="section-hint">Henüz favori yok — bir masala ❤️ ekle.</p>
-          )}
+          {list.length === 0 && <p className="section-hint">Sonuç yok — filtreyi genişlet.</p>}
           {list.map((story) => (
             <button
               key={story.id}
@@ -73,7 +100,9 @@ export function AudioStoriesPage() {
               <span className="story-list__emoji">{story.emoji}</span>
               <div>
                 <strong>{story.title}</strong>
-                <small>{story.age} yaş · {story.duration} · {story.theme}</small>
+                <small>
+                  {story.age} yaş · {story.duration} · {story.theme}
+                </small>
               </div>
               {favorites.includes(story.id) && <span aria-hidden="true">❤️</span>}
             </button>
@@ -98,7 +127,9 @@ export function AudioStoriesPage() {
                 <button className="btn btn--primary" onClick={togglePause}>
                   {paused ? '▶ Devam' : '⏸ Duraklat'}
                 </button>
-                <button className="btn btn--ghost" onClick={stop}>⏹ Durdur</button>
+                <button className="btn btn--ghost" onClick={stop}>
+                  ⏹ Durdur
+                </button>
               </>
             )}
             <button
@@ -110,7 +141,10 @@ export function AudioStoriesPage() {
             <button
               className="btn btn--ghost"
               onClick={() => {
-                printHtml(active.title, `<p style="white-space:pre-wrap;line-height:1.8">${active.text}</p>`)
+                printHtml(
+                  active.title,
+                  `<p style="white-space:pre-wrap;line-height:1.8">${escapeHtml(active.text)}</p>`,
+                )
                 announceActivityResult(completeActivity('print'))
               }}
             >
@@ -118,6 +152,15 @@ export function AudioStoriesPage() {
             </button>
           </div>
           <div className="audio-player__text">{active.text}</div>
+          <SocialShare
+            payload={{
+              title: `${active.emoji} ${active.title}`,
+              text: active.summary,
+              page: 'audio',
+              itemId: active.id,
+              hashtags: ['KitapCenneti', 'Masal', active.theme.replace(/\s+/g, '')],
+            }}
+          />
         </div>
       </div>
     </div>

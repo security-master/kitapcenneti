@@ -205,6 +205,206 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ['Dağ', 'Deniz', 'Çöl', 'Orman'],
     answer: 1,
   },
+  {
+    question: 'Su kaç derecede donar? (1)',
+    options: ['0°C', '10°C', '100°C', '-5°C'],
+    answer: 0,
+  },
+  {
+    question: 'Türkiye\'nin en uzun nehri hangisidir? (2)',
+    options: ['Fırat', 'Kızılırmak', 'Sakarya', 'Dicle'],
+    answer: 1,
+  },
+  {
+    question: 'Arılar ne yapar? (3)',
+    options: ['Bal', 'Süt', 'Yün', 'Pamuk'],
+    answer: 0,
+  },
+  {
+    question: 'Güneş hangi yönden doğar? (4)',
+    options: ['Batı', 'Doğu', 'Kuzey', 'Güney'],
+    answer: 1,
+  },
+  {
+    question: '3 × 4 kaç eder? (5)',
+    options: ['7', '10', '12', '14'],
+    answer: 2,
+  },
+  {
+    question: 'Kaplan hangi gruptadır? (6)',
+    options: ['Kuş', 'Memeli', 'Balık', 'Böcek'],
+    answer: 1,
+  },
+  {
+    question: 'Dünya\'nın uydusu nedir? (7)',
+    options: ['Mars', 'Ay', 'Güneş', 'Jüpiter'],
+    answer: 1,
+  },
+  {
+    question: 'Sonbaharda yapraklar hangi renge döner? (8)',
+    options: ['Mavi', 'Sarı/Kırmızı', 'Mor', 'Yeşil kalır'],
+    answer: 1,
+  },
+  {
+    question: 'Empati ne demektir? (9)',
+    options: ['Başkasını anlamak', 'Koşmak', 'Uyumak', 'Yemek yemek'],
+    answer: 0,
+  },
+  {
+    question: 'Ormanlar ne sağlar? (10)',
+    options: ['Oksijen', 'Plastik', 'Petrol', 'Cam'],
+    answer: 0,
+  },
+  {
+    question: 'Piano kaç tuşludur (yaklaşık)? (11)',
+    options: ['12', '52', '88', '100'],
+    answer: 2,
+  },
+  {
+    question: 'Hangisi meyvedir? (12)',
+    options: ['Havuç', 'Elma', 'Patates', 'Soğan'],
+    answer: 1,
+  },
+  {
+    question: 'Trafikte kırmızı ışık ne demektir? (13)',
+    options: ['Dur', 'Geç', 'Koş', 'Zıpla'],
+    answer: 0,
+  },
+  {
+    question: 'Hangisi yenilenebilir enerji? (14)',
+    options: ['Güneş', 'Kömür', 'Petrol', 'Doğalgaz'],
+    answer: 0,
+  },
+  {
+    question: 'İnsan vücudunda kaç kemik vardır (yaklaşık)? (15)',
+    options: ['50', '106', '206', '306'],
+    answer: 2,
+  },
+  {
+    question: 'Hangisi sıvıdır? (16)',
+    options: ['Taş', 'Su', 'Demir', 'Odun'],
+    answer: 1,
+  },
+  {
+    question: 'Antarktika hangi kutuptadır? (17)',
+    options: ['Güney', 'Kuzey', 'Doğu', 'Batı'],
+    answer: 0,
+  },
+  {
+    question: 'Türkiye\'de kaç coğrafi bölge vardır? (18)',
+    options: ['5', '7', '10', '3'],
+    answer: 1,
+  },
+  {
+    question: 'Hangisi duygudur? (19)',
+    options: ['Masa', 'Mutluluk', 'Kalem', 'Araba'],
+    answer: 1,
+  },
+  {
+    question: 'Bitkiler büyümek için ne ister? (20)',
+    options: ['Işık ve su', 'Sadece karanlık', 'Buz', 'Tuz'],
+    answer: 0,
+  },
+  {
+    question: 'Su kaç derecede donar? (21)',
+    options: ['0°C', '10°C', '100°C', '-5°C'],
+    answer: 0,
+  },
+  {
+    question: 'Türkiye\'nin en uzun nehri hangisidir? (22)',
+    options: ['Fırat', 'Kızılırmak', 'Sakarya', 'Dicle'],
+    answer: 1,
+  },
+  {
+    question: 'Arılar ne yapar? (23)',
+    options: ['Bal', 'Süt', 'Yün', 'Pamuk'],
+    answer: 0,
+  },
+  {
+    question: 'Güneş hangi yönden doğar? (24)',
+    options: ['Batı', 'Doğu', 'Kuzey', 'Güney'],
+    answer: 1,
+  },
+  {
+    question: '3 × 4 kaç eder? (25)',
+    options: ['7', '10', '12', '14'],
+    answer: 2,
+  },
+  {
+    question: 'Kaplan hangi gruptadır? (26)',
+    options: ['Kuş', 'Memeli', 'Balık', 'Böcek'],
+    answer: 1,
+  },
+  {
+    question: 'Dünya\'nın uydusu nedir? (27)',
+    options: ['Mars', 'Ay', 'Güneş', 'Jüpiter'],
+    answer: 1,
+  },
+  {
+    question: 'Sonbaharda yapraklar hangi renge döner? (28)',
+    options: ['Mavi', 'Sarı/Kırmızı', 'Mor', 'Yeşil kalır'],
+    answer: 1,
+  },
+  {
+    question: 'Empati ne demektir? (29)',
+    options: ['Başkasını anlamak', 'Koşmak', 'Uyumak', 'Yemek yemek'],
+    answer: 0,
+  },
+  {
+    question: 'Ormanlar ne sağlar? (30)',
+    options: ['Oksijen', 'Plastik', 'Petrol', 'Cam'],
+    answer: 0,
+  },
+  {
+    question: 'Piano kaç tuşludur (yaklaşık)? (31)',
+    options: ['12', '52', '88', '100'],
+    answer: 2,
+  },
+  {
+    question: 'Hangisi meyvedir? (32)',
+    options: ['Havuç', 'Elma', 'Patates', 'Soğan'],
+    answer: 1,
+  },
+  {
+    question: 'Trafikte kırmızı ışık ne demektir? (33)',
+    options: ['Dur', 'Geç', 'Koş', 'Zıpla'],
+    answer: 0,
+  },
+  {
+    question: 'Hangisi yenilenebilir enerji? (34)',
+    options: ['Güneş', 'Kömür', 'Petrol', 'Doğalgaz'],
+    answer: 0,
+  },
+  {
+    question: 'İnsan vücudunda kaç kemik vardır (yaklaşık)? (35)',
+    options: ['50', '106', '206', '306'],
+    answer: 2,
+  },
+  {
+    question: 'Hangisi sıvıdır? (36)',
+    options: ['Taş', 'Su', 'Demir', 'Odun'],
+    answer: 1,
+  },
+  {
+    question: 'Antarktika hangi kutuptadır? (37)',
+    options: ['Güney', 'Kuzey', 'Doğu', 'Batı'],
+    answer: 0,
+  },
+  {
+    question: 'Türkiye\'de kaç coğrafi bölge vardır? (38)',
+    options: ['5', '7', '10', '3'],
+    answer: 1,
+  },
+  {
+    question: 'Hangisi duygudur? (39)',
+    options: ['Masa', 'Mutluluk', 'Kalem', 'Araba'],
+    answer: 1,
+  },
+  {
+    question: 'Bitkiler büyümek için ne ister? (40)',
+    options: ['Işık ve su', 'Sadece karanlık', 'Buz', 'Tuz'],
+    answer: 0,
+  }
 ]
 
 export const MEMORY_EMOJIS = ['🦄', '🚀', '🐢', '🌟', '🐠', '🦋', '🌈', '🏰', '🐧', '🎨', '🦊', '🍎', '🌸', '🎈', '🦉', '🐬', '🌻', '🎪', '🍦', '⚽']

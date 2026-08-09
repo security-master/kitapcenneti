@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
 import { downloadCertificatePdf } from '../utils/pdf'
+import { SocialShare } from '../components/SocialShare'
 
 const ACHIEVEMENTS = [
   'Bugün bir sesli masal dinledi',
@@ -17,6 +18,7 @@ const ACHIEVEMENTS = [
 export function CertificatesPage() {
   const [name, setName] = useState('')
   const [achievement, setAchievement] = useState(ACHIEVEMENTS[0])
+  const displayName = name.trim() || 'Küçük Kahraman'
 
   return (
     <div className="page">
@@ -55,19 +57,29 @@ export function CertificatesPage() {
         <div className="certificate-preview">
           <p className="certificate-preview__eyebrow">Önizleme</p>
           <h2>BAŞARI SERTİFİKASI</h2>
-          <p className="certificate-preview__name">{name || 'Küçük Kahraman'}</p>
+          <p className="certificate-preview__name">{displayName}</p>
           <p>{achievement}</p>
         </div>
 
         <button
           className="btn btn--primary"
           onClick={() => {
-            downloadCertificatePdf(name.trim() || 'Küçük Kahraman', achievement)
+            downloadCertificatePdf(displayName, achievement)
             announceActivityResult(completeActivity('cert'))
           }}
         >
           ⬇️ PDF Sertifika İndir
         </button>
+
+        <SocialShare
+          payload={{
+            title: `🏆 ${displayName} — Başarı Sertifikası`,
+            text: achievement,
+            page: 'certificates',
+            itemId: achievement.slice(0, 40).replace(/\s+/g, '-').toLowerCase(),
+            hashtags: ['KitapCenneti', 'Basari', 'Sertifika'],
+          }}
+        />
       </div>
     </div>
   )

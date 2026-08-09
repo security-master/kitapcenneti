@@ -1,22 +1,44 @@
+import { useMemo, useState } from 'react'
 import { STEM_CARDS } from '../data/stem'
 import { AdSlot } from '../components/AdSlot'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
-import { useState } from 'react'
+import { SocialShare } from '../components/SocialShare'
+import { ContentPortalBar } from '../components/ContentPortalBar'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function StemPage() {
-  const [activeId, setActiveId] = useState(STEM_CARDS[0].id)
+  const [activeId, setActiveId] = useContentItemId('stem', STEM_CARDS[0].id)
+  const [query, setQuery] = useState('')
   const card = STEM_CARDS.find((c) => c.id === activeId) || STEM_CARDS[0]
+
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return STEM_CARDS
+    return STEM_CARDS.filter((c) =>
+      `${c.title} ${c.why} ${c.materials.join(' ')} ${c.age}`.toLowerCase().includes(q),
+    )
+  }, [query])
 
   return (
     <div className="page">
       <header className="page-header">
-        <h1>🔬 STEM & Bilim</h1>
-        <p>Ev malzemeleriyle güvenli mini deneyler. Merak et, dene, nedenini öğren.</p>
+        <h1>🔬 STEM & Bilim Portalı</h1>
+        <p>
+          {STEM_CARDS.length} güvenli mini deney — merak et, dene, nedenini öğren, paylaş.
+        </p>
       </header>
 
+      <ContentPortalBar
+        count={list.length}
+        label="STEM"
+        query={query}
+        onQuery={setQuery}
+        placeholder="Deney, malzeme veya yaş ara…"
+      />
+
       <div className="stem-grid">
-        {STEM_CARDS.map((c) => (
+        {list.map((c) => (
           <button
             key={c.id}
             className={`stem-chip ${activeId === c.id ? 'is-active' : ''}`}
@@ -28,12 +50,24 @@ export function StemPage() {
       </div>
 
       <div className="panel">
-        <h2>{card.emoji} {card.title}</h2>
-        <p><strong>Yaş:</strong> {card.age} · <strong>Süre:</strong> ~{card.minutes} dk</p>
+        <h2>
+          {card.emoji} {card.title}
+        </h2>
+        <p>
+          <strong>Yaş:</strong> {card.age} · <strong>Süre:</strong> ~{card.minutes} dk
+        </p>
         <h3>Malzemeler</h3>
-        <ul className="tip-list">{card.materials.map((m) => <li key={m}>{m}</li>)}</ul>
+        <ul className="tip-list">
+          {card.materials.map((m) => (
+            <li key={m}>{m}</li>
+          ))}
+        </ul>
         <h3>Adımlar</h3>
-        <ol className="tip-list">{card.steps.map((s) => <li key={s}>{s}</li>)}</ol>
+        <ol className="tip-list">
+          {card.steps.map((s) => (
+            <li key={s}>{s}</li>
+          ))}
+        </ol>
         <h3>Neden oluyor?</h3>
         <p>{card.why}</p>
         <div className="btn-row" style={{ marginTop: 16 }}>
@@ -45,6 +79,15 @@ export function StemPage() {
             ✓ Deneyimi yaptım
           </button>
         </div>
+        <SocialShare
+          payload={{
+            title: `${card.emoji} ${card.title}`,
+            text: `${card.why} (${card.age}, ~${card.minutes} dk)`,
+            page: 'stem',
+            itemId: card.id,
+            hashtags: ['KitapCenneti', 'STEM', 'Bilim'],
+          }}
+        />
       </div>
 
       <AdSlot slot="bottom" />

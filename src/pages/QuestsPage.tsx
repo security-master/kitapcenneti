@@ -5,6 +5,7 @@ import { useDailyQuests } from '../hooks/useDailyQuests'
 import { downloadQuestChecklistPdf } from '../utils/pdf'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
+import { SocialShare } from '../components/SocialShare'
 
 interface QuestsPageProps {
   onNavigate: (page: PageId) => void
@@ -12,6 +13,8 @@ interface QuestsPageProps {
 
 export function QuestsPage({ onNavigate }: QuestsPageProps) {
   const { quests, done, stars, streak, progress, toggle, isDone } = useDailyQuests()
+  const todayKey = new Date().toISOString().slice(0, 10)
+  const questSummary = quests.map((q) => `${q.emoji} ${q.title}`).join(' · ')
 
   return (
     <div className="page">
@@ -47,6 +50,16 @@ export function QuestsPage({ onNavigate }: QuestsPageProps) {
           🖨️ Bugünün listesini PDF indir
         </button>
       </div>
+
+      <SocialShare
+        payload={{
+          title: '⭐ Bugünün görevleri',
+          text: `${done.length}/${quests.length} tamamlandı · ${questSummary}`,
+          page: 'quests',
+          itemId: todayKey,
+          hashtags: ['KitapCenneti', 'Gorev', 'Cocuk'],
+        }}
+      />
 
       <div className="quest-list">
         {quests.map((q) => (

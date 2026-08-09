@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import type { PageId } from '../types/nav'
 import { COLLECTIONS } from '../data/collections'
+import { SocialShare } from '../components/SocialShare'
 
 interface Props {
   onNavigate: (page: PageId) => void
 }
 
 export function DiscoverPage({ onNavigate }: Props) {
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+
   return (
     <div className="page">
       <header className="page-header">
@@ -29,6 +33,25 @@ export function DiscoverPage({ onNavigate }: Props) {
                 </li>
               ))}
             </ul>
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => setExpandedId((id) => (id === c.id ? null : c.id))}
+            >
+              {expandedId === c.id ? 'Paylaşımı gizle' : 'Paylaş'}
+            </button>
+            {expandedId === c.id && (
+              <SocialShare
+                compact
+                payload={{
+                  title: `${c.emoji} ${c.title}`,
+                  text: c.description,
+                  page: 'discover',
+                  itemId: c.id,
+                  hashtags: ['KitapCenneti', 'Koleksiyon', ...c.tags.slice(0, 2)],
+                }}
+              />
+            )}
           </article>
         ))}
       </div>

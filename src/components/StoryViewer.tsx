@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Download, RotateCcw, Share2, Maximize2, Minimize2, Bookmark, FileDown } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, RotateCcw, Maximize2, Minimize2, Bookmark, FileDown } from 'lucide-react'
 import type { Story } from '../types'
 import { downloadStoryPdf } from '../utils/pdf'
 import { completeActivity } from '../hooks/useProgress'
 import { announceActivityResult } from './Toast'
+import { SocialShare } from './SocialShare'
 
 interface StoryViewerProps {
   story: Story
@@ -67,24 +68,13 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
     }
   }
 
-  const handleShare = async () => {
-    const text = `${story.title}\n\n${story.pages.map((p) => p.text).join('\n\n')}`
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: story.title, text })
-        return
-      } catch {
-        // cancelled
-      }
-    }
-    await navigator.clipboard.writeText(text)
-    alert('Hikaye panoya kopyalandı! 📋')
-  }
-
   const handleSave = () => {
     onSave?.(story)
     setSaved(true)
   }
+
+  const shareText = story.pages.map((p) => p.text).join('\n\n')
+  const sharePreview = shareText.slice(0, 200) + (shareText.length > 200 ? '…' : '')
 
   return (
     <div className={`story-viewer ${isFullscreen ? 'story-viewer--fullscreen' : ''}`}>
@@ -113,10 +103,6 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
           <Download size={18} />
           Metin
         </button>
-        <button className="action-btn action-btn--secondary" onClick={handleShare}>
-          <Share2 size={18} />
-          Paylaş
-        </button>
         {onSave && (
           <button
             className="action-btn action-btn--secondary"
@@ -135,6 +121,18 @@ export function StoryViewer({ story, onReset, onSave }: StoryViewerProps) {
           {isFullscreen ? 'Küçült' : 'Tam Ekran'}
         </button>
       </div>
+
+      <SocialShare
+        compact
+        className="story-viewer__share"
+        payload={{
+          title: story.title,
+          text: sharePreview,
+          page: 'create',
+          itemId: story.title.slice(0, 48).replace(/\s+/g, '-').toLowerCase(),
+          hashtags: ['KitapCenneti', 'Hikaye', 'AI'],
+        }}
+      />
 
       <div className="storybook">
         <AnimatePresence mode="wait">

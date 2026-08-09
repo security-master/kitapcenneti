@@ -3,7 +3,7 @@ import type { PageId } from '../types/nav'
 import { searchCatalog } from '../data/catalog'
 
 interface Props {
-  onNavigate: (page: PageId) => void
+  onNavigate: (page: PageId, itemId?: string) => void
 }
 
 export function SearchPage({ onNavigate }: Props) {
@@ -32,7 +32,7 @@ export function SearchPage({ onNavigate }: Props) {
       </div>
       <div className="library-grid">
         {results.slice(0, 60).map((item) => (
-          <button key={item.id} type="button" className="library-card" onClick={() => onNavigate(item.page)}>
+          <button key={item.id} type="button" className="library-card" onClick={() => onNavigate(item.page, item.sourceId)}>
             <span className="library-card__emoji">{item.emoji}</span>
             <div>
               <strong>{item.title}</strong>

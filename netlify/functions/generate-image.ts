@@ -48,7 +48,15 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const { prompt, seed = 42 } = JSON.parse(event.body || '{}')
+    if ((event.body || '').length > 16_000) {
+      return { statusCode: 413, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Payload too large' }) }
+    }
+    const parsed = JSON.parse(event.body || '{}') as { prompt?: unknown; seed?: unknown }
+    const prompt = typeof parsed.prompt === 'string' ? parsed.prompt.trim().slice(0, 500) : ''
+    const seed =
+      typeof parsed.seed === 'number' && Number.isFinite(parsed.seed)
+        ? Math.floor(Math.abs(parsed.seed)) % 1_000_000_000
+        : 42
 
     if (!prompt) {
       return { statusCode: 400, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Prompt required' }) }

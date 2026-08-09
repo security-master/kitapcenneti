@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import { CALM_SCRIPTS, FEELINGS } from '../data/feelings'
 import { useSpeech } from '../hooks/useSpeech'
 import { VoicePicker } from '../components/VoicePicker'
 import { announceActivityResult } from '../components/Toast'
 import { completeActivity } from '../hooks/useProgress'
+import { SocialShare } from '../components/SocialShare'
+import { useContentItemId } from '../hooks/useContentItemId'
 
 export function FeelingsPage() {
-  const [selected, setSelected] = useState<string | null>(null)
-  const feeling = FEELINGS.find((f) => f.id === selected)
+  const [selectedId, setSelectedId] = useContentItemId('feelings', FEELINGS[0].id)
+  const feeling = FEELINGS.find((f) => f.id === selectedId)
   const { speaking, speak, stop, profile, setProfile } = useSpeech()
   const script = CALM_SCRIPTS[new Date().getDate() % CALM_SCRIPTS.length]
 
@@ -15,7 +16,9 @@ export function FeelingsPage() {
     <div className="page">
       <header className="page-header">
         <h1>💛 Duygu Köşesi</h1>
-        <p>Bugün nasıl hissediyorsun? Seç, dinle, birlikte sakinleş.</p>
+        <p>
+          {FEELINGS.length} duygu kartı — bugün nasıl hissediyorsun? Seç, dinle, birlikte sakinleş.
+        </p>
       </header>
 
       <VoicePicker profile={profile} onChange={setProfile} />
@@ -24,10 +27,10 @@ export function FeelingsPage() {
         {FEELINGS.map((f) => (
           <button
             key={f.id}
-            className={`feeling-card ${selected === f.id ? 'is-active' : ''}`}
+            className={`feeling-card ${selectedId === f.id ? 'is-active' : ''}`}
             style={{ background: f.color }}
             onClick={() => {
-              setSelected(f.id)
+              setSelectedId(f.id)
               announceActivityResult(completeActivity('feel'))
             }}
           >
@@ -50,6 +53,15 @@ export function FeelingsPage() {
               {speaking ? '⏹ Durdur' : '🎧 Sesli dinle'}
             </button>
           </div>
+          <SocialShare
+            payload={{
+              title: `${feeling.emoji} ${feeling.label}`,
+              text: `${feeling.tip} Aktivite: ${feeling.activity}`,
+              page: 'feelings',
+              itemId: feeling.id,
+              hashtags: ['KitapCenneti', 'Duygu', 'Aile'],
+            }}
+          />
         </div>
       )}
 

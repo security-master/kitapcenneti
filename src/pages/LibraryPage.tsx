@@ -3,7 +3,7 @@ import type { PageId } from '../types/nav'
 import { buildCatalog, type CatalogKind } from '../data/catalog'
 
 interface Props {
-  onNavigate: (page: PageId) => void
+  onNavigate: (page: PageId, itemId?: string) => void
 }
 
 const KINDS: { id: CatalogKind | 'all'; label: string }[] = [
@@ -86,7 +86,7 @@ export function LibraryPage({ onNavigate }: Props) {
             key={item.id}
             type="button"
             className="library-card"
-            onClick={() => onNavigate(item.page)}
+            onClick={() => onNavigate(item.page, item.sourceId)}
           >
             <span className="library-card__emoji">{item.emoji}</span>
             <div>

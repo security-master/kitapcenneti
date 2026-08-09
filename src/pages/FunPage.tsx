@@ -8,6 +8,7 @@ import {
   WHAT_NEXT,
 } from '../data/stickers'
 import { ConfettiBurst } from '../components/ConfettiBurst'
+import { SocialShare } from '../components/SocialShare'
 import { announceActivityResult, showToast } from '../components/Toast'
 import {
   addBonusStars,
@@ -182,6 +183,30 @@ export function FunPage({ onNavigate }: FunPageProps) {
           <button type="button" className="btn btn--ghost" onClick={() => setRiddleOpen((v) => !v)}>
             {riddleOpen ? `Cevap: ${riddle.a}` : 'Cevabı göster'}
           </button>
+
+          <div style={{ marginTop: 20 }}>
+            <SocialShare
+              compact
+              payload={{
+                title: '😂 Günün şakası',
+                text: joke,
+                page: 'fun',
+                itemId: `joke-${day}`,
+                hashtags: ['KitapCenneti', 'Eglence', 'Saka'],
+              }}
+            />
+            <SocialShare
+              className="social-share--spaced"
+              compact
+              payload={{
+                title: '🧩 Günün bilmecesi',
+                text: riddleOpen ? `${riddle.q} — Cevap: ${riddle.a}` : riddle.q,
+                page: 'fun',
+                itemId: `riddle-${day}`,
+                hashtags: ['KitapCenneti', 'Bilmece', 'Eglence'],
+              }}
+            />
+          </div>
         </div>
       </section>
 

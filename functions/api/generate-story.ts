@@ -14,11 +14,26 @@ const CATEGORY_LABELS: Record<string, string> = {
   custom: 'Özel Hikaye',
 }
 
+const ALLOWED_MODELS = new Set(['gpt-4o-mini', 'gpt-4o', 'gpt-4.1-mini'])
+const ALLOWED_AGES = new Set(['3-5', '4-6', '5-7', '6-8', '7-9', '8-10', '9-12'])
+
 const cors = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Content-Type': 'application/json',
+  'X-Content-Type-Options': 'nosniff',
+}
+
+function clampStr(v: unknown, max: number): string {
+  if (typeof v !== 'string') return ''
+  return v.trim().slice(0, max)
+}
+
+function clampInt(v: unknown, min: number, max: number, fallback: number): number {
+  const n = typeof v === 'number' ? v : Number(v)
+  if (!Number.isFinite(n)) return fallback
+  return Math.min(max, Math.max(min, Math.floor(n)))
 }
 
 export const onRequestOptions = async () =>
@@ -26,14 +41,17 @@ export const onRequestOptions = async () =>
 
 export const onRequestPost = async (context: { request: Request; env: Env }) => {
   try {
-    const body = await context.request.json() as {
-      category?: string
-      prompt?: string
-      heroName?: string
-      artStyle?: string
-      textModel?: string
-      pageCount?: number
-      ageGroup?: string
+    // Basic body size guard (~32KB)
+    const raw = await context.request.text()
+    if (raw.length > 32_000) {
+      return new Response(JSON.stringify({ error: 'Payload too large' }), { status: 413, headers: cors })
+    }
+
+    let body: Record<string, unknown>
+    try {
+      body = JSON.parse(raw) as Record<string, unknown>
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: cors })
     }
 
     const apiKey = context.env.OPENAI_API_KEY
@@ -44,17 +62,27 @@ export const onRequestPost = async (context: { request: Request; env: Env }) => 
       })
     }
 
-    const categoryLabel = CATEGORY_LABELS[body.category || ''] || 'Masal'
-    const pageCount = body.pageCount || 6
-    const heroContext = body.heroName
-      ? `Kahramanın adı "${body.heroName}" olmalı ve hikayenin merkezinde yer almalı.`
+    const category = clampStr(body.category, 40)
+    const prompt = clampStr(body.prompt, 500)
+    const heroName = clampStr(body.heroName, 40)
+    const artStyle = clampStr(body.artStyle, 40) || 'watercolor'
+    const textModel = clampStr(body.textModel, 40)
+    const model = ALLOWED_MODELS.has(textModel) ? textModel : 'gpt-4o-mini'
+    const ageGroupRaw = clampStr(body.ageGroup, 16)
+    const ageGroup = ALLOWED_AGES.has(ageGroupRaw) ? ageGroupRaw : '6-8'
+    const pageCount = clampInt(body.pageCount, 4, 8, 6)
+
+    const categoryLabel = CATEGORY_LABELS[category] || 'Masal'
+    const heroContext = heroName
+      ? `Kahramanın adı "${heroName}" olmalı ve hikayenin merkezinde yer almalı.`
       : ''
 
     const systemPrompt = `Sen çocuklar için Türkçe görsel hikaye kitabı yazan bir masalcısın.
-Hedef yaş: ${body.ageGroup || '6-8'}. Kategori: ${categoryLabel}.
+Hedef yaş: ${ageGroup}. Kategori: ${categoryLabel}.
 ${heroContext}
-${body.prompt ? `Konu: ${body.prompt}` : ''}
-Her sayfa 2-3 kısa cümle. JSON: {"title":"...","pages":[{"pageNumber":1,"text":"...","imagePrompt":"English scene"}]}
+${prompt ? `Konu: ${prompt}` : ''}
+İçerik güvenli, şiddet/nefret/uygunsuz tema yok. Her sayfa 2-3 kısa cümle.
+JSON: {"title":"...","pages":[{"pageNumber":1,"text":"...","imagePrompt":"English scene"}]}
 Tam ${pageCount} sayfa.`
 
     const completion = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -64,12 +92,12 @@ Tam ${pageCount} sayfa.`
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: body.textModel || 'gpt-4o-mini',
+        model,
         temperature: 0.8,
         response_format: { type: 'json_object' },
         messages: [
           { role: 'system', content: systemPrompt },
-          { role: 'user', content: `${pageCount} sayfalık çocuk hikayesi yaz. Stil: ${body.artStyle || 'watercolor'}` },
+          { role: 'user', content: `${pageCount} sayfalık çocuk hikayesi yaz. Stil: ${artStyle}` },
         ],
       }),
     })
@@ -78,19 +106,33 @@ Tam ${pageCount} sayfa.`
       return new Response(JSON.stringify({ error: 'OpenAI error' }), { status: 502, headers: cors })
     }
 
-    const data = await completion.json() as { choices?: { message?: { content?: string } }[] }
+    const data = (await completion.json()) as { choices?: { message?: { content?: string } }[] }
     const content = data.choices?.[0]?.message?.content
-    if (!content) {
-      return new Response(JSON.stringify({ error: 'Empty response' }), { status: 502, headers: cors })
+    if (!content || content.length > 100_000) {
+      return new Response(JSON.stringify({ error: 'Empty or oversized response' }), {
+        status: 502,
+        headers: cors,
+      })
     }
 
-    const story = JSON.parse(content)
+    let story: Record<string, unknown>
+    try {
+      story = JSON.parse(content) as Record<string, unknown>
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid model JSON' }), { status: 502, headers: cors })
+    }
+
+    // Do not blindly spread untrusted keys — whitelist
+    const title = clampStr(story.title, 120) || 'Masal'
+    const pages = Array.isArray(story.pages) ? story.pages.slice(0, pageCount) : []
+
     return new Response(
       JSON.stringify({
-        ...story,
-        heroName: body.heroName,
-        category: body.category,
-        artStyle: body.artStyle,
+        title,
+        pages,
+        heroName: heroName || undefined,
+        category: category || undefined,
+        artStyle,
       }),
       { status: 200, headers: cors },
     )
